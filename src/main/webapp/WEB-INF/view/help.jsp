@@ -40,13 +40,13 @@
 			
 			
 			
-			<a href="/praca-licencjacka">Menu glowne</a>
+			<a href="/">Menu glowne</a>
 			
 	    </div>
 
 	    
 	    <div class="footer">
-			Copyright © Damian Polchlopek. All Rights Reserved.
+			Copyright ï¿½ Damian Polchlopek. All Rights Reserved.
 	    </div>
 
 

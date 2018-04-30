@@ -1,0 +1,23 @@
+ .banner{
+   width: 100%;
+   height: 100px;
+ }	
+ 
+ .asideContent {
+   width: 100%;
+   height: 85%;
+ }
+ 
+ .aside {
+   float: left;
+   width: 20%;
+   height: 100%;
+   background-color: #666666;
+ }
+
+ .content {
+   float: left;
+   width: 80%;
+   height: 100%;
+ }
+ 
