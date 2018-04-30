@@ -63,13 +63,13 @@
 			<br><br><br><br>
 			<br><br><br><br>
 			
-			<a href="/praca-licencjacka">Strona startowa</a>
+			<a href="/">Strona startowa</a>
 			
 	    </div>
 
 
 	    <div class="footer">
-			Copyright © Damian Polchlopek. All Rights Reserved.
+			Copyright ï¿½ Damian Polchlopek. All Rights Reserved.
 	    </div>
 	    
 	</div>

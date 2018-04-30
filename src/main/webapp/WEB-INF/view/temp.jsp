@@ -37,15 +37,15 @@
 			<div class="aside">
 
 				<dl>
-					<dt><a href="/praca-licencjacka/login/loginOk">Strona glowna</a></dt>
-					<dt><a href="/praca-licencjacka/person/showPerson">Pokaz osoby</a></dt>
-					<dt><a href="/praca-licencjacka/login/showLogin">Ostatnie logowania</a></dt>
-					<dt><a href="/praca-licencjacka/measurement/showMeasurement">Dostepne pomiary</a></dt>
+					<dt><a href="/login/loginOk">Strona glowna</a></dt>
+					<dt><a href="/person/showPerson">Pokaz osoby</a></dt>
+					<dt><a href="/login/showLogin">Ostatnie logowania</a></dt>
+					<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
 					
 					<br><br><br>
 					
-					<dt><a href="/praca-licencjacka/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-					<dt><a href="/praca-licencjacka">Wyloguj</a></dt>
+					<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
+					<dt><a href="/">Wyloguj</a></dt>
 
 				</dl>
 		    </div>
@@ -59,7 +59,7 @@
 	    </div>
 	    
 	    <div class="footer">
-			<h4>Copyright © Damian Polchlopek. All Rights Reserved.</h4>
+			<h4>Copyright ï¿½ Damian Polchlopek. All Rights Reserved.</h4>
 	    </div>
 
 
