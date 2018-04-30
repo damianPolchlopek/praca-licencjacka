@@ -45,7 +45,8 @@ public class PersonToValAdd {
 		this.password = thePerson.getPassword();
 		this.phone = thePerson.getPhone();
 	}
-	
+
+
 	public PersonToValAdd() {
 	}
 	
