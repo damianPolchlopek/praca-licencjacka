@@ -32,14 +32,12 @@
 			liste aktualnie zatrudnionych pracownikow.
 			
 			Mozna dodac jeszcze jakies inne akcje w zaleznosci od potrzeb.
-			
-			
+
 			<br><br>
 			<br><br>
 			<br><br>
 			
-			
-			
+
 			<a href="/">Menu glowne</a>
 			
 	    </div>
