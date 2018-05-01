@@ -66,13 +66,13 @@
 						<th>User Last Name</th>
 						<th>Date Measurement</th>
 						<th>Description</th>
+						<th>Category</th>
 						<th>Show</th>
 					</tr>
 					
 					<!-- loop over and print our people --> 
 					<c:forEach var="tempMeasurement" items="${measurements}">
-						
-						
+
 						<!-- construct an "update" link with person id -->
 						<c:url var="showLink" value="/measurement/showGraph">
 							<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
@@ -84,7 +84,8 @@
 							<td> ${tempMeasurement.personId.lastName} </td>
 							<td> ${tempMeasurement.dateMeasurement} </td>
 							<td> ${tempMeasurement.description} </td>
-							
+							<td> ${tempMeasurement.category} </td>
+
 							<td>
 								<!-- display the update link -->
 								<a href="${showLink }">Show</a>

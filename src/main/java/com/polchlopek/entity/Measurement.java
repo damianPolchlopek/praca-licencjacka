@@ -18,6 +18,9 @@ public class Measurement {
 	
 	@Column(name="description")
 	private String description;
+
+	@Column(name="category")
+	private String category;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 						 CascadeType.DETACH, CascadeType.REFRESH,})
@@ -44,13 +47,20 @@ public class Measurement {
 		this.dateMeasurement = dateMeasurement;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public Person getPersonId() {
