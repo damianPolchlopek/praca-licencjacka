@@ -88,6 +88,12 @@
             <version>${springsecury.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${springsecury.version}</version>
+        </dependency>
+
 
 
 

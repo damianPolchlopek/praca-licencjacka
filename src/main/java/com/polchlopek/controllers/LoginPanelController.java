@@ -22,8 +22,7 @@ public class LoginPanelController {
 
     @GetMapping("/showPlainForm")
     public String showPlainForm() {
-
-        return "plain-login";
+        return "fancy-login";
     }
 
     // do wyrzucenia prawdopodobnie bedzie

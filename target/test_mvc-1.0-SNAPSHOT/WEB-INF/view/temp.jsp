@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -53,6 +55,18 @@
 		    <div id="outer" class="content">
 				<div id="inner">
 					<label id="tekstDiv">Czesc glowna systemu</label>
+
+
+					<!-- Add a logout button -->
+					<form:form action="${pageContext.request.contextPath}/logout"
+							   method="POST">
+
+						<input type="submit" value="Logout" />
+
+					</form:form>
+
+
+
 				</div>	
 		    </div>
 	    
