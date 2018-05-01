@@ -10,7 +10,11 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>5.0.3.RELEASE</spring.version>
+        <spring.version>5.0.2.RELEASE</spring.version>
+        <springsecury.version>5.0.0.RELEASE</springsecury.version>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
 
@@ -71,10 +75,17 @@
             <version>${spring.version}</version>
         </dependency>
 
+            <!-- spring security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-security-web</artifactId>
+            <version>${springsecury.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${springsecury.version}</version>
         </dependency>
 
 
@@ -161,12 +172,6 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-
-
-
-
-
-
 
 
 

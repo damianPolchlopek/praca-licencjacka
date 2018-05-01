@@ -33,8 +33,8 @@
 	    <div class="content">
 
 	    	<br><br><br><br>
-	    	
-			<form:form action="processForm" modelAttribute="userToValLogin">
+
+			<form:form action="processForm" modelAttribute="userToValLogin" method="post">
 
 				<table>
 					

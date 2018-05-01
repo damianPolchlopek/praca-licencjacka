@@ -4,21 +4,23 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="test_mvc" />
+          <element id="module-output" name="praca-lic" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.3.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.13.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.1.Final" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.22.0-GA" />
@@ -49,7 +51,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="test_mvc/web/Web" />
+      <element id="javaee-facet-resources" facet="praca-lic/web/Web" />
     </root>
   </artifact>
 </component>

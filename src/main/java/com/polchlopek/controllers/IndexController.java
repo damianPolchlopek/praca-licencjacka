@@ -17,7 +17,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String showIndex() {
-        return "front-panel";
+        return "temp";
     }
 
     @RequestMapping("/help")

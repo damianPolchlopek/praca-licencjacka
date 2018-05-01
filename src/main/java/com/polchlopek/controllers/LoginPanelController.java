@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,8 +19,15 @@ public class LoginPanelController {
 	
 	@Autowired
 	private AplicationService applicationService;
-	
-	@RequestMapping("/showForm")
+
+    @GetMapping("/showPlainForm")
+    public String showPlainForm() {
+
+        return "plain-login";
+    }
+
+    // do wyrzucenia prawdopodobnie bedzie
+	@GetMapping("/showForm")
 	public String showForm(Model theModel) {
 		
 		// create a student object		
@@ -61,7 +69,11 @@ public class LoginPanelController {
 		}
 		
 	}
-	
+
+
+
+
+
 	@RequestMapping("/loginOk")
 	public String showMenu() {		
 		return "temp";
