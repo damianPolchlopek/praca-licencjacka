@@ -19,7 +19,9 @@ public class AppSecurityConfig extends
         // add our users for in memory authentication
         User.UserBuilder users = User.withDefaultPasswordEncoder();
         auth.inMemoryAuthentication()
-                .withUser(users.username("john").password("test123").roles("EMPLOYEE"));
+                .withUser(users.username("john").password("test123").roles("EMPLOYEE"))
+                .withUser(users.username("damian").password("test123").roles("ADMIN", "EMPLOYEE")
+                );
 
     }
 
@@ -27,13 +29,16 @@ public class AppSecurityConfig extends
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/").hasRole("EMPLOYEE")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("/login/showPlainForm")
-                .loginProcessingUrl("/authenticateTheUser")
-                .permitAll()
+                    .loginPage("/login/showPlainForm")
+                    .loginProcessingUrl("/authenticateTheUser")
+                    .permitAll()
                 .and()
-                .logout().permitAll();
+                .logout().permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/access-denied");
     }
 }

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -54,8 +55,15 @@
 		    
 		    <div id="outer" class="content">
 				<div id="inner">
+
 					<label id="tekstDiv">Czesc glowna systemu</label>
 
+					<!-- display user name and role -->
+					<p>
+						User: <security:authentication property="principal.username" />
+						<br><br>
+						Role(s): <security:authentication property="principal.authorities" />
+					</p>
 
 					<!-- Add a logout button -->
 					<form:form action="${pageContext.request.contextPath}/logout"
@@ -66,6 +74,9 @@
 					</form:form>
 
 
+					<security:authorize access="hasRole('ADMIN')">
+						<dt><a href="${pageContext.request.contextPath}/admin">Admin</a></dt>
+					</security:authorize>
 
 				</div>	
 		    </div>
