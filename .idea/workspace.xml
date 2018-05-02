@@ -7,43 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea6231e1-05f1-4378-a83a-0ad51255234d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/praca_lic_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/praca_lic_war_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/praca_lic_war.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_45.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/persistence-mysql.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/access-denied.jsp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin.jsp" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/praca-lic.iml" afterPath="$PROJECT_DIR$/praca-lic.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/config/AppSecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/config/AppSecurityConfig.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/controllers/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/controllers/IndexController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/controllers/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/temp.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/temp.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/controllers/IndexController.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/controllers/IndexController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/controllers/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/controllers/LoginController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValAdd.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValAdd.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValLogin.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValLogin.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValUpdate.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/classToVal/PersonToValUpdate.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/IndexController.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/IndexController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/LoginController.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/LoginController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/LoginPanelController.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/LoginPanelController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/MeasurementController.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/MeasurementController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/PersonController.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/controllers/PersonController.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/LoginDAO.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/LoginDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/LoginDAOImpl.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/LoginDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementArrayDAO.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementArrayDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementArrayDAOImpl.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementArrayDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementDAO.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementDAOImpl.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/MeasurementDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/PersonDAO.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/PersonDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/PersonDAOImpl.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/dao/PersonDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Login.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Login.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Measurement.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Measurement.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/service/AplicationService.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/service/AplicationService.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/service/AplicationServiceImpl.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/service/AplicationServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/testdb/TestDbServlet.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/testdb/TestDbServlet.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/testy/ReadAllEntity.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/testy/ReadAllEntity.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/view/graph.jsp" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/view/graph.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/view/temp.jsp" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/view/temp.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -106,8 +75,8 @@
       <file leaf-file-name="persistence-mysql.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/persistence-mysql.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -697,7 +666,7 @@
       <updated>1525097959999</updated>
       <workItem from="1525097965401" duration="1986000" />
       <workItem from="1525100368568" duration="38247000" />
-      <workItem from="1525243601979" duration="3220000" />
+      <workItem from="1525243601979" duration="3555000" />
     </task>
     <task id="LOCAL-00001" summary="gggg">
       <created>1525115401228</created>
@@ -755,15 +724,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525201928492</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add 'access-denied' features.&#10;Commit before add jdbc to spring security">
+      <created>1525256322081</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1525256322081</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43453000" />
+    <option name="totallyTimeSpent" value="43788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28735632" sideWeight="0.33358547" order="8" side_tool="true" content_ui="tabs" />
@@ -782,11 +757,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.311973" sideWeight="0.6664145" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267776" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -849,7 +824,8 @@
     <MESSAGE value="Add logout" />
     <MESSAGE value="Commit after merge" />
     <MESSAGE value="Fix error which occurs after merge commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix error which occurs after merge commit." />
+    <MESSAGE value="Add 'access-denied' features.&#10;Commit before add jdbc to spring security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 'access-denied' features.&#10;Commit before add jdbc to spring security" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1240,8 +1216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/persistence-mysql.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="238">
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
         </state>
       </provider>
