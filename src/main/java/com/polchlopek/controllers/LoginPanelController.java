@@ -60,7 +60,7 @@ public class LoginPanelController {
 			applicationService.addPerson(tmpPerson);
 			System.out.println("User: " + user.getNickName() + ", pass: " + user.getPassword());
 			System.out.println("Logowanie poprawne");
-			return "temp";
+			return "main";
 		}
 		else {
 			System.out.println("Logowanie bad !!!!!!!!");
@@ -75,7 +75,7 @@ public class LoginPanelController {
 
 	@RequestMapping("/loginOk")
 	public String showMenu() {		
-		return "temp";
+		return "main";
 	}
 	
 }

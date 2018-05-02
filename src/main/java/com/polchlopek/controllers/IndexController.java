@@ -18,7 +18,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String showHome() {
-        return "temp";
+        return "main";
     }
 
     @RequestMapping("/admin")

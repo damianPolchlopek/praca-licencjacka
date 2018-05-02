@@ -33,6 +33,9 @@ public class Person {
 	
 	@Column(name="phone")
 	private Integer phone;
+
+	@Column(name="enabled")
+	private boolean enabled;
 	
 	@OneToMany(fetch=FetchType.LAZY, 
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
@@ -133,14 +136,22 @@ public class Person {
 		this.password = password;
 	}
 
-	public int getPhone() {
+	public Integer getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
-	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public String toString() {
 		return "Person [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +
 				", email =" + email + ", phone=" + phone + "]";

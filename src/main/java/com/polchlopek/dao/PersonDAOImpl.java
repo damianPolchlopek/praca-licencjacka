@@ -42,8 +42,7 @@ public class PersonDAOImpl implements PersonDAO {
 		
 		// save/update the person
 		currentSession.saveOrUpdate(thePerson);
-		
-		
+
 	}
 
 	public Person getPerson(int theId) {
@@ -79,7 +78,6 @@ public class PersonDAOImpl implements PersonDAO {
 		}
 
 	}
-
 
 	public void deletePerson(int theId) {
 		

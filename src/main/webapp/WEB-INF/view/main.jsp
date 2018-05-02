@@ -46,9 +46,11 @@
 					<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
 					
 					<br><br><br>
-					
-					<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-					<dt><a href="/">Wyloguj</a></dt>
+
+
+					<security:authorize access="hasRole('ADMIN')">
+						<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
+					</security:authorize>
 
 				</dl>
 		    </div>

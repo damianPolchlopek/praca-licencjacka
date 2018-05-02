@@ -1,6 +1,7 @@
 package com.polchlopek.classToVal;
 
 import com.polchlopek.entity.Person;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
@@ -13,23 +14,24 @@ public class PersonToValAdd {
 	@Id
 	private Integer id;
 	
-	@NotNull(message="is required")
-	@Size(min=1, max=15, message="max size 15 characters")
+	@NotEmpty(message="is required")
+	@Size(min=0, max=15, message="max size 15 characters")
 	private String nickName;
-	
-	@NotNull(message="is required")
-	@Size(min=1, max=15, message="max size 15 characters")
+
+	@NotEmpty(message="is required")
+	@Size(min=0, max=15, message="max size 15 characters")
 	private String firstName;
-	
-	@NotNull(message="is required")
-	@Size(min=1, max=15, message="max size 15 characters")
+
+	@NotEmpty(message="is required")
+	@Size(min=0, max=15, message="max size 15 characters")
 	private String lastName;
-	
-	@NotNull(message="is required")
-	@Size(min=1, max=45, message="max size 45 characters")
+
+	@NotEmpty(message="is required")
+	@Size(min=0, max=45, message="max size 45 characters")
 	private String email;
-	
-	@Size(min=1, max=45, message="max size 45 characters")
+
+	@NotEmpty(message="is required")
+	@Size(min=0, max=45, message="max size 45 characters")
 	private String password;
 	
 	@NotNull(message="is required")

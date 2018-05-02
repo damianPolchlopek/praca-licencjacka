@@ -88,7 +88,6 @@ public class AplicationServiceImpl implements AplicationService {
 		return personDao.getPersonToVal(theId);
 	}
 
-
 	@Transactional
 	public List<MeasurementData> getMeasurementData() {
 		return measurementDao.getMeasurementData();
