@@ -84,7 +84,7 @@
 							<td> ${tempMeasurement.personId.lastName} </td>
 							<td> ${tempMeasurement.dateMeasurement} </td>
 							<td> ${tempMeasurement.description} </td>
-							<td> ${tempMeasurement.category} </td>
+							<td> ${tempMeasurement.category.category} </td>
 
 							<td>
 								<!-- display the update link -->

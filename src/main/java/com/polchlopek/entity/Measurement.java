@@ -18,8 +18,10 @@ public class Measurement {
 	@Column(name="description")
 	private String description;
 
-	@Column(name="category_id")
-	private int category;
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH,})
+	@JoinColumn(name="category_id")
+	private MeasurementCategory category;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 						 CascadeType.DETACH, CascadeType.REFRESH,})
@@ -54,11 +56,11 @@ public class Measurement {
 		this.description = description;
 	}
 
-	public int getCategory() {
+	public MeasurementCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(MeasurementCategory category) {
 		this.category = category;
 	}
 
