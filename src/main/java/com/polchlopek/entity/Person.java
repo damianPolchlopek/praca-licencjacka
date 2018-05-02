@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="person")
+@Table(name="users")
 public class Person {
 	
 	@Id
@@ -16,7 +16,7 @@ public class Person {
 	@Column(name="id")
 	private Integer id;
 	
-	@Column(name="nick_name")
+	@Column(name="username")
 	private String nickName;
 	
 	@Column(name="first_name")

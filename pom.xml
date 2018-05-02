@@ -12,6 +12,7 @@
     <properties>
         <spring.version>5.0.2.RELEASE</spring.version>
         <springsecury.version>5.0.0.RELEASE</springsecury.version>
+        <dbcp.version>1.4</dbcp.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -178,6 +179,14 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+        <!-- database pool -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${dbcp.version}</version>
+        </dependency>
+
 
 
 

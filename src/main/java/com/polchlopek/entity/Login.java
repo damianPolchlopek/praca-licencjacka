@@ -24,7 +24,7 @@ public class Login {
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 						 CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="person_id_login")
+	@JoinColumn(name="users_id_login")
 	private Person personId;
 	
 	public Login() {

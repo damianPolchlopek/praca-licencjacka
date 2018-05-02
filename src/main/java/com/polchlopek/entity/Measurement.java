@@ -14,17 +14,16 @@ public class Measurement {
 	
 	@Column(name="date_measurement")
 	private Date dateMeasurement;
-	
-	
+
 	@Column(name="description")
 	private String description;
 
-	@Column(name="category")
-	private String category;
+	@Column(name="category_id")
+	private int category;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 						 CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="person_id_meas")
+	@JoinColumn(name="users_id_meas")
 	private Person personId;
 	
 	public Measurement() {
@@ -55,11 +54,11 @@ public class Measurement {
 		this.description = description;
 	}
 
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 
