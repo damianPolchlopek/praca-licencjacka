@@ -1,102 +1,140 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
 <html>
 
-	<head>
-	
-	<title> Strona glowna</title>
-	
-	<!-- reference our style sheet -->
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/main-panel.css" />
-			
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/table-data.css" />
-			
-	</head>
-			
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+</head>
+
+
 <body>
-	
-	<div class="container">
-	
-		<div id="ban" class="banner">
-			<img width=100% height=100: src="<c:url value="/resources/images/banner.png"/>"/>
-    	</div>
-	    
-	    <div class="header">
-		    	<h2>List login's - ostatnie 15 logowan</h2>
-	    </div>
-	    
-	    
-		<div class="asideContent">
 
-			<div class="aside">
 
-				<dl>
-					<dt><a href="/login/loginOk">Strona glowna</a></dt>
-					<dt><a href="/person/showPerson">Pokaz osoby</a></dt>
-					<dt><a href="/login/showLogin">Ostatnie logowania</a></dt>
-					<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
+	<div class="body-container">
 
-					<br><br><br>
+		<header class="my-5 pt-5 text-muted text-center text-small">
+				<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+			</header>
 
-					<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-					<dt><a href="/">Wyloguj</a></dt>
+		<div class="container-fluid">
 
-				</dl>
-			</div>
-		    
-		    <div id="cont" class="content">
-		    
-		    
-			    <br><br>
-				
-				<!-- add our html table here -->
-				<table>
-					<tr>
-						<th>User First Name</th>
-						<th>User Last Name</th>
-						<th>Date</th>
-						<th>Time</th>
-						<th>Location</th>
-					</tr>
-					
-					<!-- loop over and print our people --> 
-					<c:forEach var="tempLogin" items="${logins}">
-						
+
+
+			<div class="row content">
+
+				<div class="col-sm-3 sidenav">
+
+					<h4>Main menu:</h4>
+
+					<ul class="nav nav-pills nav-stacked">
+
+						<li class="nav-item">
+							<a href="/login/loginOk">
+								<span class="glyphicon glyphicon-home" ></span>
+								Home
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/person/showPerson">
+								<span class="glyphicon glyphicon-user" ></span>
+								Users
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/login/showLogin">
+								<span class="glyphicon glyphicon-th-list" ></span>
+								Last logs
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/measurement/showMeasurement">
+								<span class="glyphicon glyphicon-stats" ></span>
+								Measurement
+							</a>
+						</li>
+
+						<security:authorize access="hasRole('ADMIN')">
+							<li class="nav-item">
+								<a href="/person/showFormForAdd">
+									<span class="glyphicon glyphicon-plus" ></span>
+									Add user
+								</a>
+							</li>
+						</security:authorize>
+
+						<security:authorize access="hasRole('ADMIN')">
+							<li class="nav-item">
+								<a href="${pageContext.request.contextPath}/admin">
+									<span class="glyphicon glyphicon-eye-open" ></span>
+									Admin stuff
+								</a>
+							</li>
+						</security:authorize>
+
+					</ul><br>
+
+				</div>
+
+
+				<div class="col-sm-9">
+
+
+					<!-- add our html table here -->
+					<table class="table table-striped table-sm">
 						<tr>
-							<td> ${tempLogin.personId.firstName} </td>
-							<td> ${tempLogin.personId.lastName} </td>
-							<td> ${tempLogin.dateLog} </td>
-							<td> ${tempLogin.timeLog} </td>
-							<td> ${tempLogin.locationLog} </td>
+							<th>User First Name</th>
+							<th>User Last Name</th>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Location</th>
 						</tr>
-						
-					</c:forEach>
-					
-				</table>
-				
-				<br><br>
-						
+
+						<!-- loop over and print our people -->
+						<c:forEach var="tempLogin" items="${logins}">
+
+							<tr>
+								<td> ${tempLogin.personId.firstName} </td>
+								<td> ${tempLogin.personId.lastName} </td>
+								<td> ${tempLogin.dateLog} </td>
+								<td> ${tempLogin.timeLog} </td>
+								<td> ${tempLogin.locationLog} </td>
+							</tr>
+
+						</c:forEach>
+					</table>
+
+
+				</div>
+
 			</div>
-		
-			</div>	
-				<div class="footer">
-					<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
-		    </div>
-	    
-	    </div>
-	    
-	
+
+
+		</div>
+
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+				<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+			</footer>
+
+	</div>
+
+
 </body>
+
 
 </html>

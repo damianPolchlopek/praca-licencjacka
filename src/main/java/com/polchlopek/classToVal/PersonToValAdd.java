@@ -1,5 +1,6 @@
 package com.polchlopek.classToVal;
 
+import com.polchlopek.entity.Authorities;
 import com.polchlopek.entity.Person;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -38,6 +39,8 @@ public class PersonToValAdd {
 	@Min(value=0, message="Wieksze od zera")
 	@Max(value=999999999, message="max size 9 numbers")
 	private Integer phone;
+
+	//private String[] authorities;
 	
 	public PersonToValAdd(Person thePerson) {
 		this.firstName = thePerson.getFirstName();

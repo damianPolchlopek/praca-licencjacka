@@ -4,97 +4,116 @@
 <html>
 
 <head>
-	<title>Dodawanie nowego uzytkownika</title>
-	
-	<link type="text/css"
-		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/background.css" />
-		
-	<link type="text/css"
-		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/add-person-form.css" />
-	
-	<style type="text/css">
-		.error {color:red}
-	</style>
-	
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .error {
+            color:red;
+            font-size: 12px;
+        }
+
+        .bg-light{
+            background-color:#f8f9fa
+            !important
+        }
+
+    </style>
+
+	<title>Aktulizacja danych uzytkownika</title>
+
 </head>
 
-<body>
-	<div class="container">
+<body class="bg-light">
+<div class="container" >
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+            <div class="py-5 text-center"></div>
 
-		<div class="header">
-	    	<h2>Save Person</h2>
-	    </div>
-    
-	    <div class="content">
-			<form:form action="savePersonUpdate" modelAttribute="personToValUpdate">
-			
-				<!-- need to associate this data with person id -->
-				<form:hidden path="id" />
-			
-				<table>
-					<tbody>
-					
-						<tr>
-							<td><label>Nickname:</label></td>
-							<td><form:input path="nickName"/></td>
-							<td><form:errors path="nickName" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label>First name:</label></td>
-							<td><form:input path="firstName"/></td>
-							<td><form:errors path="firstName" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label>Last name:</label></td>
-							<td><form:input path="lastName"/></td>
-							<td><form:errors path="lastName" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label>Email:</label></td>
-							<td><form:input path="email"/></td>
-							<td><form:errors path="email" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label>Password:</label></td>
-							<td><form:input path="password"/></td>
-							<td><form:errors path="password" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label>Phone:</label></td>
-							<td><form:input path="phone"/></td>
-							<td><form:errors path="phone" cssClass="error" /></td>
-						</tr>
-						
-						<tr>
-							<td><label></label></td>
-							<td><input type="submit" value="Save" class="save" /></td>
-						</tr>
-					
-					</tbody>
-				</table>
-			</form:form>
-			
-			<br><br><br><br>
-			
-			<div class="backToMenu">
-				<a href="${pageContext.request.contextPath}/login/loginOk">Back to List</a>	
-	    	</div>
-			
-		</div>	
-	      
-	    <div class="footer">
-			<h4>Copyright © Damian Polchlopek. All Rights Reserved.</h4>
-	    </div>
 
-	</div>
-	
+            <h2>Add Form</h2>
+            <form:form action="savePersonUpdate" modelAttribute="personToValUpdate">
+
+                <!-- need to associate this data with person id -->
+                <form:hidden path="id" />
+
+                <div class="form-group">
+                    <label for="nickName">Username:</label>
+                    <form:input path="nickName" type="text" class="form-control"  placeholder="Enter username" />
+                    <form:errors path="nickName" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">First name:</label>
+                    <form:input path="firstName" type="text" class="form-control"  placeholder="Enter first name" />
+                    <form:errors path="firstName" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <form:input path="lastName" type="text" class="form-control"  placeholder="Enter last name" />
+                    <form:errors path="lastName" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <form:input path="email" type="email" class="form-control"  placeholder="Enter email" />
+                    <form:errors path="email" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <form:input path="password" type="password" class="form-control"  placeholder="Enter password" />
+                    <form:errors path="password" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <form:input path="phone" type="text" class="form-control"  placeholder="Enter phone" />
+                    <form:errors path="phone" cssClass="error" />
+                </div>
+
+                <%--<div class="form-group">--%>
+                <%--<label for="au">Authority:</label>--%>
+                <%--<form:checkbox path="autho" value="Java"/>Java--%>
+                <%--<form:checkbox path="favLanguages" value="C++"/>C++--%>
+                <%--<form:checkbox path="favLanguages" value=".Net"/>.Net--%>
+                <%--</div>--%>
+
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
+
+            </form:form>
+
+
+
+            <br><br><br><br>
+
+            <div class="backToMenu">
+                <a href="${pageContext.request.contextPath}/login/loginOk">Back to List</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <h4>Copyright ï¿½ Damian Polchlopek. All Rights Reserved.</h4>
+    </footer>
+
+</div>
+</div>
+
 </body>
 
 </html>

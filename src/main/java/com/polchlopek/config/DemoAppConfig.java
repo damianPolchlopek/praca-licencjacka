@@ -10,8 +10,10 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Properties;
@@ -21,7 +23,7 @@ import java.util.Properties;
 @ComponentScan(basePackages="com.polchlopek")
 @EnableTransactionManagement
 @Import({AppSecurityConfig.class})
-public class DemoAppConfig {
+public class DemoAppConfig implements WebMvcConfigurer {
 
 
 	@Bean
@@ -78,6 +80,8 @@ public class DemoAppConfig {
 				.addResourceHandler("/resources/**")
 				.addResourceLocations("/resources/");
 	}
+
+
 
 
 }

@@ -1,114 +1,167 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
 <html>
 
-	<head>
-	
-	<title> Strona glowna</title>
-	
-	<!-- reference our style sheet -->
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/main-panel.css" />
-			
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/table-data.css" />
-			
-	</head>
-			
+<head>
+	<title>Main</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+</head>
+
 <body>
 
-	<div class="container">
-	
-		<div id="ban" class="banner">
-			<img width=100% height=100: src="<c:url value="/resources/images/banner.png"/>"/>
-    	</div>
-	    
-	    <div class="header">
-		    	<h2>Person - wszytskie rekordy</h2>
-	    </div>
+	<div class="body-container">
 
-		<div class="aside">
+		<header class="my-5 pt-5 text-muted text-center text-small">
+			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+		</header>
 
-			<dl>
-				<dt><a href="/login/loginOk">Strona glowna</a></dt>
-				<dt><a href="/person/showPerson">Pokaz osoby</a></dt>
-				<dt><a href="/login/showLogin">Ostatnie logowania</a></dt>
-				<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
+		<div class="container-fluid">
 
-				<br><br><br>
+		<div class="row content">
 
-				<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-				<dt><a href="/">Wyloguj</a></dt>
+			<div class="col-sm-3 sidenav">
 
-			</dl>
-		</div>
-		    
-		    	  
-		    
-		    <div class="content">
-				<div id="cvb">
-					
-					<br><br>
-					
-					<!-- add our html table here -->
-					<table>
-						<tr>
-							<th>Id</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-							<th>Phone</th>
+				<h4>Main menu:</h4>
+
+				<ul class="nav nav-pills nav-stacked">
+
+					<li class="nav-item">
+						<a href="/login/loginOk">
+							<span class="glyphicon glyphicon-home" ></span>
+							Home
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="/person/showPerson">
+							<span class="glyphicon glyphicon-user" ></span>
+							Users
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="/login/showLogin">
+							<span class="glyphicon glyphicon-th-list" ></span>
+							Last logs
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="/measurement/showMeasurement">
+							<span class="glyphicon glyphicon-stats" ></span>
+							Measurement
+						</a>
+					</li>
+
+					<security:authorize access="hasRole('ADMIN')">
+						<li class="nav-item">
+							<a href="/person/showFormForAdd">
+								<span class="glyphicon glyphicon-plus" ></span>
+								Add user
+							</a>
+						</li>
+					</security:authorize>
+
+					<security:authorize access="hasRole('ADMIN')">
+						<li class="nav-item">
+							<a href="${pageContext.request.contextPath}/admin">
+								<span class="glyphicon glyphicon-eye-open" ></span>
+								Admin stuff
+							</a>
+						</li>
+					</security:authorize>
+
+					<hr>
+					<li class="nav-item">
+						<!-- Add a logout button -->
+						<form:form action="${pageContext.request.contextPath}/logout"
+								   method="POST">
+
+							<button type="submit" class="btn btn-info">
+								<span class="glyphicon glyphicon-off" ></span>
+								Logout
+							</button>
+
+						</form:form>
+					</li>
+
+				</ul><br>
+
+			</div>
+
+
+			<div class="col-sm-9">
+
+
+				<!-- add our html table here -->
+				<table class="table table-striped table-sm">
+					<tr>
+						<th>Id</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<security:authorize access="hasRole('ADMIN')">
 							<th>Action</th>
-						</tr>
-						
-						<!-- loop over and print our people --> 
-						<c:forEach var="tempPerson" items="${people}">
-							
-							<!-- construct an "update" link with person id -->
-							<c:url var="updateLink" value="/person/showFormForUpdate">
-								<c:param name="personId" value="${tempPerson.id}"></c:param>
-							</c:url>
-							
-							<tr>
-								<td> ${tempPerson.id} </td>
-								<td> ${tempPerson.firstName} </td>
-								<td> ${tempPerson.lastName} </td>
-								<td> ${tempPerson.email} </td>
-								<td> ${tempPerson.phone} </td>
-								
+						</security:authorize>
+					</tr>
+
+					<!-- loop over and print our people -->
+					<c:forEach var="tempPerson" items="${people}">
+
+
+						<!-- construct an "update" link with person id -->
+						<c:url var="updateLink" value="/person/showFormForUpdate">
+							<c:param name="personId" value="${tempPerson.id}"></c:param>
+						</c:url>
+
+
+						<tr>
+							<td> ${tempPerson.id} </td>
+							<td> ${tempPerson.firstName} </td>
+							<td> ${tempPerson.lastName} </td>
+							<td> ${tempPerson.email} </td>
+							<td> ${tempPerson.phone} </td>
+
+							<security:authorize access="hasRole('ADMIN')">
 								<td>
 									<!-- display the update link -->
 									<a href="${updateLink }">Update</a>
 								</td>
-								
-							</tr>
-							
-						</c:forEach>
-					</table>
-				</div>					
+							</security:authorize>
+
+						</tr>
+
+					</c:forEach>
+				</table>
+
+
 			</div>
-		
+
 		</div>
-	
-	    
-	    <div class="footer">
-			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
-	    </div>
 
 
 	</div>
 
-	
-</body>
 
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+		</footer>
+
+	</div>
+
+</body>
 
 </html>

@@ -33,6 +33,6 @@ public interface AplicationService {
 	public List<MeasurementData> getMeasurementData();
 
 	public List<MeasurementData> getArrayMeassurement(int theId);
-	
-	
+
+    List<String> getCategories();
 }

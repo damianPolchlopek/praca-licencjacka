@@ -7,7 +7,7 @@
 	
 	<link type="text/css"
 			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
+			href="${pageContext.request.contextPath}/resources/background.css" />
 			
 	<link type="text/css"
 		rel="stylesheet"

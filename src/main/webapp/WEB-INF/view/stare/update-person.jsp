@@ -28,7 +28,10 @@
 	    </div>
     
 	    <div class="content">
-			<form:form action="savePerson" modelAttribute="personToVal">
+			<form:form action="savePersonUpdate" modelAttribute="personToValUpdate">
+			
+				<!-- need to associate this data with person id -->
+				<form:hidden path="id" />
 			
 				<table>
 					<tbody>

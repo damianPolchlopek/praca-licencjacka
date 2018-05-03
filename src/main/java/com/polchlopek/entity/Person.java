@@ -40,14 +40,20 @@ public class Person {
 	@OneToMany(fetch=FetchType.LAZY, 
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="person_id_login")
+	@JoinColumn(name="users_id_login")
 	private List<Login> logins;
 	
 	@OneToMany(fetch=FetchType.LAZY, 
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="person_id_meas")
+	@JoinColumn(name="users_id_meas")
 	private List<Measurement> measurements;
+
+	@OneToMany(fetch=FetchType.LAZY,
+			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+					CascadeType.DETACH, CascadeType.REFRESH,})
+	@JoinColumn(name="username")
+	private List<Authorities> authorities;
 	
 	public Person() {
 		
@@ -150,6 +156,14 @@ public class Person {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public List<Authorities> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authorities> authorities) {
+		this.authorities = authorities;
 	}
 
 	public String toString() {

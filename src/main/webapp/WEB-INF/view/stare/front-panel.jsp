@@ -8,7 +8,7 @@
 	
 	<link type="text/css"
 			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
+			href="${pageContext.request.contextPath}/resources/background.css" />
 			
 			
 	<link type="text/css"
@@ -43,7 +43,7 @@
 
 	    
 	    <div class="footer">
-			<h4>Copyright © Damian Polchlopek. All Rights Reserved.</h4>
+			<h4>Copyright ï¿½ Damian Polchlopek. All Rights Reserved.</h4>
 	    </div>
 
 

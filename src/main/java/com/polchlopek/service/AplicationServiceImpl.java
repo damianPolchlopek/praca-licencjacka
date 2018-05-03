@@ -1,14 +1,8 @@
 package com.polchlopek.service;
 
 import com.polchlopek.classToVal.PersonToValUpdate;
-import com.polchlopek.dao.LoginDAO;
-import com.polchlopek.dao.MeasurementArrayDAO;
-import com.polchlopek.dao.MeasurementDAO;
-import com.polchlopek.dao.PersonDAO;
-import com.polchlopek.entity.Login;
-import com.polchlopek.entity.Measurement;
-import com.polchlopek.entity.MeasurementData;
-import com.polchlopek.entity.Person;
+import com.polchlopek.dao.*;
+import com.polchlopek.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,9 +20,13 @@ public class AplicationServiceImpl implements AplicationService {
 	
 	@Autowired
 	private MeasurementArrayDAO measurementArrayDao;
+
+	@Autowired
+	private MeasurementCategoryDAO measurementCategoryDao;
 	
 	@Autowired
 	private LoginDAO loginDao;
+
 
 
 	@Transactional
@@ -46,42 +44,35 @@ public class AplicationServiceImpl implements AplicationService {
 		return measurementDao.getMeasurements();
 	}
 
-
 	@Transactional
 	public void savePerson(Person thePerson) {
 		personDao.savePerson(thePerson);
 	}
 
-
 	@Transactional
 	public Person getPerson(int theId) {
 		return personDao.getPerson(theId);
 	}
-	
 
 	@Transactional
 	public Person getPerson(String nickName) {
 		return personDao.getPerson(nickName);
 	}
 
-
 	@Transactional
 	public void deletePerson(int theId) {
 		personDao.deletePerson(theId);
 	}
-
 
 	@Transactional
 	public void addPerson(Person tmpPerson) {
 		loginDao.addPerson(tmpPerson);
 	}
 
-
 	@Transactional
 	public Measurement getMeasurement(int theId) {
 		return measurementDao.getMeasurement(theId);
 	}
-
 
 	@Transactional
 	public PersonToValUpdate getPersonToVal(int theId) {
@@ -97,5 +88,10 @@ public class AplicationServiceImpl implements AplicationService {
 	public List<MeasurementData> getArrayMeassurement(int theId) {
 		return measurementArrayDao.getArrayMeassurement(theId);
 	}
-	
+
+	@Transactional
+	public List<String> getCategories() {
+		return measurementCategoryDao.getCategories();
+	}
+
 }

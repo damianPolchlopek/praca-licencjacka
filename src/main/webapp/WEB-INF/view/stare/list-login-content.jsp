@@ -12,15 +12,15 @@
 	
 	<link type="text/css"
 			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
+			href="${pageContext.request.contextPath}/resources/background.css" />
 	
 	<link type="text/css"
 			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/main-panel.css" />
+			href="${pageContext.request.contextPath}/resources/css/stare/main-panel.css" />
 			
 	<link type="text/css"
 			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/table-data.css" />
+			href="${pageContext.request.contextPath}/resources/css/stare/table-data.css" />
 			
 	</head>
 			
@@ -33,7 +33,7 @@
     	</div>
 	    
 	    <div class="header">
-		    	<h2>Podglad - !!!</h2>
+		    	<h2>List login's - ostatnie 15 logowan</h2>
 	    </div>
 	    
 	    
@@ -63,18 +63,22 @@
 				<!-- add our html table here -->
 				<table>
 					<tr>
-						<th>ID</th>
-						<th>NodeX</th>
-						<th>NodeY</th>
+						<th>User First Name</th>
+						<th>User Last Name</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Location</th>
 					</tr>
 					
-					<!-- loop over and print our node --> 
-					<c:forEach var="tempNode" items="${measurementData}">
+					<!-- loop over and print our people --> 
+					<c:forEach var="tempLogin" items="${logins}">
 						
-						<tr> 
-							<th>${tempNode.id}</th>
-							<th>${tempNode.nodeX}</th>
-							<th>${tempNode.nodeY}</th>
+						<tr>
+							<td> ${tempLogin.personId.firstName} </td>
+							<td> ${tempLogin.personId.lastName} </td>
+							<td> ${tempLogin.dateLog} </td>
+							<td> ${tempLogin.timeLog} </td>
+							<td> ${tempLogin.locationLog} </td>
 						</tr>
 						
 					</c:forEach>

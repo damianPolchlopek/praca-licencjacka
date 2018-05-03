@@ -38,7 +38,8 @@ public class PersonController {
 	
 	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
-		
+
+		// zostalo zmienione z update na add UWAGA !!!!!!!!
 		// create model attribute to bind form data
 		PersonToValUpdate thePersonToVal = new PersonToValUpdate();
 		

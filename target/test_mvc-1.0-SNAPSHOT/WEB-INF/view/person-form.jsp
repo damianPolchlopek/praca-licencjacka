@@ -8,11 +8,11 @@
 	
 	<link type="text/css"
 		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/background.css" />
+		href="${pageContext.request.contextPath}/resources/background.css" />
 		
 	<link type="text/css"
 		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/add-person-form.css" />
+		href="${pageContext.request.contextPath}/resources/css/stare/add-person-form.css" />
 	
 	<style type="text/css">
 		.error {color:red}
@@ -90,7 +90,7 @@
 		</div>	
 	      
 	    <div class="footer">
-			<h4>Copyright © Damian Polchlopek. All Rights Reserved.</h4>
+			<h4>Copyright ï¿½ Damian Polchlopek. All Rights Reserved.</h4>
 	    </div>
 
 	</div>

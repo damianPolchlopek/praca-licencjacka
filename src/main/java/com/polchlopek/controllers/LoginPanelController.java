@@ -35,7 +35,7 @@ public class LoginPanelController {
 		// add student object to the model
 		theModel.addAttribute("userToValLogin", ptvl);
 		
-		return "login-panel";
+		return "stare/login-panel";
 	}
 	
 	@RequestMapping("/processForm")
@@ -60,11 +60,11 @@ public class LoginPanelController {
 			applicationService.addPerson(tmpPerson);
 			System.out.println("User: " + user.getNickName() + ", pass: " + user.getPassword());
 			System.out.println("Logowanie poprawne");
-			return "main";
+			return "stare/main";
 		}
 		else {
 			System.out.println("Logowanie bad !!!!!!!!");
-			return "login-panel";
+			return "stare/login-panel";
 		}
 		
 	}

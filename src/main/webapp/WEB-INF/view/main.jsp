@@ -7,92 +7,125 @@
 
 <html>
 
-	<head>
-	
-	<title> Strona glowna</title>
-	
-	<!-- reference our style sheet -->
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/main-panel.css" />
-			
-	</head>
-			
+<head>
+    <title>Main</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+</head>
+
 <body>
-	
-	<div class="container">
-	
-		<div id="ban" class="banner">
-			<img width=100% height=100: src="<c:url value="/resources/images/banner.png"/>"/>
-    	</div>
-	    
-	    <div class="header">
-		    	<h2>STRONA GLOWNA APLIKACJI</h2>
-	    </div>
-	    
-		<div class="asideContent">
-	
-			<div class="aside">
 
-				<dl>
-					<dt><a href="/login/loginOk">Strona glowna</a></dt>
-					<dt><a href="/person/showPerson">Pokaz osoby</a></dt>
-					<dt><a href="/login/showLogin">Ostatnie logowania</a></dt>
-					<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
-					
-					<br><br><br>
+    <div class="body-container">
+
+        <header class="my-5 pt-5 text-muted text-center text-small">
+            <h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+        </header>
 
 
-					<security:authorize access="hasRole('ADMIN')">
-						<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-					</security:authorize>
+        <div class="container-fluid">
 
-				</dl>
-		    </div>
-		    
-		    <div id="outer" class="content">
-				<div id="inner">
+            <div class="row content">
+                <div class="col-sm-3 sidenav">
 
-					<label id="tekstDiv">Czesc glowna systemu</label>
+                    <h4>Main menu:</h4>
 
-					<!-- display user name and role -->
-					<p>
-						User: <security:authentication property="principal.username" />
-						<br><br>
-						Role(s): <security:authentication property="principal.authorities" />
-					</p>
+                    <ul class="nav nav-pills nav-stacked">
 
-					<!-- Add a logout button -->
-					<form:form action="${pageContext.request.contextPath}/logout"
-							   method="POST">
+                        <li class="nav-item">
+                            <a href="/login/loginOk">
+                                <span class="glyphicon glyphicon-home" ></span>
+                                Home
+                            </a>
+                        </li>
 
-						<input type="submit" value="Logout" />
+                        <li class="nav-item">
+                            <a href="/person/showPerson">
+                                <span class="glyphicon glyphicon-user" ></span>
+                                Users
+                            </a>
+                        </li>
 
-					</form:form>
+                        <li class="nav-item">
+                            <a href="/login/showLogin">
+                                <span class="glyphicon glyphicon-th-list" ></span>
+                                Last logs
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/measurement/showMeasurement">
+                                <span class="glyphicon glyphicon-stats" ></span>
+                                Measurement
+                            </a>
+                        </li>
+
+                        <security:authorize access="hasRole('ADMIN')">
+                            <li class="nav-item">
+                                <a href="/person/showFormForAdd">
+                                    <span class="glyphicon glyphicon-plus" ></span>
+                                    Add user
+                                </a>
+                            </li>
+                        </security:authorize>
+
+                        <security:authorize access="hasRole('ADMIN')">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/admin">
+                                    <span class="glyphicon glyphicon-eye-open" ></span>
+                                    Admin stuff
+                                </a>
+                            </li>
+                        </security:authorize>
+
+                        <hr>
+                        <li class="nav-item">
+                            <!-- Add a logout button -->
+                            <form:form action="${pageContext.request.contextPath}/logout"
+                                       method="POST">
+
+                                <button type="submit" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-off" ></span>
+                                    Logout
+                                </button>
+
+                            </form:form>
+                        </li>
+
+                    </ul><br>
+
+                </div>
 
 
-					<security:authorize access="hasRole('ADMIN')">
-						<dt><a href="${pageContext.request.contextPath}/admin">Admin</a></dt>
-					</security:authorize>
 
-				</div>	
-		    </div>
-	    
-	    </div>
-	    
-	    <div class="footer">
-			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
-	    </div>
+                <div class="col-sm-9">
+
+                    <!-- display user name and role -->
+                    <p>
+                    <h3> Witaj <security:authentication property="principal.username" /> </h3>
+                        <%--<br><br>--%>
+                        <%--Role(s): <security:authentication property="principal.authorities" />--%>
+                    </p>
 
 
-	</div>
 
-	
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+        </footer>
+
+    </div>
 </body>
 
 

@@ -1,112 +1,192 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
 <html>
 
-	<head>
-	
-	<title> Strona glowna</title>
-	
-	<!-- reference our style sheet -->
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/background.css" />
-	
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/main-panel.css" />
-			
-	<link type="text/css"
-			rel="stylesheet"
-			href="${pageContext.request.contextPath}/resources/css/table-data.css" />
-			
-	</head>
-			
+<head>
+	<title>Measurement</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+</head>
+
 <body>
-	
-	
-	<div class="container">
-	
-		<div id="ban" class="banner">
-			<img width=100% height=100: src="<c:url value="/resources/images/banner.png"/>"/>
-    	</div>
-	    
-	    <div class="header">
-		    	<h2>Wszystkie pomiary</h2>
-	    </div>
-	    
-		<div class="asideContent">
+	<div class="body-container">
 
-			<div class="aside">
+		<header class="my-5 pt-5 text-muted text-center text-small">
+			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+		</header>
 
-				<dl>
-					<dt><a href="/login/loginOk">Strona glowna</a></dt>
-					<dt><a href="/person/showPerson">Pokaz osoby</a></dt>
-					<dt><a href="/login/showLogin">Ostatnie logowania</a></dt>
-					<dt><a href="/measurement/showMeasurement">Dostepne pomiary</a></dt>
 
-					<br><br><br>
+		<div class="container-fluid">
 
-					<dt><a href="/person/showFormForAdd">Dodaj uzytkownika</a></dt>
-					<dt><a href="/">Wyloguj</a></dt>
+			<div class="row content">
 
-				</dl>
-			</div>
-		    
-		    <div id="cont" class="content">
-		    
-				<br><br>			
-				
-				<!-- add our html table here -->
-				<table>
-					<tr>
-						<th>User First Name</th>
-						<th>User Last Name</th>
-						<th>Date Measurement</th>
-						<th>Description</th>
-						<th>Category</th>
-						<th>Show</th>
-					</tr>
-					
-					<!-- loop over and print our people --> 
-					<c:forEach var="tempMeasurement" items="${measurements}">
+				<div class="col-sm-3 sidenav">
 
-						<!-- construct an "update" link with person id -->
-						<c:url var="showLink" value="/measurement/showGraph">
-							<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
-						</c:url>
-						
-						
+					<h4>Main menu:</h4>
+
+					<ul class="nav nav-pills nav-stacked">
+
+						<li class="nav-item">
+							<a href="/login/loginOk">
+								<span class="glyphicon glyphicon-home" ></span>
+								Home
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/person/showPerson">
+								<span class="glyphicon glyphicon-user" ></span>
+								Users
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/login/showLogin">
+								<span class="glyphicon glyphicon-th-list" ></span>
+								Last logs
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="/measurement/showMeasurement">
+								<span class="glyphicon glyphicon-stats" ></span>
+								Measurement
+							</a>
+						</li>
+
+						<security:authorize access="hasRole('ADMIN')">
+							<li class="nav-item">
+								<a href="/person/showFormForAdd">
+									<span class="glyphicon glyphicon-plus" ></span>
+									Add user
+								</a>
+							</li>
+						</security:authorize>
+
+						<security:authorize access="hasRole('ADMIN')">
+							<li class="nav-item">
+								<a href="${pageContext.request.contextPath}/admin">
+									<span class="glyphicon glyphicon-eye-open" ></span>
+									Admin stuff
+								</a>
+							</li>
+						</security:authorize>
+
+						<hr>
+						<li class="nav-item">
+							<!-- Add a logout button -->
+							<form:form action="${pageContext.request.contextPath}/logout"
+									   method="POST">
+
+								<button type="submit" class="btn btn-info">
+									<span class="glyphicon glyphicon-off" ></span>
+									Logout
+								</button>
+
+							</form:form>
+						</li>
+
+					</ul><br>
+
+				</div>
+
+
+				<div class="col-sm-9">
+
+					<!-- menu szukania -->
+
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="container">
+							<div class="navbar-header">
+
+								<form:form action="searchMeasurements" modelAttribute="wantedMeasurement"
+										   class="navbar-form navbar-left" method="post" role="search">
+
+									<form:select path="category.category" class="form-control">
+										<form:option value="all"> All </form:option>
+										<%--<form:option value="dddd"> dddd</form:option>--%>
+										<%--<form:option value="aaa"> aaaaa</form:option>--%>
+										<form:options items="${availableCategory}"></form:options>
+									</form:select>
+
+									<form:input  path="description" type="text" class="form-control" placeholder="Szukaj" />
+
+									<button type="submit" class="btn btn-default">Search</button>
+								</form:form>
+
+							</div>
+						</div>
+					</nav>
+
+					<!-- add our html table here -->
+					<table class="table table-striped table-sm">
 						<tr>
-							<td> ${tempMeasurement.personId.firstName} </td>
-							<td> ${tempMeasurement.personId.lastName} </td>
-							<td> ${tempMeasurement.dateMeasurement} </td>
-							<td> ${tempMeasurement.description} </td>
-							<td> ${tempMeasurement.category.category} </td>
-
-							<td>
-								<!-- display the update link -->
-								<a href="${showLink }">Show</a>
-							</td>
-								
+							<th>User First Name</th>
+							<th>User Last Name</th>
+							<th>Date Measurement</th>
+							<th>Description</th>
+							<th>Category</th>
+							<th>Show</th>
 						</tr>
-						
-					</c:forEach>
-					
-				</table>			
+
+						<!-- loop over and print our people -->
+						<c:forEach var="tempMeasurement" items="${measurements}">
+
+							<!-- construct an "update" link with person id -->
+							<c:url var="showLink" value="/measurement/showGraph">
+								<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
+							</c:url>
+
+
+							<tr>
+								<td> ${tempMeasurement.personId.firstName} </td>
+								<td> ${tempMeasurement.personId.lastName} </td>
+								<td> ${tempMeasurement.dateMeasurement} </td>
+								<td> ${tempMeasurement.description} </td>
+								<td> ${tempMeasurement.category.category} </td>
+
+								<td>
+									<!-- display the update link -->
+									<a href="${showLink }">Show</a>
+								</td>
+
+							</tr>
+
+						</c:forEach>
+					</table>
+
+					<hr>
+
+					<!-- -->
+					<p>Descritpiot: '${wantedMeasurement.description}'</p>
+					<p>Category: '${wantedMeasurement.category.category}'</p>
+					<p>Aval Category: '${availableCategory}'</p>
+
+				</div>
+
 			</div>
-		
-		    
-		    <div class="footer">
-				<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
-		    </div>
+
 
 		</div>
+
+
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+		</footer>
+
 	</div>
 
-	
 </body>
 
 

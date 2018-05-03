@@ -18,6 +18,12 @@
             color:red;
             font-size: 12px;
         }
+
+        .bg-light{
+            background-color:#f8f9fa
+            !important
+        }
+
     </style>
 
 
@@ -69,6 +75,14 @@
                     <form:input path="phone" type="text" class="form-control"  placeholder="Enter phone" />
                     <form:errors path="phone" cssClass="error" />
                 </div>
+
+                <%--<div class="form-group">--%>
+                    <%--<label for="au">Authority:</label>--%>
+                    <%--<form:checkbox path="autho" value="Java"/>Java--%>
+                    <%--<form:checkbox path="favLanguages" value="C++"/>C++--%>
+                    <%--<form:checkbox path="favLanguages" value=".Net"/>.Net--%>
+                <%--</div>--%>
+
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
 
