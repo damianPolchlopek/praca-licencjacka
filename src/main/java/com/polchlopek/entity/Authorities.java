@@ -7,12 +7,28 @@ import javax.persistence.*;
 public class Authorities {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
+    private int id;
+
+    @Column(name="username")
     private String username;
 
-    @Column(name="category")
+    @Column(name="authority")
     private String authority;
+
+    public Authorities(String username, String authority) {
+        this.username = username;
+        this.authority = authority;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

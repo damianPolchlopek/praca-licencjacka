@@ -39,9 +39,11 @@ public class PersonDAOImpl implements PersonDAO {
 		
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		
+		System.out.println("DAO person: przed zapisem");
 		// save/update the person
 		currentSession.saveOrUpdate(thePerson);
+		//currentSession.save(thePerson);
+
 
 	}
 

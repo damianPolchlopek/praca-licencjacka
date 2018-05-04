@@ -5,6 +5,7 @@ import com.polchlopek.classToVal.PersonToValUpdate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -50,9 +51,8 @@ public class Person {
 	private List<Measurement> measurements;
 
 	@OneToMany(fetch=FetchType.LAZY,
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-					CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="username")
+			cascade= {CascadeType.ALL})
+	@JoinColumn(name="user_id")
 	private List<Authorities> authorities;
 	
 	public Person() {
@@ -67,6 +67,7 @@ public class Person {
 		this.email = ptv.getEmail();
 		this.password = ptv.getPassword();
 		this.phone = ptv.getPhone();
+		this.enabled = ptv.getEnabled();
 	}
 	
 	public Person(PersonToValAdd ptv) {
@@ -76,8 +77,24 @@ public class Person {
 		this.email = ptv.getEmail();
 		this.password = ptv.getPassword();
 		this.phone = ptv.getPhone();
+		this.enabled = ptv.getEnabled();
+
+		List<Authorities> tmpAuthorities = new LinkedList<Authorities>();
+		for(String tmp: ptv.getAuthorities()) {
+			tmpAuthorities.add(new Authorities(ptv.getNickName(), tmp));
+		}
+
+		this.authorities = tmpAuthorities;
 	}
-	
+
+	public List<Authorities> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authorities> authorities) {
+		this.authorities = authorities;
+	}
+
 	public List<Login> getLogins() {
 		return logins;
 	}
@@ -150,7 +167,7 @@ public class Person {
 		this.phone = phone;
 	}
 
-	public boolean isEnabled() {
+	public boolean getEnabled() {
 		return enabled;
 	}
 
@@ -158,17 +175,17 @@ public class Person {
 		this.enabled = enabled;
 	}
 
-	public List<Authorities> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authorities> authorities) {
-		this.authorities = authorities;
-	}
+//	public List<Authorities> getAuthorities() {
+//		return authorities;
+//	}
+//
+//	public void setAuthorities(List<Authorities> authorities) {
+//		this.authorities = authorities;
+//	}
 
 	public String toString() {
-		return "Person [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +
-				", email =" + email + ", phone=" + phone + "]";
+		return "Person orginal [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +
+				", email =" + email + ", phone=" + phone + ", autho=" + authorities + " ]";
 	}
 	
 	// add convience method

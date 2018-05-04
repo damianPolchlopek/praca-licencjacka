@@ -1,6 +1,5 @@
 package com.polchlopek.classToVal;
 
-import com.polchlopek.entity.Authorities;
 import com.polchlopek.entity.Person;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -40,21 +39,33 @@ public class PersonToValAdd {
 	@Max(value=999999999, message="max size 9 numbers")
 	private Integer phone;
 
-	//private String[] authorities;
+	private boolean enabled;
+
+	private String[] authorities;
 	
 	public PersonToValAdd(Person thePerson) {
+		this.id = thePerson.getId();
 		this.firstName = thePerson.getFirstName();
 		this.lastName = thePerson.getLastName();
 		this.nickName = thePerson.getNickName();
 		this.email = thePerson.getEmail();
 		this.password = thePerson.getPassword();
 		this.phone = thePerson.getPhone();
+		this.enabled = thePerson.getEnabled();
 	}
 
 
 	public PersonToValAdd() {
 	}
-	
+
+	public String[] getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(String[] authorities) {
+		this.authorities = authorities;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -111,8 +122,16 @@ public class PersonToValAdd {
 		this.password = password;
 	}
 
+	public boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public String toString() {
-		return "Person [id=" + id + ", lastName=" + lastName +
+		return "PersonToVallAdd [id=" + id + ", lastName=" + lastName +
 				", email =" + email + "]";
 	}
 

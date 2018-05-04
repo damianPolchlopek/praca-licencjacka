@@ -37,9 +37,8 @@
         <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <div class="py-5 text-center"></div>
 
-
             <h2>Add Form</h2>
-            <form:form action="savePerson" modelAttribute="personToVal">
+            <form:form action="savePerson" modelAttribute="personToValAdd">
                 <div class="form-group">
                     <label for="nickName">Username:</label>
                     <form:input path="nickName" type="text" class="form-control"  placeholder="Enter username" />
@@ -76,13 +75,43 @@
                     <form:errors path="phone" cssClass="error" />
                 </div>
 
-                <%--<div class="form-group">--%>
-                    <%--<label for="au">Authority:</label>--%>
-                    <%--<form:checkbox path="autho" value="Java"/>Java--%>
-                    <%--<form:checkbox path="favLanguages" value="C++"/>C++--%>
-                    <%--<form:checkbox path="favLanguages" value=".Net"/>.Net--%>
-                <%--</div>--%>
+                <!-- Blokada konta -->
+                <div class="form-group">
+                    <label>Enabled:</label>
+                    <div class="radio">
+                        <label class="custom-control-label">
+                            <form:radiobutton path="enabled" class="custom-control-input" value="true"/>
+                            True
+                        </label>
+                    </div>
 
+                    <div class="radio">
+                        <label class="custom-control-label">
+                            <form:radiobutton path="enabled" class="custom-control-input" value="false"/>
+                            False
+                        </label>
+                    </div>
+
+                </div>
+
+                <!-- Prawa dostepu -->
+                <div class="form-group">
+                    <label>Roles:</label>
+                    <div >
+                        <label class="custom-control-label">
+                            <form:checkbox path="authorities" class="custom-control-input" value="ROLE_EMPLOYEE"/>
+                            Employee
+                        </label>
+                    </div>
+
+                    <div >
+                        <label class="custom-control-label">
+                            <form:checkbox path="authorities" class="custom-control-input" value="ROLE_ADMIN"/>
+                            Administrator
+                        </label>
+                    </div>
+
+                </div>
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
 

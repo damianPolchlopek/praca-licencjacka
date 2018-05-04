@@ -1,6 +1,7 @@
 package com.polchlopek.classToVal;
 
 import com.polchlopek.entity.Person;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
@@ -12,30 +13,32 @@ public class PersonToValUpdate {
 	
 	@Id
 	private Integer id;
-	
-	@NotNull(message="is required")
+
+	@NotEmpty(message="is required")
 	@Size(min=1, max=15, message="max size 15 characters")
 	private String nickName;
-	
-	@NotNull(message="is required")
+
+	@NotEmpty(message="is required")
 	@Size(min=1, max=15, message="max size 15 characters")
 	private String firstName;
-	
-	@NotNull(message="is required")
+
+	@NotEmpty(message="is required")
 	@Size(min=1, max=15, message="max size 15 characters")
 	private String lastName;
-	
-	@NotNull(message="is required")
+
+	@NotEmpty(message="is required")
 	@Size(min=1, max=45, message="max size 45 characters")
 	private String email;
 	
 	@Size(min=1, max=45, message="max size 45 characters")
 	private String password;
-	
+
 	@NotNull(message="is required")
 	@Min(value=0, message="Wieksze od zera")
 	@Max(value=999999999, message="max size 9 numbers")
 	private Integer phone;
+
+	private boolean enabled;
 	
 	public PersonToValUpdate(Person thePerson) {
 		this.id = thePerson.getId();
@@ -45,6 +48,7 @@ public class PersonToValUpdate {
 		this.email = thePerson.getEmail();
 		this.password = thePerson.getPassword();
 		this.phone = thePerson.getPhone();
+		this.enabled = thePerson.getEnabled();
 	}
 	
 	public PersonToValUpdate() {
@@ -104,6 +108,14 @@ public class PersonToValUpdate {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String toString() {

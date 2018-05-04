@@ -5,12 +5,10 @@
 
 <head>
 
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,7 +38,7 @@
             <div class="py-5 text-center"></div>
 
 
-            <h2>Add Form</h2>
+            <h2>Update Person</h2>
             <form:form action="savePersonUpdate" modelAttribute="personToValUpdate">
 
                 <!-- need to associate this data with person id -->
@@ -48,38 +46,56 @@
 
                 <div class="form-group">
                     <label for="nickName">Username:</label>
-                    <form:input path="nickName" type="text" class="form-control"  placeholder="Enter username" />
+                    <form:input path="nickName" type="text" class="form-control" readonly="true"/>
                     <form:errors path="nickName" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="firstName">First name:</label>
-                    <form:input path="firstName" type="text" class="form-control"  placeholder="Enter first name" />
+                    <form:input path="firstName" type="text" class="form-control"   />
                     <form:errors path="firstName" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
-                    <form:input path="lastName" type="text" class="form-control"  placeholder="Enter last name" />
+                    <form:input path="lastName" type="text" class="form-control"  />
                     <form:errors path="lastName" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <form:input path="email" type="email" class="form-control"  placeholder="Enter email" />
+                    <form:input path="email" type="email" class="form-control"   />
                     <form:errors path="email" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <form:input path="password" type="password" class="form-control"  placeholder="Enter password" />
+                    <form:input path="password" type="password" class="form-control"   />
                     <form:errors path="password" cssClass="error" />
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone:</label>
-                    <form:input path="phone" type="text" class="form-control"  placeholder="Enter phone" />
+                    <form:input path="phone" type="text" class="form-control"   />
                     <form:errors path="phone" cssClass="error" />
+                </div>
+
+                <div class="form-group">
+                    <label>Enabled:</label>
+                    <div class="radio">
+                        <label class="custom-control-label">
+                            <form:radiobutton path="enabled" class="custom-control-input" value="true"/>
+                            True
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label class="custom-control-label">
+                            <form:radiobutton path="enabled" class="custom-control-input" value="false"/>
+                            False
+                        </label>
+                    </div>
+
                 </div>
 
                 <%--<div class="form-group">--%>
@@ -89,11 +105,9 @@
                 <%--<form:checkbox path="favLanguages" value=".Net"/>.Net--%>
                 <%--</div>--%>
 
-
                 <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
 
             </form:form>
-
 
 
             <br><br><br><br>
@@ -104,7 +118,6 @@
 
         </div>
     </div>
-
 
 
     <footer class="my-5 pt-5 text-muted text-center text-small">

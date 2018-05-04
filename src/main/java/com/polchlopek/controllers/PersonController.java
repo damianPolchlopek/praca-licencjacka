@@ -41,24 +41,26 @@ public class PersonController {
 
 		// zostalo zmienione z update na add UWAGA !!!!!!!!
 		// create model attribute to bind form data
-		PersonToValUpdate thePersonToVal = new PersonToValUpdate();
+		PersonToValAdd thePersonToVal = new PersonToValAdd();
 		
-		theModel.addAttribute("personToVal", thePersonToVal);
+		theModel.addAttribute("personToValAdd", thePersonToVal);
 		
 		return "add-person";
 	}
 
 	@RequestMapping("/savePerson")
-	public String savePerson(@Valid @ModelAttribute("personToVal") PersonToValAdd thePerson,
+	public String savePerson(@Valid @ModelAttribute("personToValAdd") PersonToValAdd thePerson,
 			BindingResult theBindingResult) {
-		
+
+		//System.out.println("Roles: " + thePerson.getAuthorities().length);
+
 		if(theBindingResult.hasErrors()) {
 			return "add-person";
 		}
 		else {
 			Person personToSave = new Person(thePerson);
 			// save the person using our service
-			System.out.println("Dodanie");
+			System.out.println("Dodanie: " + personToSave);
 			applicationService.savePerson(personToSave);
 			System.out.println("Przekierowuje do listy !!!");
 			return "redirect:/person/showPerson";
@@ -68,7 +70,8 @@ public class PersonController {
 	@RequestMapping("/savePersonUpdate")
 	public String savePersonUpdate(@Valid @ModelAttribute("personToValUpdate") PersonToValUpdate thePerson,
 			BindingResult theBindingResult) {
-		
+		System.out.println("[BINDINGRESULT] " + theBindingResult);
+
 		if(theBindingResult.hasErrors()) {
 			return "update-person";
 		}
@@ -76,7 +79,7 @@ public class PersonController {
 			Person personToSave = new Person(thePerson);
 			System.out.println("UpdateersonToVal: " + thePerson);
 			System.out.println("Update person: " + personToSave);
-			// save the person using our service
+			//save the person using our service
 			applicationService.savePerson(personToSave);
 			return "redirect:/person/showPerson";
 		}
