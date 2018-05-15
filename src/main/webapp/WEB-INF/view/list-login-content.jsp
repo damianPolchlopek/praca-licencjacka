@@ -87,6 +87,20 @@
 							</li>
 						</security:authorize>
 
+						<hr>
+						<li class="nav-item">
+							<!-- Add a logout button -->
+							<form:form action="${pageContext.request.contextPath}/logout"
+									   method="POST">
+
+								<button type="submit" class="btn btn-info">
+									<span class="glyphicon glyphicon-off" ></span>
+									Logout
+								</button>
+
+							</form:form>
+						</li>
+
 					</ul><br>
 
 				</div>
@@ -128,7 +142,7 @@
 		</div>
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
-				<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+				<h4>Damian Polchlopek - Praca licencjacka</h4>
 			</footer>
 
 	</div>

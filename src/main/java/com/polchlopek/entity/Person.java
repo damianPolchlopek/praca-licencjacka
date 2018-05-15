@@ -50,7 +50,7 @@ public class Person {
 	@JoinColumn(name="users_id_meas")
 	private List<Measurement> measurements;
 
-	@OneToMany(fetch=FetchType.LAZY,
+	@OneToMany(fetch=FetchType.EAGER,
 			cascade= {CascadeType.ALL})
 	@JoinColumn(name="user_id")
 	private List<Authorities> authorities;

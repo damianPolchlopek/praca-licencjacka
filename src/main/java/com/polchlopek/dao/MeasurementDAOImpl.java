@@ -1,5 +1,6 @@
 package com.polchlopek.dao;
 
+import com.polchlopek.data.DataMeasurement;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
 import org.hibernate.Session;
@@ -58,5 +59,30 @@ public class MeasurementDAOImpl implements MeasurementDAO {
 		
 		return measArray;
 	}
+
+	@Override
+	public List<Measurement> getMeasurements(DataMeasurement dataMeasurement) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+
+//		from Login log order by log.id desc", Login.class
+//		Query theQuery = currentSession.createQuery("delete from Person where id=:personId");
+//		theQuery.setParameter("personId", theId);
+
+		// create query
+		Query<Measurement> theQuery = currentSession.createQuery("from Measurement meas where " +
+				"meas.category.category like :cat_param and " +
+				"meas.description like :descr_param ");
+
+		theQuery.setParameter("cat_param", '%'+dataMeasurement.getCategory()+'%');
+		theQuery.setParameter("descr_param", '%'+dataMeasurement.getDescription()+'%');
+
+		// execute query and get result list
+		List<Measurement> measArray = theQuery.getResultList();
+
+		return measArray;
+	}
+
+	
 
 }

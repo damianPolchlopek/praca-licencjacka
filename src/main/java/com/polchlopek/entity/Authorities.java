@@ -22,6 +22,9 @@ public class Authorities {
         this.authority = authority;
     }
 
+    public Authorities() {
+    }
+
     public int getId() {
         return id;
     }

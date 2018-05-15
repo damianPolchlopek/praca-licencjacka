@@ -36,7 +36,7 @@ public class PersonController {
 		return "list-person-content";
 	}
 	
-	@RequestMapping("/showFormForAdd")
+	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 
 		// zostalo zmienione z update na add UWAGA !!!!!!!!
@@ -108,5 +108,5 @@ public class PersonController {
 		return "redirect:/person/showPerson";
 	}
 
-	
+
 }

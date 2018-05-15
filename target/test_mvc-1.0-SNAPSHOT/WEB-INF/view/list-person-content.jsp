@@ -16,7 +16,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-
 </head>
 
 <body>
@@ -78,7 +77,7 @@
 						<li class="nav-item">
 							<a href="${pageContext.request.contextPath}/admin">
 								<span class="glyphicon glyphicon-eye-open" ></span>
-								Admin stuff
+								Admin
 							</a>
 						</li>
 					</security:authorize>
@@ -157,7 +156,7 @@
 
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
-			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 
 	</div>

@@ -78,7 +78,7 @@
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/admin">
                                     <span class="glyphicon glyphicon-eye-open" ></span>
-                                    Admin stuff
+                                    Admin
                                 </a>
                             </li>
                         </security:authorize>
@@ -100,9 +100,7 @@
                     </ul><br>
 
                 </div>
-
-
-
+                
                 <div class="col-sm-9">
 
                     <!-- display user name and role -->
@@ -112,17 +110,14 @@
                         <%--Role(s): <security:authentication property="principal.authorities" />--%>
                     </p>
 
-
-
                 </div>
 
             </div>
 
         </div>
 
-
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+            <h4>Damian Polchlopek - Praca licencjacka</h4>
         </footer>
 
     </div>

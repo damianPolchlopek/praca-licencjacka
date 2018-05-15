@@ -26,7 +26,9 @@ public class LoginController {
 		
 		// add the people to the model
 		theModel.addAttribute("logins", theLogins);
-		
+
+		System.out.println("{/login/showLogin} jestem w funkcji");
+
 		return "list-login-content";
 	}
 

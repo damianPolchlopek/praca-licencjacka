@@ -1,5 +1,6 @@
 package com.polchlopek.dao;
 
+import com.polchlopek.data.DataMeasurement;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
 import org.springframework.stereotype.Repository;
@@ -14,5 +15,6 @@ public interface MeasurementDAO {
 	public Measurement getMeasurement(int theId);
 
 	public List<MeasurementData> getMeasurementData();
-	
+
+    List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
 }

@@ -1,6 +1,7 @@
 package com.polchlopek.service;
 
 import com.polchlopek.classToVal.PersonToValUpdate;
+import com.polchlopek.data.DataMeasurement;
 import com.polchlopek.entity.Login;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
@@ -35,4 +36,6 @@ public interface AplicationService {
 	public List<MeasurementData> getArrayMeassurement(int theId);
 
     List<String> getCategories();
+
+    List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
 }

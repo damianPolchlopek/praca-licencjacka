@@ -10,13 +10,13 @@
 /* Set black background color, white text and some padding */
 footer {
     background-color: #555;
-    color: white;
+    color: #4433CC;
     padding: 15px;
 }
 
 header {
     background-color: #555;
-    color: white;
+    color: yellowgreen;
     padding: 15px;
 }
 

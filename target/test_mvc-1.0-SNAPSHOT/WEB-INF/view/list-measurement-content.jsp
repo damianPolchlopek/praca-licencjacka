@@ -110,13 +110,11 @@
 						<div class="container">
 							<div class="navbar-header">
 
-								<form:form action="searchMeasurements" modelAttribute="wantedMeasurement"
+								<form:form action="searchMeasurements" modelAttribute="dataMeasurement"
 										   class="navbar-form navbar-left" method="post" role="search">
 
-									<form:select path="category.category" class="form-control">
-										<form:option value="all"> All </form:option>
-										<%--<form:option value="dddd"> dddd</form:option>--%>
-										<%--<form:option value="aaa"> aaaaa</form:option>--%>
+									<form:select path="category" class="form-control">
+										<form:option value=""> All </form:option>
 										<form:options items="${availableCategory}"></form:options>
 									</form:select>
 
@@ -169,9 +167,13 @@
 					<hr>
 
 					<!-- -->
-					<p>Descritpiot: '${wantedMeasurement.description}'</p>
-					<p>Category: '${wantedMeasurement.category.category}'</p>
-					<p>Aval Category: '${availableCategory}'</p>
+					<%--<p>Descritpiot: '${wantedMeasurement.description}'</p>--%>
+					<%--<p>Category: '${wantedMeasurement.category.category}'</p>--%>
+					<%--<p>Aval Category: '${availableCategory}'</p>--%>
+					<hr>
+					<p>Descritpiot: '${dataMeasurement.description}'</p>
+					<p>Category: '${dataMeasurement.category}'</p>
+
 
 				</div>
 
@@ -182,7 +184,7 @@
 
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
-			<h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
+			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 
 	</div>

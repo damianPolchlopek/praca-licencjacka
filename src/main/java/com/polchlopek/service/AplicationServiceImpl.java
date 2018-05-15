@@ -2,6 +2,7 @@ package com.polchlopek.service;
 
 import com.polchlopek.classToVal.PersonToValUpdate;
 import com.polchlopek.dao.*;
+import com.polchlopek.data.DataMeasurement;
 import com.polchlopek.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,5 +94,10 @@ public class AplicationServiceImpl implements AplicationService {
 	public List<String> getCategories() {
 		return measurementCategoryDao.getCategories();
 	}
+
+	@Transactional
+    public List<Measurement> getMeasurements(DataMeasurement dataMeasurement) {
+		return measurementDao.getMeasurements(dataMeasurement);
+    }
 
 }

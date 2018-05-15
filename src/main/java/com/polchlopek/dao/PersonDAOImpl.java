@@ -64,7 +64,7 @@ public class PersonDAOImpl implements PersonDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// get person form database need to login to application
-		Query<Person> theQuery = currentSession.createQuery("from Person where nick_name=:nickName");
+		Query<Person> theQuery = currentSession.createQuery("from Person where username=:nickName");
 		
 		theQuery.setParameter("nickName", nickName);
 		

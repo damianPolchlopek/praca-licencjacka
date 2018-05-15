@@ -22,6 +22,7 @@ public class LoginPanelController {
 
     @GetMapping("/showPlainForm")
     public String showPlainForm() {
+		System.out.println("/login/showPlainForm");
         return "fancy-login";
     }
 
