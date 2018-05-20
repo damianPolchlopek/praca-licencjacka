@@ -17,4 +17,8 @@ public interface MeasurementDAO {
 	public List<MeasurementData> getMeasurementData();
 
     List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
+
+    String getDescription(int tmpId);
+
+	String getCategory(int tmpId);
 }

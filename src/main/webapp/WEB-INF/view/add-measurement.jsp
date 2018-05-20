@@ -111,12 +111,7 @@
                 
                 <div class="col-sm-9">
 
-                    <!-- display user name and role -->
-                    <p>
-                    <h3> Witaj <security:authentication property="principal.username" /> </h3>
-                        <%--<br><br>--%>
-                        <%--Role(s): <security:authentication property="principal.authorities" />--%>
-                    </p>
+                    Dodawanie pomiarow
 
                 </div>
 

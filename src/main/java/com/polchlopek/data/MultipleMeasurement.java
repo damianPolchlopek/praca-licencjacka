@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 public class MultipleMeasurement {
 
-    private String[] measurementToGraph;
+    private int[] measurementToGraph;
 
-    public String[] getMeasurementToGraph() {
+    public int[] getMeasurementToGraph() {
         return measurementToGraph;
     }
 
-    public void setMeasurementToGraph(String[] measurementToGraph) {
+    public void setMeasurementToGraph(int[] measurementToGraph) {
         this.measurementToGraph = measurementToGraph;
     }
 

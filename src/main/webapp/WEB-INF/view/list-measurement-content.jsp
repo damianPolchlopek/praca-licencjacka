@@ -22,10 +22,9 @@
 <body>
 	<div class="body-container">
 
-		<header class="my-5 pt-5 text-muted text-center text-small">
+		<header class="my-5 pt-5 text-center text-small">
 			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
 		</header>
-
 
 		<div class="container-fluid">
 
@@ -128,69 +127,66 @@
 					</nav>
 
 
-<form:form action="showMultipleGraph" modelAttribute="multipleMeasurement">
+                    <form:form action="showMultipleGraph" modelAttribute="multipleMeasurement">
 
-					<!-- add our html table here -->
-					<table class="table table-striped table-sm">
-						<tr>
-							<th>User First Name</th>
-							<th>User Last Name</th>
-							<th>Date Measurement</th>
-							<th>Description</th>
-							<th>Category</th>
+                        <%--  --%>
+                        <table class="table table-striped table-sm">
+                            <tr>
+                                <th>User First Name</th>
+                                <th>User Last Name</th>
+                                <th>Date Measurement</th>
+                                <th>Description</th>
+                                <th>Category</th>
 
-							<c:if test="${empty dataMeasurement.category}" >
-								<th>Show</th>
-							</c:if>
+                                <c:if test="${empty dataMeasurement.category}" >
+                                    <th>Show</th>
+                                </c:if>
 
-							<c:if test="${not empty dataMeasurement.category}" >
-								<th>Which meas</th>
-							</c:if>
-						</tr>
+                                <c:if test="${not empty dataMeasurement.category}" >
+                                    <th>Which meas</th>
+                                </c:if>
+                            </tr>
 
-						<!-- loop over and print our people -->
-						<c:forEach var="tempMeasurement" items="${measurements}">
+                            <!-- loop over and print our people -->
+                            <c:forEach var="tempMeasurement" items="${measurements}">
 
-							<!-- construct an "update" link with person id -->
-							<c:url var="showLink" value="/measurement/showGraph">
-								<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
-							</c:url>
+                                <!-- construct an "update" link with person id -->
+                                <c:url var="showLink" value="/measurement/showGraph">
+                                    <c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
+                                </c:url>
 
-							<tr>
-								<td> ${tempMeasurement.personId.firstName} </td>
-								<td> ${tempMeasurement.personId.lastName} </td>
-								<td> ${tempMeasurement.dateMeasurement} </td>
-								<td> ${tempMeasurement.description} </td>
-								<td> ${tempMeasurement.category.category} </td>
+                                <tr>
+                                    <td> ${tempMeasurement.personId.firstName} </td>
+                                    <td> ${tempMeasurement.personId.lastName} </td>
+                                    <td> ${tempMeasurement.dateMeasurement} </td>
+                                    <td> ${tempMeasurement.description} </td>
+                                    <td> ${tempMeasurement.category.category} </td>
 
-								<c:if test="${empty dataMeasurement.category}" >
-								<td>
-									<!-- display the update link -->
-									<a href="${showLink }">Show</a>
-								</td>
-								</c:if>
-								<%--dataMeasurement.category--%>
-								<c:if test="${not empty dataMeasurement.category}" >
-									<td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
-								</c:if>
+                                    <c:if test="${empty dataMeasurement.category}" >
+                                    <td>
+                                        <!-- display the update link -->
+                                        <a href="${showLink }">Show</a>
+                                    </td>
+                                    </c:if>
+                                    <%--dataMeasurement.category--%>
+                                    <c:if test="${not empty dataMeasurement.category}" >
+                                        <td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
+                                    </c:if>
 
-							</tr>
+                                </tr>
 
-						</c:forEach>
-					</table>
+                            </c:forEach>
+                        </table>
 
-	<input type="submit" value="Submit" />
+                        <c:if test="${not empty dataMeasurement.category}" >
+                            <input type="submit" value="Submit" />
+                        </c:if>
 
-
-</form:form>
+                    </form:form>
 					<hr>
 
-					<!-- -->
-					<%--<p>Descritpiot: '${wantedMeasurement.description}'</p>--%>
-					<%--<p>Category: '${wantedMeasurement.category.category}'</p>--%>
-					<%--<p>Aval Category: '${availableCategory}'</p>--%>
-					<hr>
-					<%--<p>Descritpiot: '${dataMeasurement.description}'</p>--%>
+
+					<!-- napisy pomocnicze -->
 					<p>Category: ${dataMeasurement.category}</p>
 					<p>Multiple: ${multipleMeasurement}</p>
 
@@ -202,8 +198,7 @@
 
 		</div>
 
-
-		<footer class="my-5 pt-5 text-muted text-center text-small">
+		<footer class="my-5 pt-5 text-center text-small">
 			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 

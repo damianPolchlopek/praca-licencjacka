@@ -22,7 +22,7 @@
 
 	<div class="body-container">
 
-		<header class="my-5 pt-5 text-muted text-center text-small">
+		<header class="my-5 pt-5 text-center text-small">
 			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
 		</header>
 
@@ -107,11 +107,11 @@
 				<table class="table table-striped table-sm">
 					<tr>
 						<%--<th>Id</th>--%>
-						<th style="text-align: center">First Name</th>
-						<th style="text-align: center">Last Name</th>
-						<th style="text-align: center">Username</th>
-						<th style="text-align: center">Email</th>
-						<th style="text-align: center">Phone</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Phone</th>
 						<security:authorize access="hasRole('ADMIN')">
 							<th style="text-align: center">Action</th>
 						</security:authorize>
@@ -158,7 +158,7 @@
 	</div>
 
 
-		<footer class="my-5 pt-5 text-muted text-center text-small">
+		<footer class="my-5 pt-5 text-center text-small">
 			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 

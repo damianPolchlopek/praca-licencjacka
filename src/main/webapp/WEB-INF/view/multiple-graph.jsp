@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 	<head>
@@ -20,39 +21,68 @@
 		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
 	    <script type="text/javascript">
-		
-			var dataToDraw = []
-			
+
 			  window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
-			
-			      title:{
-			      text: "Pomiar Temperatury"
-			      },
-			       data: [
-			      {
-			        type: "line",
-			
-			        dataPoints: dataToDraw
-			      }
-			      ]
+
+				    title: {
+					text: "Category - ${selectedMeasurements.get(0).category}"
+				  },
+
+                    legend: {
+                        cursor: "pointer",
+                        itemclick: toggleDataSeries
+                    },
+
+                    toolTip: {
+                        shared: true
+                    },
+
+					data: [
+
+                       <c:forEach var="tmpArray" items="${selectedMeasurements}">
+                       {
+					   		type: "line",
+                            name: "${tmpArray.description}",
+                            showInLegend: true,
+					   		dataPoints : [
+
+                       		<c:forEach var="tmpNode" items="${tmpArray.measurementData}">
+					   			{x: ${tmpNode.nodeX},
+								 y: ${tmpNode.nodeY}},
+
+							</c:forEach>
+
+							]},
+
+                       </c:forEach>
+                   ]
+
 			    });
 			
 			    chart.render();
 			  }
+
+              function toggleDataSeries(e) {
+                  if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                      e.dataSeries.visible = false;
+                  } else {
+                      e.dataSeries.visible = true;
+                  }
+                  e.chart.render();
+              }
+
 	  	</script>
 		<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   
 	</head>
 
-
 	<body>
-
 
 	<div class="body-container">
 
-		<header class="my-5 pt-5 text-muted text-center text-small">
+		<header class="my-5 pt-5 text-center text-small">
 			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
 		</header>
 
@@ -133,25 +163,9 @@
 
 				<div class="col-sm-9">
 
-					<!-- loop over and print our node -->
-					<c:forEach var="tempNode" items="${actualMeasurement}">
-
-						<script>
-                            <!-- fill array -->
-                            dataToDraw.push({
-                                x: ${tempNode.nodeX},
-                                y: ${tempNode.nodeY}}
-                            );
-						</script>
-
-					</c:forEach>
-
-
 					<div id="chartContainer" style="height: 300px; width: 100%;">
 					</div>
 
-
-					multiple graph
 
 					<br>
 
@@ -159,10 +173,9 @@
 
 			</div>
 
-
 		</div>
 
-		<footer class="my-5 pt-5 text-muted text-center text-small">
+		<footer class="my-5 pt-5 text-center text-small">
 			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 

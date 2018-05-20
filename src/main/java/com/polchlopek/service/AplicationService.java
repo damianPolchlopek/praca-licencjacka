@@ -38,4 +38,8 @@ public interface AplicationService {
     List<String> getCategories();
 
     List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
+
+    String getDescription(int tmpId);
+
+	String getCategory(int tmpId);
 }

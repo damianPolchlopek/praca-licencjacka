@@ -100,4 +100,14 @@ public class AplicationServiceImpl implements AplicationService {
 		return measurementDao.getMeasurements(dataMeasurement);
     }
 
+	@Transactional
+	public String getDescription(int tmpId) {
+		return measurementDao.getDescription(tmpId);
+	}
+
+	@Transactional
+	public String getCategory(int tmpId) {
+		return measurementDao.getCategory(tmpId);
+	}
+
 }

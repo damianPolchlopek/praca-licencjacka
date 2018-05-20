@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 	<head>
@@ -52,7 +53,7 @@
 
 	<div class="body-container">
 
-		<header class="my-5 pt-5 text-muted text-center text-small">
+		<header class="my-5 pt-5 text-center text-small">
 			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
 		</header>
 
@@ -107,7 +108,7 @@
 							<li class="nav-item">
 								<a href="${pageContext.request.contextPath}/admin">
 									<span class="glyphicon glyphicon-eye-open" ></span>
-									Admin stuff
+									Admin
 								</a>
 							</li>
 						</security:authorize>
@@ -159,7 +160,7 @@
 
 		</div>
 
-		<footer class="my-5 pt-5 text-muted text-center text-small">
+		<footer class="my-5 pt-5 text-center text-small">
 			<h4>Damian Polchlopek - Praca licencjacka</h4>
 		</footer>
 

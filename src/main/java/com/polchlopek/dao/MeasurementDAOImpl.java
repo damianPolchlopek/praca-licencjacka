@@ -2,6 +2,7 @@ package com.polchlopek.dao;
 
 import com.polchlopek.data.DataMeasurement;
 import com.polchlopek.entity.Measurement;
+import com.polchlopek.entity.MeasurementCategory;
 import com.polchlopek.entity.MeasurementData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +10,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Repository
@@ -83,6 +85,24 @@ public class MeasurementDAOImpl implements MeasurementDAO {
 		return measArray;
 	}
 
-	
+
+	public String getDescription(int tmpId) {
+
+		Session currentSession = sessionFactory.getCurrentSession();
+		Measurement measurement = currentSession.get(Measurement.class, tmpId);
+		String description = measurement.getDescription();
+
+		return description;
+	}
+
+	@Override
+	public String getCategory(int tmpId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Measurement measurement = currentSession.get(Measurement.class, tmpId);
+		String category = measurement.getCategory().getCategory();
+
+		return category;
+	}
+
 
 }

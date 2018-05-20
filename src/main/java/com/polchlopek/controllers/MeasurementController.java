@@ -2,6 +2,7 @@ package com.polchlopek.controllers;
 
 
 import com.polchlopek.data.DataMeasurement;
+import com.polchlopek.data.MeasurementDataWithInformation;
 import com.polchlopek.data.MultipleMeasurement;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -83,13 +85,36 @@ public class MeasurementController {
 	public String showMultipleGraph(Model theModel,
 									@ModelAttribute("multipleMeasurement") MultipleMeasurement multipleMeasurement) {
 
-		System.out.println("z funkcji: " + multipleMeasurement);
+		List<MeasurementDataWithInformation> selectedMeasurements = new ArrayList<>();
+		List<MeasurementData> tmpMeasData;
+		MeasurementDataWithInformation measurementDataWithInformation;
+		String description;
+		String category;
 
-		// send to graph
+		for (int tmpId: multipleMeasurement.getMeasurementToGraph()){
+			tmpMeasData = applicationService.getArrayMeassurement(tmpId);
+			description = applicationService.getDescription(tmpId);
+			category = applicationService.getCategory(tmpId);
+			measurementDataWithInformation = new MeasurementDataWithInformation((ArrayList<MeasurementData>) tmpMeasData,
+					description, category);
+			selectedMeasurements.add(measurementDataWithInformation);
+		}
+
+		theModel.addAttribute("selectedMeasurements", selectedMeasurements);
+
 		return "multiple-graph";
 	}
 
-	
+
+	@RequestMapping("/addMeasurement")
+	public String addMeasurement() {
+
+
+		// send to graph
+		return "add-measurement";
+	}
+
+
 }
 
 
