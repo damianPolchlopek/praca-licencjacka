@@ -27,7 +27,7 @@ public class Measurement {
 						 CascadeType.DETACH, CascadeType.REFRESH,})
 	@JoinColumn(name="users_id_meas")
 	private Person personId;
-	
+
 	public Measurement() {
 	
 	}

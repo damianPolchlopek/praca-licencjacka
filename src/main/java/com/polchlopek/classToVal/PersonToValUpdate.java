@@ -29,7 +29,8 @@ public class PersonToValUpdate {
 	@NotEmpty(message="is required")
 	@Size(min=1, max=45, message="max size 45 characters")
 	private String email;
-	
+
+	@NotEmpty(message="is required")
 	@Size(min=1, max=45, message="max size 45 characters")
 	private String password;
 

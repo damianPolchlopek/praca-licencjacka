@@ -86,7 +86,7 @@ public class PersonController {
 
 	}
 	
-	@GetMapping("/showFormForUpdate")
+	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("personId") int theId, 
 				Model theModel) {
 

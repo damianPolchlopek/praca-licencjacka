@@ -117,8 +117,6 @@
 
             </form:form>
 
-
-
             <br><br><br><br>
 
             <div class="backToMenu">
@@ -127,12 +125,6 @@
 
         </div>
     </div>
-
-
-
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <h4>Copyright � Damian Polchlopek. All Rights Reserved.</h4>
-    </footer>
 
 </div>
 </div>

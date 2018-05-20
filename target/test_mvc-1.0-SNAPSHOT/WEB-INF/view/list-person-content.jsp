@@ -103,41 +103,46 @@
 
 			<div class="col-sm-9">
 
-
 				<!-- add our html table here -->
 				<table class="table table-striped table-sm">
 					<tr>
-						<th>Id</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
-						<th>Phone</th>
+						<%--<th>Id</th>--%>
+						<th style="text-align: center">First Name</th>
+						<th style="text-align: center">Last Name</th>
+						<th style="text-align: center">Username</th>
+						<th style="text-align: center">Email</th>
+						<th style="text-align: center">Phone</th>
 						<security:authorize access="hasRole('ADMIN')">
-							<th>Action</th>
+							<th style="text-align: center">Action</th>
 						</security:authorize>
 					</tr>
 
 					<!-- loop over and print our people -->
 					<c:forEach var="tempPerson" items="${people}">
 
-
 						<!-- construct an "update" link with person id -->
 						<c:url var="updateLink" value="/person/showFormForUpdate">
 							<c:param name="personId" value="${tempPerson.id}"></c:param>
 						</c:url>
 
-
 						<tr>
-							<td> ${tempPerson.id} </td>
+							<%--<td> ${tempPerson.id} </td>--%>
 							<td> ${tempPerson.firstName} </td>
 							<td> ${tempPerson.lastName} </td>
+							<td> ${tempPerson.nickName} </td>
 							<td> ${tempPerson.email} </td>
 							<td> ${tempPerson.phone} </td>
 
 							<security:authorize access="hasRole('ADMIN')">
 								<td>
-									<!-- display the update link -->
-									<a href="${updateLink }">Update</a>
+
+									<form:form action="${updateLink }" method="POST">
+										<button type="submit" class="btn btn-info">
+											Update
+										</button>
+
+									</form:form>
+
 								</td>
 							</security:authorize>
 
@@ -146,9 +151,7 @@
 					</c:forEach>
 				</table>
 
-
 			</div>
-
 		</div>
 
 

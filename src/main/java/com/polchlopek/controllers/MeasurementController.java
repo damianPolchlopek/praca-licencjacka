@@ -2,6 +2,7 @@ package com.polchlopek.controllers;
 
 
 import com.polchlopek.data.DataMeasurement;
+import com.polchlopek.data.MultipleMeasurement;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
 import com.polchlopek.service.AplicationService;
@@ -32,30 +33,27 @@ public class MeasurementController {
 		List<String> availableCategory = applicationService.getCategories();
 
 		DataMeasurement dataMeasurement = new DataMeasurement();
+		MultipleMeasurement multipleMeasurement = new MultipleMeasurement();
 
 		// add the measurements to the model
 		theModel.addAttribute("measurements", theMeasurements);
 		theModel.addAttribute("availableCategory", availableCategory);
 		theModel.addAttribute("dataMeasurement", dataMeasurement);
+		theModel.addAttribute("multipleMeasurement", multipleMeasurement);
 
 		return "list-measurement-content";
 	}
 
 	@RequestMapping("/searchMeasurements")
 	public String searchMeasurements(Model theModel,
-									 @ModelAttribute("dataMeasurement") DataMeasurement dataMeasurement) {
+									 @ModelAttribute("dataMeasurement") DataMeasurement dataMeasurement,
+									 @ModelAttribute("multipleMeasurement") MultipleMeasurement multipleMeasurement) {
 
 		// tutaj mozna zmienic na hash mape z konkretnymi wartosciami
 		List<String> availableCategory = applicationService.getCategories();
 
-
 		//List<Measurement> theMeasurements = applicationService.getMeasurements();
 		List<Measurement> theMeasurements = applicationService.getMeasurements(dataMeasurement);
-
-		// get Measurement from dao
-//		List<Measurement> theMeasurements = new LinkedList<>();
-//		theMeasurements.add(new Measurement());
-//		theMeasurements.add(new Measurement());
 
 		theModel.addAttribute("measurements", theMeasurements);
 		theModel.addAttribute("availableCategory", availableCategory);
@@ -79,6 +77,16 @@ public class MeasurementController {
  		
 		// send to graph
 		return "graph";
+	}
+
+	@RequestMapping("/showMultipleGraph")
+	public String showMultipleGraph(Model theModel,
+									@ModelAttribute("multipleMeasurement") MultipleMeasurement multipleMeasurement) {
+
+		System.out.println("z funkcji: " + multipleMeasurement);
+
+		// send to graph
+		return "multiple-graph";
 	}
 
 	

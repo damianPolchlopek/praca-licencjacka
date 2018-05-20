@@ -1,37 +1,62 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 
-<head>
-	<title>Login</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<head>
+	
+		<title>Pomiar</title>
+		
+		<!-- reference our style sheet -->
 
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</head>
+		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+	    <script type="text/javascript">
+		
+			var dataToDraw = []
+			
+			  window.onload = function () {
+			    var chart = new CanvasJS.Chart("chartContainer",
+			    {
+			
+			      title:{
+			      text: "Pomiar Temperatury"
+			      },
+			       data: [
+			      {
+			        type: "line",
+			
+			        dataPoints: dataToDraw
+			      }
+			      ]
+			    });
+			
+			    chart.render();
+			  }
+	  	</script>
+		<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  
+	</head>
 
 
-<body>
+	<body>
 
 
 	<div class="body-container">
 
 		<header class="my-5 pt-5 text-muted text-center text-small">
-				<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
-			</header>
+			<h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+		</header>
 
 		<div class="container-fluid">
-
-
 
 			<div class="row content">
 
@@ -82,7 +107,7 @@
 							<li class="nav-item">
 								<a href="${pageContext.request.contextPath}/admin">
 									<span class="glyphicon glyphicon-eye-open" ></span>
-									Admin
+									Admin stuff
 								</a>
 							</li>
 						</security:authorize>
@@ -108,31 +133,27 @@
 
 				<div class="col-sm-9">
 
+					<!-- loop over and print our node -->
+					<c:forEach var="tempNode" items="${actualMeasurement}">
 
-					<!-- add our html table here -->
-					<table class="table table-striped table-sm">
-						<tr>
-							<th>User First Name</th>
-							<th>User Last Name</th>
-							<th>Date</th>
-							<th>Time</th>
-							<th>Location</th>
-						</tr>
+						<script>
+                            <!-- fill array -->
+                            dataToDraw.push({
+                                x: ${tempNode.nodeX},
+                                y: ${tempNode.nodeY}}
+                            );
+						</script>
 
-						<!-- loop over and print our people -->
-						<c:forEach var="tempLogin" items="${logins}">
+					</c:forEach>
 
-							<tr>
-								<td> ${tempLogin.personId.firstName} </td>
-								<td> ${tempLogin.personId.lastName} </td>
-								<td> ${tempLogin.dateLog} </td>
-								<td> ${tempLogin.timeLog} </td>
-								<td> ${tempLogin.locationLog} </td>
-							</tr>
 
-						</c:forEach>
-					</table>
+					<div id="chartContainer" style="height: 300px; width: 100%;">
+					</div>
 
+
+					multiple graph
+
+					<br>
 
 				</div>
 
@@ -142,13 +163,11 @@
 		</div>
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
-				<h4>Damian Polchlopek - Praca licencjacka</h4>
-			</footer>
+			<h4>Damian Polchlopek - Praca licencjacka</h4>
+		</footer>
 
 	</div>
 
-
-</body>
-
+	</body>
 
 </html>

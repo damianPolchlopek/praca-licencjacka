@@ -20,7 +20,6 @@ public class MeasurementCategoryDAOImpl implements  MeasurementCategoryDAO {
 
     public List<String> getCategories() {
 
-
         Session currentSession = sessionFactory.getCurrentSession();
 
         Query<String> theQuery = currentSession.createQuery("select cate.category " +

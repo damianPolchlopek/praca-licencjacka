@@ -82,7 +82,7 @@
 							<li class="nav-item">
 								<a href="${pageContext.request.contextPath}/admin">
 									<span class="glyphicon glyphicon-eye-open" ></span>
-									Admin stuff
+									Admin
 								</a>
 							</li>
 						</security:authorize>

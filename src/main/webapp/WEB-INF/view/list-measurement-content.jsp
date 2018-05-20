@@ -78,7 +78,7 @@
 							<li class="nav-item">
 								<a href="${pageContext.request.contextPath}/admin">
 									<span class="glyphicon glyphicon-eye-open" ></span>
-									Admin stuff
+									Admin
 								</a>
 							</li>
 						</security:authorize>
@@ -127,6 +127,9 @@
 						</div>
 					</nav>
 
+
+<form:form action="showMultipleGraph" modelAttribute="multipleMeasurement">
+
 					<!-- add our html table here -->
 					<table class="table table-striped table-sm">
 						<tr>
@@ -135,7 +138,14 @@
 							<th>Date Measurement</th>
 							<th>Description</th>
 							<th>Category</th>
-							<th>Show</th>
+
+							<c:if test="${empty dataMeasurement.category}" >
+								<th>Show</th>
+							</c:if>
+
+							<c:if test="${not empty dataMeasurement.category}" >
+								<th>Which meas</th>
+							</c:if>
 						</tr>
 
 						<!-- loop over and print our people -->
@@ -146,7 +156,6 @@
 								<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
 							</c:url>
 
-
 							<tr>
 								<td> ${tempMeasurement.personId.firstName} </td>
 								<td> ${tempMeasurement.personId.lastName} </td>
@@ -154,16 +163,26 @@
 								<td> ${tempMeasurement.description} </td>
 								<td> ${tempMeasurement.category.category} </td>
 
+								<c:if test="${empty dataMeasurement.category}" >
 								<td>
 									<!-- display the update link -->
 									<a href="${showLink }">Show</a>
 								</td>
+								</c:if>
+								<%--dataMeasurement.category--%>
+								<c:if test="${not empty dataMeasurement.category}" >
+									<td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
+								</c:if>
 
 							</tr>
 
 						</c:forEach>
 					</table>
 
+	<input type="submit" value="Submit" />
+
+
+</form:form>
 					<hr>
 
 					<!-- -->
@@ -171,8 +190,9 @@
 					<%--<p>Category: '${wantedMeasurement.category.category}'</p>--%>
 					<%--<p>Aval Category: '${availableCategory}'</p>--%>
 					<hr>
-					<p>Descritpiot: '${dataMeasurement.description}'</p>
-					<p>Category: '${dataMeasurement.category}'</p>
+					<%--<p>Descritpiot: '${dataMeasurement.description}'</p>--%>
+					<p>Category: ${dataMeasurement.category}</p>
+					<p>Multiple: ${multipleMeasurement}</p>
 
 
 				</div>
