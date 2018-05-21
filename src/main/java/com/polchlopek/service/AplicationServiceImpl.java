@@ -110,4 +110,24 @@ public class AplicationServiceImpl implements AplicationService {
 		return measurementDao.getCategory(tmpId);
 	}
 
+	@Transactional
+	public String getDescriptionAxisX(int tmpId) {
+		return measurementDao.getDescriptionAxisX(tmpId);
+	}
+
+	@Transactional
+	public String getDescriptionAxisY(int tmpId) {
+		return measurementDao.getDescriptionAxisY(tmpId);
+	}
+
+	@Transactional
+	public void saveMeasurement(Measurement measurement) {
+		measurementDao.saveMeasurement(measurement);
+	}
+
+	@Transactional
+	public MeasurementCategory getMeasurementCategory(String category) {
+		return measurementCategoryDao.getMeasurementCategory(category);
+	}
+
 }

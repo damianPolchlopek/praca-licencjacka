@@ -2,6 +2,8 @@ package com.polchlopek.entity;
 
 import com.polchlopek.classToVal.PersonToValAdd;
 import com.polchlopek.classToVal.PersonToValUpdate;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -43,10 +45,9 @@ public class Person {
 			CascadeType.DETACH, CascadeType.REFRESH,})
 	@JoinColumn(name="users_id_login")
 	private List<Login> logins;
-	
-	@OneToMany(fetch=FetchType.LAZY, 
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH,})
+
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade= {CascadeType.ALL})
 	@JoinColumn(name="users_id_meas")
 	private List<Measurement> measurements;
 
@@ -174,14 +175,6 @@ public class Person {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
-//	public List<Authorities> getAuthorities() {
-//		return authorities;
-//	}
-//
-//	public void setAuthorities(List<Authorities> authorities) {
-//		this.authorities = authorities;
-//	}
 
 	public String toString() {
 		return "Person orginal [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +

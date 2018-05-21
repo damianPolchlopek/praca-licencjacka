@@ -17,6 +17,11 @@
 
     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
+    <script>
+        var reader = new FileReader();
+
+    </script>
+
 </head>
 
 <body>
@@ -65,12 +70,12 @@
                         </li>
 
                         <security:authorize access="hasRole('EMPLOYEE')">
-                        <li class="nav-item">
-                            <a href="/measurement/addMeasurement">
-                                <span class="glyphicon glyphicon-stats" ></span>
+                            <li class="nav-item">
+                                <a href="/measurement/addMeasurement">
+                                    <span class="glyphicon glyphicon-plus" ></span>
                                     Add Measurement
-                            </a>
-                        </li>
+                                </a>
+                            </li>
                         </security:authorize>
 
                         <security:authorize access="hasRole('ADMIN')">
@@ -111,7 +116,19 @@
                 
                 <div class="col-sm-9">
 
-                    Dodawanie pomiarow
+
+                    Kliknij wyślij !!!!!
+
+
+
+                    <form:form action="addMeasurement" modelAttribute="measurement"
+                               method="post" >
+
+
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form:form>
+
+
 
                 </div>
 

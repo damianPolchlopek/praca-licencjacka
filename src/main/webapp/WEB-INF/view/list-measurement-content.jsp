@@ -60,9 +60,18 @@
 						<li class="nav-item">
 							<a href="/measurement/showMeasurement">
 								<span class="glyphicon glyphicon-stats" ></span>
-								Measurement
+								Measurements
 							</a>
 						</li>
+
+						<security:authorize access="hasRole('EMPLOYEE')">
+							<li class="nav-item">
+								<a href="/measurement/addMeasurement">
+									<span class="glyphicon glyphicon-plus" ></span>
+									Add Measurement
+								</a>
+							</li>
+						</security:authorize>
 
 						<security:authorize access="hasRole('ADMIN')">
 							<li class="nav-item">
@@ -143,7 +152,7 @@
                                 </c:if>
 
                                 <c:if test="${not empty dataMeasurement.category}" >
-                                    <th>Which meas</th>
+                                    <th>Select Measurement</th>
                                 </c:if>
                             </tr>
 
@@ -167,6 +176,7 @@
                                         <!-- display the update link -->
                                         <a href="${showLink }">Show</a>
                                     </td>
+
                                     </c:if>
                                     <%--dataMeasurement.category--%>
                                     <c:if test="${not empty dataMeasurement.category}" >
@@ -179,16 +189,16 @@
                         </table>
 
                         <c:if test="${not empty dataMeasurement.category}" >
-                            <input type="submit" value="Submit" />
+							<button type="submit" class="btn btn-info">Show</button>
                         </c:if>
 
                     </form:form>
-					<hr>
+
 
 
 					<!-- napisy pomocnicze -->
-					<p>Category: ${dataMeasurement.category}</p>
-					<p>Multiple: ${multipleMeasurement}</p>
+					<%--<p>Category: ${dataMeasurement.category}</p>--%>
+					<%--<p>Multiple: ${multipleMeasurement}</p>--%>
 
 
 				</div>

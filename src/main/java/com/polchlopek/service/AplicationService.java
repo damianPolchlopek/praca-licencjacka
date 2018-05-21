@@ -2,44 +2,50 @@ package com.polchlopek.service;
 
 import com.polchlopek.classToVal.PersonToValUpdate;
 import com.polchlopek.data.DataMeasurement;
-import com.polchlopek.entity.Login;
-import com.polchlopek.entity.Measurement;
-import com.polchlopek.entity.MeasurementData;
-import com.polchlopek.entity.Person;
+import com.polchlopek.entity.*;
 
 import java.util.List;
 
+
 public interface AplicationService {
 	
-	public List<Person> getPeople();
-	
-	public List<Login> getLogins();
-	
-	public List<Measurement> getMeasurements();
+	List<Person> getPeople();
 
-	public void savePerson(Person thePerson);
+	List<Login> getLogins();
 
-	public Person getPerson(int theId);
-	
-	public PersonToValUpdate getPersonToVal(int theId);
-	
-	public Person getPerson(String nickName);
+	List<Measurement> getMeasurements();
 
-	public void deletePerson(int theId);
+	void savePerson(Person thePerson);
 
-	public void addPerson(Person tmpPerson);
+	Person getPerson(int theId);
 
-	public Measurement getMeasurement(int theId);
+	PersonToValUpdate getPersonToVal(int theId);
 
-	public List<MeasurementData> getMeasurementData();
+	Person getPerson(String nickName);
 
-	public List<MeasurementData> getArrayMeassurement(int theId);
+	void deletePerson(int theId);
 
-    List<String> getCategories();
+	void addPerson(Person tmpPerson);
 
-    List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
+	Measurement getMeasurement(int theId);
 
-    String getDescription(int tmpId);
+	List<MeasurementData> getMeasurementData();
+
+	List<MeasurementData> getArrayMeassurement(int theId);
+
+	List<String> getCategories();
+
+	List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
+
+	String getDescription(int tmpId);
 
 	String getCategory(int tmpId);
+
+	String getDescriptionAxisX(int tmpId);
+
+	String getDescriptionAxisY(int tmpId);
+
+	void saveMeasurement(Measurement measurement);
+
+	MeasurementCategory getMeasurementCategory(String category);
 }

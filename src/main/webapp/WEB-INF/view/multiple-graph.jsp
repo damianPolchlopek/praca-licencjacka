@@ -11,7 +11,6 @@
 		<title>Pomiar</title>
 		
 		<!-- reference our style sheet -->
-
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,6 +36,14 @@
 
                     toolTip: {
                         shared: true
+                    },
+
+                    axisY:{
+                        title: "${selectedMeasurements.get(0).descriptionAxisY}"
+                    },
+
+                    axisX:{
+                        title: "${selectedMeasurements.get(0).descriptionAxisX}"
                     },
 
 					data: [
@@ -120,9 +127,18 @@
 						<li class="nav-item">
 							<a href="/measurement/showMeasurement">
 								<span class="glyphicon glyphicon-stats" ></span>
-								Measurement
+								Measurements
 							</a>
 						</li>
+
+                        <security:authorize access="hasRole('EMPLOYEE')">
+                            <li class="nav-item">
+                                <a href="/measurement/addMeasurement">
+                                    <span class="glyphicon glyphicon-plus" ></span>
+                                    Add Measurement
+                                </a>
+                            </li>
+                        </security:authorize>
 
 						<security:authorize access="hasRole('ADMIN')">
 							<li class="nav-item">
@@ -163,9 +179,9 @@
 
 				<div class="col-sm-9">
 
-					<div id="chartContainer" style="height: 300px; width: 100%;">
-					</div>
+					<div id="chartContainer" style="height: 100%; width: 100%;">
 
+					</div>
 
 					<br>
 

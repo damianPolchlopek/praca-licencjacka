@@ -10,15 +10,21 @@ import java.util.List;
 @Repository
 public interface MeasurementDAO {
 	
-	public List<Measurement> getMeasurements();
+	List<Measurement> getMeasurements();
 
-	public Measurement getMeasurement(int theId);
+	Measurement getMeasurement(int theId);
 
-	public List<MeasurementData> getMeasurementData();
+	List<MeasurementData> getMeasurementData();
 
     List<Measurement> getMeasurements(DataMeasurement dataMeasurement);
 
     String getDescription(int tmpId);
 
 	String getCategory(int tmpId);
+
+    String getDescriptionAxisX(int tmpId);
+
+	String getDescriptionAxisY(int tmpId);
+
+    void saveMeasurement(Measurement measurement);
 }

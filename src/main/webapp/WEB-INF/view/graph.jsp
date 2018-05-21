@@ -9,9 +9,8 @@
 	<head>
 	
 		<title>Pomiar</title>
-		
-		<!-- reference our style sheet -->
 
+		<!-- reference our style sheet -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,23 +20,36 @@
 		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
 	    <script type="text/javascript">
-		
-			var dataToDraw = []
 			
 			  window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
 			
 			      title:{
-			      text: "Pomiar Temperatury"
+			      	text: "Category - ${actualMeasurement.category}"
 			      },
+
+                    axisY:{
+                        title: "${actualMeasurement.descriptionAxisY}"
+                    },
+
+                    axisX:{
+                        title: "${actualMeasurement.descriptionAxisX}"
+                    },
+
 			       data: [
 			      {
 			        type: "line",
-			
-			        dataPoints: dataToDraw
+			        dataPoints: [
+
+						<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
+							{x: ${tmpNode.nodeX},
+							 y: ${tmpNode.nodeY}},
+						</c:forEach>
+
+					  ]
 			      }
-			      ]
+				]
 			    });
 			
 			    chart.render();
@@ -47,9 +59,7 @@
   
 	</head>
 
-
 	<body>
-
 
 	<div class="body-container">
 
@@ -91,9 +101,18 @@
 						<li class="nav-item">
 							<a href="/measurement/showMeasurement">
 								<span class="glyphicon glyphicon-stats" ></span>
-								Measurement
+								Measurements
 							</a>
 						</li>
+
+						<security:authorize access="hasRole('EMPLOYEE')">
+							<li class="nav-item">
+								<a href="/measurement/addMeasurement">
+									<span class="glyphicon glyphicon-plus" ></span>
+									Add Measurement
+								</a>
+							</li>
+						</security:authorize>
 
 						<security:authorize access="hasRole('ADMIN')">
 							<li class="nav-item">
@@ -131,24 +150,9 @@
 
 				</div>
 
-
 				<div class="col-sm-9">
 
-					<!-- loop over and print our node -->
-					<c:forEach var="tempNode" items="${actualMeasurement}">
-
-						<script>
-                            <!-- fill array -->
-                            dataToDraw.push({
-                                x: ${tempNode.nodeX},
-                                y: ${tempNode.nodeY}}
-                            );
-						</script>
-
-					</c:forEach>
-
-
-					<div id="chartContainer" style="height: 300px; width: 100%;">
+					<div id="chartContainer" style="height: 100%; width: 100%;">
 					</div>
 
 					<br>

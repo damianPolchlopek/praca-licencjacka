@@ -16,6 +16,22 @@ public class MeasurementCategory {
     @Column(name="category")
     private String category;
 
+    @Column(name="description_axis_x")
+    private String descriptionAxisX;
+
+    @Column(name="description_axis_y")
+    private String descriptionAxisY;
+
+    public MeasurementCategory() {
+
+    }
+
+    public MeasurementCategory(String category, String descriptionAxisX, String descriptionAxisY) {
+        this.category = category;
+        this.descriptionAxisX = descriptionAxisX;
+        this.descriptionAxisY = descriptionAxisY;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +46,22 @@ public class MeasurementCategory {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getDescriptionAxisX() {
+        return descriptionAxisX;
+    }
+
+    public void setDescriptionAxisX(String descriptionAxisX) {
+        this.descriptionAxisX = descriptionAxisX;
+    }
+
+    public String getDescriptionAxisY() {
+        return descriptionAxisY;
+    }
+
+    public void setDescriptionAxisY(String descriptionAxisY) {
+        this.descriptionAxisY = descriptionAxisY;
     }
 
     @Override

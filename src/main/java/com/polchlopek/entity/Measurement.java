@@ -1,7 +1,11 @@
 package com.polchlopek.entity;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="measurement")
@@ -18,8 +22,7 @@ public class Measurement {
 	@Column(name="description")
 	private String description;
 
-	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH,})
+	@ManyToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name="category_id")
 	private MeasurementCategory category;
 	
@@ -28,8 +31,25 @@ public class Measurement {
 	@JoinColumn(name="users_id_meas")
 	private Person personId;
 
+	@OneToMany(cascade= {CascadeType.ALL})
+	@JoinColumn(name="id_meas")
+	private List<MeasurementData> nodes;
+
 	public Measurement() {
 	
+	}
+
+	public Measurement(Date dateMeasurement, String description) {
+		this.dateMeasurement = dateMeasurement;
+		this.description = description;
+	}
+
+	public List<MeasurementData> getNodes() {
+		return nodes;
+	}
+
+	public void setNodes(List<MeasurementData> nodes) {
+		this.nodes = nodes;
 	}
 
 	public int getId() {
@@ -71,9 +91,21 @@ public class Measurement {
 	public void setPersonId(Person personId) {
 		this.personId = personId;
 	}
-	
-	public String toString() {
-		return "Meas [id=" + id + ", dateMeasurement=" + dateMeasurement + ", description= " + description + ", personId=" + personId + "]";
+
+	public void addNode(MeasurementData theNode) {
+
+		if (nodes == null) {
+			nodes = new ArrayList<>();
+		}
+
+		nodes.add(theNode);
+
 	}
 	
+	public String toString() {
+		return "Meas [id=" + id + ", dateMeasurement=" + dateMeasurement + ", description= " + description +
+				", personId=" + personId + ", node: " + nodes + "]";
+	}
+
+
 }

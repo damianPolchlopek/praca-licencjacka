@@ -12,11 +12,17 @@ public class MeasurementDataWithInformation {
 
     private String category;
 
+    private String descriptionAxisX;
+
+    private String descriptionAxisY;
+
     public MeasurementDataWithInformation(ArrayList<MeasurementData> measurementData, String description,
-                                          String category) {
+                                          String category, String descriptionAxisX, String descriptionAxisY) {
         this.measurementData = measurementData;
         this.description = description;
         this.category = category;
+        this.descriptionAxisX = descriptionAxisX;
+        this.descriptionAxisY = descriptionAxisY;
     }
 
     public String getCategory() {
@@ -41,5 +47,21 @@ public class MeasurementDataWithInformation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDescriptionAxisX() {
+        return descriptionAxisX;
+    }
+
+    public void setDescriptionAxisX(String descriptionAxisX) {
+        this.descriptionAxisX = descriptionAxisX;
+    }
+
+    public String getDescriptionAxisY() {
+        return descriptionAxisY;
+    }
+
+    public void setDescriptionAxisY(String descriptionAxisY) {
+        this.descriptionAxisY = descriptionAxisY;
     }
 }

@@ -16,12 +16,18 @@ public class MeasurementData {
 	
 	@Column(name="node_y")
 	private int nodeY;
-	
-	@Column(name="id_meas")
-	private int idMeas;
+
+	@ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="id_meas")
+	private Measurement idMeas;
 	
 	public MeasurementData() {
 		
+	}
+
+	public MeasurementData(int nodeX, int nodeY) {
+		this.nodeX = nodeX;
+		this.nodeY = nodeY;
 	}
 
 	public int getId() {
@@ -48,11 +54,11 @@ public class MeasurementData {
 		this.nodeY = nodeY;
 	}
 
-	public int getIdMeas() {
+	public Measurement getIdMeas() {
 		return idMeas;
 	}
 
-	public void setIdMeas(int idMeas) {
+	public void setIdMeas(Measurement idMeas) {
 		this.idMeas = idMeas;
 	}
 	

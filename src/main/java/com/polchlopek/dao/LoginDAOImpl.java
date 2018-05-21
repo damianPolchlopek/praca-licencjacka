@@ -28,7 +28,7 @@ public class LoginDAOImpl implements LoginDAO {
 				currentSession.createQuery("from Login log order by log.id desc", Login.class);
 		
 		theQuery.setFirstResult(0);
-		theQuery.setMaxResults(15);
+		theQuery.setMaxResults(10);
 		
 		// execute query and get result list
 		List<Login> logins = theQuery.getResultList();

@@ -60,9 +60,18 @@
 					<li class="nav-item">
 						<a href="/measurement/showMeasurement">
 							<span class="glyphicon glyphicon-stats" ></span>
-							Measurement
+							Measurements
 						</a>
 					</li>
+
+					<security:authorize access="hasRole('EMPLOYEE')">
+						<li class="nav-item">
+							<a href="/measurement/addMeasurement">
+								<span class="glyphicon glyphicon-plus" ></span>
+								Add Measurement
+							</a>
+						</li>
+					</security:authorize>
 
 					<security:authorize access="hasRole('ADMIN')">
 						<li class="nav-item">

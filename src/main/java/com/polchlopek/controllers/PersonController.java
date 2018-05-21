@@ -20,17 +20,14 @@ import java.util.List;
 @RequestMapping("/person")
 public class PersonController {
 
-	// need to inject the person dao
 	@Autowired
 	private AplicationService applicationService;
-	
+
+
 	@GetMapping("/showPerson")
 	public String listPeople(Model theModel) {
-		
-		// get person from the dao
+
 		List<Person> thePeople = applicationService.getPeople();
-		
-		// add the people to the model
 		theModel.addAttribute("people", thePeople);
 		
 		return "list-person-content";
@@ -39,10 +36,7 @@ public class PersonController {
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 
-		// zostalo zmienione z update na add UWAGA !!!!!!!!
-		// create model attribute to bind form data
 		PersonToValAdd thePersonToVal = new PersonToValAdd();
-		
 		theModel.addAttribute("personToValAdd", thePersonToVal);
 		
 		return "add-person";
@@ -52,17 +46,12 @@ public class PersonController {
 	public String savePerson(@Valid @ModelAttribute("personToValAdd") PersonToValAdd thePerson,
 			BindingResult theBindingResult) {
 
-		//System.out.println("Roles: " + thePerson.getAuthorities().length);
-
 		if(theBindingResult.hasErrors()) {
 			return "add-person";
 		}
 		else {
 			Person personToSave = new Person(thePerson);
-			// save the person using our service
-			System.out.println("Dodanie: " + personToSave);
 			applicationService.savePerson(personToSave);
-			System.out.println("Przekierowuje do listy !!!");
 			return "redirect:/person/showPerson";
 		}
 	}
@@ -70,16 +59,12 @@ public class PersonController {
 	@RequestMapping("/savePersonUpdate")
 	public String savePersonUpdate(@Valid @ModelAttribute("personToValUpdate") PersonToValUpdate thePerson,
 			BindingResult theBindingResult) {
-		System.out.println("[BINDINGRESULT] " + theBindingResult);
 
 		if(theBindingResult.hasErrors()) {
 			return "update-person";
 		}
 		else {
 			Person personToSave = new Person(thePerson);
-			System.out.println("UpdateersonToVal: " + thePerson);
-			System.out.println("Update person: " + personToSave);
-			//save the person using our service
 			applicationService.savePerson(personToSave);
 			return "redirect:/person/showPerson";
 		}
@@ -90,13 +75,9 @@ public class PersonController {
 	public String showFormForUpdate(@RequestParam("personId") int theId, 
 				Model theModel) {
 
-		// get the person from our service
 		PersonToValUpdate thePerson = applicationService.getPersonToVal(theId);
-		
-		// set person as a model attribute to pre-populate the form
 		theModel.addAttribute("personToValUpdate", thePerson);
-		
-		// send over to our form
+
 		return "update-person";
 	}
 	
