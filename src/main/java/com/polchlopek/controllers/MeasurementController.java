@@ -13,10 +13,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.File;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,30 +119,28 @@ public class MeasurementController {
 		return "multiple-graph";
 	}
 
-	@RequestMapping("/addMeasurementPanel")
+	@GetMapping("/addMeasurementPanel")
 	public String showAddMeasurementPanel() {
-
-		System.out.println("Dodawanie pomiarow - panel nawigacyjny");
-
 		return "add-measurement-panel";
 	}
 
 	@RequestMapping("/addMeasurement")
-	public String addMeasurement() {
+	public String addMeasurement(@ModelAttribute("newMeasurement") File newMeasurement) {
 
 		System.out.println("D-O-D-A-N-I-E P-O-M-I-A-R-U");
 
+		System.out.println(newMeasurement);
 
-		String description = "pomiar temperatury z czwartku";
+
+		String description = "pomiar temperatury z czwartku2";
 		java.util.Date utilDate = new java.util.Date();
 		Date sqlDate = new Date(utilDate.getTime());
 		Measurement measurementToAdd = new Measurement(sqlDate, description);
 
 
-		String category = "Cisnienie";
+		String category = "Temperatura";
 		String descriptionAxisX = "Time [h]";
 		String descriptionAxisY = "Preassure [b]";
-
 
 		MeasurementCategory measurementCategory = applicationService.getMeasurementCategory(category);
 		if (measurementCategory == null) {
@@ -149,20 +149,30 @@ public class MeasurementController {
 		}
 		measurementToAdd.setCategory(measurementCategory);
 
-
 		// dodawanie przebiegow
-		for (int i = 1; i < 5; ++i){
+		for (int i = 1; i < 6; ++i){
 			measurementToAdd.addNode(new MeasurementData(i, i+1));
 		}
 
+		System.out.println("[MEAS] " + measurementToAdd.getCategory());
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		Person person = applicationService.getPerson(username);
-		person.addMeasurement(measurementToAdd);
-		applicationService.savePerson(person);
+		measurementToAdd.setPersonId(person);
+		applicationService.saveMeasurement(measurementToAdd);
 
 		return "add-measurement";
+	}
+
+
+
+	@RequestMapping("/delete")
+	public String deleteMeasurement(@RequestParam("measurementId") int theId) {
+
+		applicationService.deleteMeasurement(theId);
+
+		return "redirect:/measurement/showMeasurement";
 	}
 
 

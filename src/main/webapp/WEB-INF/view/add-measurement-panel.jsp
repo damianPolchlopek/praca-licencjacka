@@ -115,18 +115,10 @@
                 </div>
                 
                 <div class="col-sm-9">
-
-                    Kliknij wyślij !!!!!
-
-                    <form:form action="addMeasurement"
-                               method="post" >
-
-                        <form:input path="xx" type="file"> </form:input>
-
+                    <form:form action="addMeasurement" modelAttribute="newMeasurement" method="post" >
+                        <input name="myFile" type="file">
                         <button type="submit" class="btn btn-default">Search</button>
                     </form:form>
-
-
 
                 </div>
 

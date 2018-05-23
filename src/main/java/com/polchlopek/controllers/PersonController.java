@@ -23,7 +23,6 @@ public class PersonController {
 	@Autowired
 	private AplicationService applicationService;
 
-
 	@GetMapping("/showPerson")
 	public String listPeople(Model theModel) {
 
@@ -81,13 +80,12 @@ public class PersonController {
 		return "update-person";
 	}
 	
-	@GetMapping("/delete")
+	@RequestMapping("/delete")
 	public String deletePerson(@RequestParam("personId") int theId) {
 		
 		applicationService.deletePerson(theId);
 		
 		return "redirect:/person/showPerson";
 	}
-
 
 }

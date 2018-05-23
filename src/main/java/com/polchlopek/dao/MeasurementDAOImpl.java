@@ -121,5 +121,12 @@ public class MeasurementDAOImpl implements MeasurementDAO {
 		currentSession.saveOrUpdate(measurement);
 	}
 
+	public void deleteMeasurement(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query theQuery = currentSession.createQuery("delete from Measurement where id=:measurementId");
+		theQuery.setParameter("measurementId", theId);
+		theQuery.executeUpdate();
+	}
+
 
 }

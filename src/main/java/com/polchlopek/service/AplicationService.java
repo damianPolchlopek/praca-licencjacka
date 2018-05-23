@@ -48,4 +48,6 @@ public interface AplicationService {
 	void saveMeasurement(Measurement measurement);
 
 	MeasurementCategory getMeasurementCategory(String category);
+
+    void deleteMeasurement(int theId);
 }

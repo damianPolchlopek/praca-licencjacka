@@ -1,6 +1,8 @@
 package com.polchlopek.entity;
 
 import com.sun.xml.internal.bind.v2.TODO;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -31,6 +33,7 @@ public class Measurement {
 	@JoinColumn(name="users_id_meas")
 	private Person personId;
 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade= {CascadeType.ALL})
 	@JoinColumn(name="id_meas")
 	private List<MeasurementData> nodes;

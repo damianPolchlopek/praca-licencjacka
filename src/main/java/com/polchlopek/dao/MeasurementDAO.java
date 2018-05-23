@@ -27,4 +27,6 @@ public interface MeasurementDAO {
 	String getDescriptionAxisY(int tmpId);
 
     void saveMeasurement(Measurement measurement);
+
+    void deleteMeasurement(int theId);
 }

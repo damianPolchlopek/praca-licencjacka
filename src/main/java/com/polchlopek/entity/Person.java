@@ -52,7 +52,7 @@ public class Person {
 	private List<Measurement> measurements;
 
 	@OneToMany(fetch=FetchType.EAGER,
-			cascade= {CascadeType.ALL})
+			   cascade= {CascadeType.ALL})
 	@JoinColumn(name="user_id")
 	private List<Authorities> authorities;
 	
@@ -185,7 +185,7 @@ public class Person {
 	public void addLogin(Login theLogin) {
 		
 		if(logins == null) {
-			logins = new ArrayList<Login>();
+			logins = new ArrayList<>();
 		}
 		
 		logins.add(theLogin);
@@ -195,11 +195,10 @@ public class Person {
 	public void addMeasurement(Measurement theMeasurement) {
 			
 		if(measurements == null) {
-			measurements = new ArrayList<Measurement>();
+			measurements = new ArrayList<>();
 		}
 		
 		measurements.add(theMeasurement);
-		theMeasurement.setPersonId(this);		
 	}
 
 }

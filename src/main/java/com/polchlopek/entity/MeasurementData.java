@@ -1,5 +1,6 @@
 package com.polchlopek.entity;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -16,10 +17,6 @@ public class MeasurementData {
 	
 	@Column(name="node_y")
 	private int nodeY;
-
-	@ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name="id_meas")
-	private Measurement idMeas;
 	
 	public MeasurementData() {
 		
@@ -54,16 +51,8 @@ public class MeasurementData {
 		this.nodeY = nodeY;
 	}
 
-	public Measurement getIdMeas() {
-		return idMeas;
-	}
-
-	public void setIdMeas(Measurement idMeas) {
-		this.idMeas = idMeas;
-	}
-	
 	public String toString() {
-		return "MeasData [id=" + id + ", nodeX=" + nodeX + ", nodeY= " + nodeY + ", idMeas=" + idMeas + "]";
+		return "MeasData [id=" + id + ", nodeX=" + nodeX + ", nodeY= " + nodeY + "]";
 	}
 	
 }

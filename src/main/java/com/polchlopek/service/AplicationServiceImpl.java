@@ -130,4 +130,9 @@ public class AplicationServiceImpl implements AplicationService {
 		return measurementCategoryDao.getMeasurementCategory(category);
 	}
 
+	@Transactional
+	public void deleteMeasurement(int theId) {
+		measurementDao.deleteMeasurement(theId);
+	}
+
 }

@@ -122,7 +122,10 @@
 						<th>Email</th>
 						<th>Phone</th>
 						<security:authorize access="hasRole('ADMIN')">
-							<th style="text-align: center">Action</th>
+							<th style="text-align: center">Update</th>
+						</security:authorize>
+						<security:authorize access="hasRole('ADMIN')">
+							<th style="text-align: center">Delete</th>
 						</security:authorize>
 					</tr>
 
@@ -131,6 +134,11 @@
 
 						<!-- construct an "update" link with person id -->
 						<c:url var="updateLink" value="/person/showFormForUpdate">
+							<c:param name="personId" value="${tempPerson.id}"></c:param>
+						</c:url>
+
+						<!-- construct an "delete" link with customer id -->
+						<c:url var="deleteLink" value="/person/delete">
 							<c:param name="personId" value="${tempPerson.id}"></c:param>
 						</c:url>
 
@@ -149,7 +157,18 @@
 										<button type="submit" class="btn btn-info">
 											Update
 										</button>
+									</form:form>
 
+								</td>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ADMIN')">
+								<td>
+
+									<form:form action="${deleteLink }" method="POST">
+										<button type="submit" class="btn btn-danger">
+											Delete
+										</button>
 									</form:form>
 
 								</td>
@@ -158,6 +177,7 @@
 						</tr>
 
 					</c:forEach>
+
 				</table>
 
 			</div>

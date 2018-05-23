@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
 <!DOCTYPE html>
 
@@ -14,6 +14,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function setForm(action, id) {
+            document['formToSet'].action = action + "?measurementId="+id;
+        }
+    </script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
@@ -110,10 +115,10 @@
 				</div>
 
 
+
 				<div class="col-sm-9">
 
 					<!-- menu szukania -->
-
 					<nav class="navbar navbar-default" role="navigation">
 						<div class="container">
 							<div class="navbar-header">
@@ -136,8 +141,7 @@
 					</nav>
 
 
-                    <form:form action="showMultipleGraph" modelAttribute="multipleMeasurement">
-
+                    <form:form action="/" modelAttribute="multipleMeasurement" name="formToSet">
                         <%--  --%>
                         <table class="table table-striped table-sm">
                             <tr>
@@ -154,15 +158,25 @@
                                 <c:if test="${not empty dataMeasurement.category}" >
                                     <th>Select Measurement</th>
                                 </c:if>
+
+								<security:authorize access="hasRole('ADMIN')">
+									<th style="text-align: center">Delete</th>
+								</security:authorize>
+
                             </tr>
 
                             <!-- loop over and print our people -->
                             <c:forEach var="tempMeasurement" items="${measurements}">
 
-                                <!-- construct an "update" link with person id -->
+                                <!-- construct an "update" link with measurement id -->
                                 <c:url var="showLink" value="/measurement/showGraph">
                                     <c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
                                 </c:url>
+
+								<!-- construct an "delete" link with measurement id -->
+								<c:url var="deleteLink" value="/measurement/delete">
+									<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
+								</c:url>
 
                                 <tr>
                                     <td> ${tempMeasurement.personId.firstName} </td>
@@ -172,16 +186,25 @@
                                     <td> ${tempMeasurement.category.category} </td>
 
                                     <c:if test="${empty dataMeasurement.category}" >
-                                    <td>
-                                        <!-- display the update link -->
-                                        <a href="${showLink }">Show</a>
-                                    </td>
-
+										<td>
+												<button type="submit" class="btn btn-success" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+													Show
+												</button>
+										</td>
                                     </c:if>
+
                                     <%--dataMeasurement.category--%>
                                     <c:if test="${not empty dataMeasurement.category}" >
                                         <td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
                                     </c:if>
+
+									<security:authorize access="hasRole('ADMIN')">
+										<td>
+                                            <button type="submit" class="btn btn-danger" onclick="setForm('/measurement/delete',${tempMeasurement.id} )">
+                                                Delete
+                                            </button>
+										</td>
+									</security:authorize>
 
                                 </tr>
 
@@ -189,17 +212,14 @@
                         </table>
 
                         <c:if test="${not empty dataMeasurement.category}" >
-							<button type="submit" class="btn btn-info">Show</button>
+							<button type="submit" class="btn btn-info" onclick="setForm('/measurement/showMultipleGraph')">Show</button>
                         </c:if>
 
                     </form:form>
 
-
-
 					<!-- napisy pomocnicze -->
 					<%--<p>Category: ${dataMeasurement.category}</p>--%>
 					<%--<p>Multiple: ${multipleMeasurement}</p>--%>
-
 
 				</div>
 
