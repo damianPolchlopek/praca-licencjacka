@@ -1,13 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@page pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 
 <html>
 
 <head>
+    <META http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Main</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +18,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-
-    <script>
-        var reader = new FileReader();
-
-    </script>
 
 </head>
 
@@ -71,7 +68,7 @@
 
                         <security:authorize access="hasRole('EMPLOYEE')">
                             <li class="nav-item">
-                                <a href="/measurement/addMeasurement">
+                                <a href="/measurement/addMeasurementPanel">
                                     <span class="glyphicon glyphicon-plus" ></span>
                                     Add Measurement
                                 </a>
@@ -115,8 +112,13 @@
                 </div>
                 
                 <div class="col-sm-9">
-                    <form:form action="addMeasurement" modelAttribute="newMeasurement" method="post" >
-                        <input name="myFile" type="file">
+
+                    <form:form action="addMeasurement?${_csrf.parameterName}=${_csrf.token}"
+                               method="post" modelAttribute="newMeasurement"
+                               enctype="multipart/form-data">
+
+                        <form:input path="file" name="file" type="file"/>
+
                         <button type="submit" class="btn btn-default">Search</button>
                     </form:form>
 

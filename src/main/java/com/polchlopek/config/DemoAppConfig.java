@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Import;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.io.IOException;
 import java.util.Properties;
 
 @Configuration
@@ -62,7 +63,6 @@ public class DemoAppConfig implements WebMvcConfigurer {
 	}
 
 	// define a bean for ViewResolver
-
 	@Bean
 	public ViewResolver viewResolver() {
 		
@@ -74,14 +74,25 @@ public class DemoAppConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 
-
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry
 				.addResourceHandler("/resources/**")
 				.addResourceLocations("/resources/");
 	}
 
+	// konfiguracja springa pod multipart file
+	@Bean
+	public CommonsMultipartResolver filterMultipartResolver(){
+		return new CommonsMultipartResolver();
+	}
 
+    @Bean
+    public CommonsMultipartResolver multipartResolver() {
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        commonsMultipartResolver.setDefaultEncoding("utf-8");
+        commonsMultipartResolver.setMaxUploadSize(200000000);
+        return commonsMultipartResolver;
+    }
 
 
 }

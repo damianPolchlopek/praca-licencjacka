@@ -14,10 +14,10 @@ public class MultipleMeasurement {
         this.measurementToGraph = measurementToGraph;
     }
 
-    @Override
     public String toString() {
         return "MultipleMeasurement{" +
                 "measurementToGraph=" + Arrays.toString(measurementToGraph) +
                 '}';
     }
 }
+

@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="nickName">Username:</label>
-                    <form:input path="nickName" type="text" class="form-control" readonly="true"/>
+                    <form:input path="nickName" type="text" class="form-control"/>
                     <form:errors path="nickName" cssClass="error" />
                 </div>
 

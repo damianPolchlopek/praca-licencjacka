@@ -65,14 +65,14 @@
                             </a>
                         </li>
 
-                        <security:authorize access="hasRole('EMPLOYEE')">
+                        <%--<security:authorize access="hasRole('EMPLOYEE')">--%>
                         <li class="nav-item">
                             <a href="/measurement/addMeasurementPanel">
                                 <span class="glyphicon glyphicon-plus" ></span>
                                     Add Measurement
                             </a>
                         </li>
-                        </security:authorize>
+                        <%--</security:authorize>--%>
 
                         <security:authorize access="hasRole('ADMIN')">
                             <li class="nav-item">

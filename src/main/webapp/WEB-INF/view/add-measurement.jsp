@@ -117,16 +117,7 @@
                 <div class="col-sm-9">
 
 
-                    Kliknij wyślij !!!!!
-
-
-
-                    <form:form action="addMeasurement" modelAttribute="measurement"
-                               method="post" >
-
-
-                        <button type="submit" class="btn btn-default">Search</button>
-                    </form:form>
+                    Plik zostal dodany
 
 
 

@@ -1,6 +1,7 @@
 package com.polchlopek.controllers;
 
 import com.polchlopek.data.DataMeasurement;
+import com.polchlopek.data.FileMeasurementData;
 import com.polchlopek.data.MeasurementDataWithInformation;
 import com.polchlopek.data.MultipleMeasurement;
 import com.polchlopek.entity.Measurement;
@@ -13,15 +14,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import java.io.*;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/measurement")
@@ -119,28 +122,68 @@ public class MeasurementController {
 		return "multiple-graph";
 	}
 
-	@GetMapping("/addMeasurementPanel")
-	public String showAddMeasurementPanel() {
+	@RequestMapping("/addMeasurementPanel")
+	public String showAddMeasurementPanel(Model theModel) {
+
+		FileMeasurementData fileMeasurementData = new FileMeasurementData();
+		theModel.addAttribute("newMeasurement", fileMeasurementData);
+
 		return "add-measurement-panel";
 	}
 
-	@RequestMapping("/addMeasurement")
-	public String addMeasurement(@ModelAttribute("newMeasurement") File newMeasurement) {
+	@RequestMapping(value = "/addMeasurement", method = RequestMethod.POST)
+	public String addMeasurement(@ModelAttribute("newMeasurement") FileMeasurementData file2
+								 ) throws IOException {
 
-		System.out.println("D-O-D-A-N-I-E P-O-M-I-A-R-U");
+        byte[] bytes = file2.getFile().getBytes();
+        String contentUploadedFile = new String(bytes);
 
-		System.out.println(newMeasurement);
+        final String description_pattern = "Description: ([\\w|\\W]+)" +
+                "Category: ([\\w|\\W]+)" +
+                "Description axis x: ([\\w|\\W]+)" +
+                "Description axis y: ([\\w|\\W]+)" +
+                "Data:([\\w|\\W]+)";
+
+        final String data_pattern = "(-?\\d+), (-?\\d+)";
+
+        Pattern r = Pattern.compile(description_pattern);
+        Matcher m = r.matcher(contentUploadedFile);
+
+        String description = "";
+        String category = "";
+        String descriptionAxisX = "";
+        String descriptionAxisY = "";
+        String data = "";
+
+        if (m.find()){
+            try{
+                description = m.group(1).trim();
+                category = m.group(2).trim();
+                descriptionAxisX = m.group(3).trim();
+                descriptionAxisY = m.group(4).trim();
+                data = m.group(5);
+
+                System.out.println("Desc: " + m.group(1) );
+                System.out.println("Category: " + m.group(2) );
+                System.out.println("Description axis x: " + m.group(3) );
+                System.out.println("Description axis y: " + m.group(4) );
+                System.out.println("Data: " + m.group(5) );
+
+            }
+            catch(Exception e){
+                System.out.println("Zly format pliku !!!");
+                return "add-measurement-panel";
+            }
+
+        }
+        else {
+            System.out.println("Nie znaleziono - regex");
+        }
 
 
-		String description = "pomiar temperatury z czwartku2";
-		java.util.Date utilDate = new java.util.Date();
-		Date sqlDate = new Date(utilDate.getTime());
-		Measurement measurementToAdd = new Measurement(sqlDate, description);
-
-
-		String category = "Temperatura";
-		String descriptionAxisX = "Time [h]";
-		String descriptionAxisY = "Preassure [b]";
+        java.util.Date utilDate = new java.util.Date();
+        Date sqlDate = new Date(utilDate.getTime());
+        Measurement measurementToAdd = new Measurement(sqlDate, description);
 
 		MeasurementCategory measurementCategory = applicationService.getMeasurementCategory(category);
 		if (measurementCategory == null) {
@@ -149,11 +192,16 @@ public class MeasurementController {
 		}
 		measurementToAdd.setCategory(measurementCategory);
 
-		// dodawanie przebiegow
-		for (int i = 1; i < 6; ++i){
-			measurementToAdd.addNode(new MeasurementData(i, i+1));
-		}
+        Pattern rData = Pattern.compile(data_pattern);
+        Matcher mData = rData.matcher(data);
 
+        while (mData.find()) {
+            System.out.println(mData.group(1) + ", " + mData.group(2));
+            measurementToAdd.addNode(new MeasurementData(Integer.parseInt(mData.group(1)),
+                                            Integer.parseInt(mData.group(2))));
+        }
+
+		System.out.println("[data] " + measurementToAdd);
 		System.out.println("[MEAS] " + measurementToAdd.getCategory());
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
