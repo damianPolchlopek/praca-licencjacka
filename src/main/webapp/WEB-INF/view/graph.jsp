@@ -107,7 +107,7 @@
 
 						<security:authorize access="hasRole('EMPLOYEE')">
 							<li class="nav-item">
-								<a href="/measurement/addMeasurement">
+								<a href="/measurement/addMeasurementPanel">
 									<span class="glyphicon glyphicon-plus" ></span>
 									Add Measurement
 								</a>

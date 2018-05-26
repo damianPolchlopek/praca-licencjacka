@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public class MeasurementCategoryDAOImpl implements  MeasurementCategoryDAO {
 
-
     @Autowired
     private SessionFactory sessionFactory;
 

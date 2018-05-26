@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -69,7 +68,7 @@
 
 						<security:authorize access="hasRole('EMPLOYEE')">
 							<li class="nav-item">
-								<a href="/measurement/addMeasurement">
+								<a href="/measurement/addMeasurementPanel">
 									<span class="glyphicon glyphicon-plus" ></span>
 									Add Measurement
 								</a>

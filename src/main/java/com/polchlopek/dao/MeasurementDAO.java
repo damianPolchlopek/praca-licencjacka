@@ -1,6 +1,6 @@
 package com.polchlopek.dao;
 
-import com.polchlopek.data.DataMeasurement;
+import com.polchlopek.dto.DataMeasurement;
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementData;
 import org.springframework.stereotype.Repository;

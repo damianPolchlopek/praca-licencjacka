@@ -1,7 +1,7 @@
 package com.polchlopek.entity;
 
-import com.polchlopek.classToVal.PersonToValAdd;
-import com.polchlopek.classToVal.PersonToValUpdate;
+import com.polchlopek.validation.PersonToValAdd;
+import com.polchlopek.validation.PersonToValUpdate;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -180,8 +180,7 @@ public class Person {
 		return "Person orginal [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +
 				", email =" + email + ", phone=" + phone + ", autho=" + authorities + " ]";
 	}
-	
-	// add convience method
+
 	public void addLogin(Login theLogin) {
 		
 		if(logins == null) {

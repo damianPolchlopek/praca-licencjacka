@@ -41,7 +41,7 @@
             <h2>Update Person</h2>
             <form:form action="savePersonUpdate" modelAttribute="personToValUpdate">
 
-                <!-- need to associate this data with person id -->
+                <!-- need to associate this dto with person id -->
                 <form:hidden path="id" />
 
                 <div class="form-group">
@@ -97,13 +97,6 @@
                     </div>
 
                 </div>
-
-                <%--<div class="form-group">--%>
-                <%--<label for="au">Authority:</label>--%>
-                <%--<form:checkbox path="autho" value="Java"/>Java--%>
-                <%--<form:checkbox path="favLanguages" value="C++"/>C++--%>
-                <%--<form:checkbox path="favLanguages" value=".Net"/>.Net--%>
-                <%--</div>--%>
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
 

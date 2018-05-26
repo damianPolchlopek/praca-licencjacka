@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface LoginDAO {
 	
-	public List<Login> getLogins();
+	List<Login> getLogins();
 
-	public void addPerson(Person tmpPerson);
+	void addPerson(Person tmpPerson);
 	
 }

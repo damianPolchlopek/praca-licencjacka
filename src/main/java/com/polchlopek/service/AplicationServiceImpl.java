@@ -1,8 +1,8 @@
 package com.polchlopek.service;
 
-import com.polchlopek.classToVal.PersonToValUpdate;
+import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.dao.*;
-import com.polchlopek.data.DataMeasurement;
+import com.polchlopek.dto.DataMeasurement;
 import com.polchlopek.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

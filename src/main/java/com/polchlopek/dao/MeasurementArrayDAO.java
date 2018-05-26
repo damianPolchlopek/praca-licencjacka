@@ -8,8 +8,6 @@ import java.util.List;
 @Repository
 public interface MeasurementArrayDAO {
 	
-	public List<MeasurementData> getArrayMeassurement(int theId);
-	
-	
-	
+	List<MeasurementData> getArrayMeassurement(int theId);
+
 }

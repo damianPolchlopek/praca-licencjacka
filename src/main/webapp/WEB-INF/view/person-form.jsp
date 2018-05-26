@@ -30,7 +30,7 @@
 	    <div class="content">
 			<form:form action="savePerson" modelAttribute="personToVal">
 			
-			<!-- need to associate this data with person id -->
+			<!-- need to associate this dto with person id -->
 			<form:hidden path="id" />
 			
 				<table>

@@ -16,13 +16,8 @@ public class MeasurementArrayDAOImpl implements MeasurementArrayDAO {
 	private SessionFactory sessionFactory;
 
 	public List<MeasurementData> getArrayMeassurement(int theId) {
-		
-		// get the current hibernate session
+
 		Session currentSession = sessionFactory.getCurrentSession();
-		
-		System.out.println("The Id: " + theId);
-		
-		// create query
 		Query<MeasurementData> theQuery = 
 				currentSession.createQuery("from MeasurementData where id_meas=:theId");
 		
@@ -33,6 +28,4 @@ public class MeasurementArrayDAOImpl implements MeasurementArrayDAO {
 		return theData;
 	}
 
-	
-	
 }

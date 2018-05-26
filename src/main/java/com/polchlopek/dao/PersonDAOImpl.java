@@ -1,6 +1,6 @@
 package com.polchlopek.dao;
 
-import com.polchlopek.classToVal.PersonToValUpdate;
+import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.entity.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -102,7 +102,6 @@ public class Measurement {
 		}
 
 		nodes.add(theNode);
-
 	}
 	
 	public String toString() {
