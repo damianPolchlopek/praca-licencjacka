@@ -40,7 +40,7 @@ public class HomeController {
 
     @GetMapping("/help")
     public String showHelp() {
-        return "help";
+        return "help-panel";
     }
 
 }

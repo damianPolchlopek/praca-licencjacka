@@ -28,7 +28,8 @@ public class MeasurementController {
 
 	@Autowired
 	private AplicationService applicationService;
-	
+
+
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
 
@@ -154,10 +155,8 @@ public class MeasurementController {
             }
         }
         else {
-        	//TODO: dorobic powiadomienie o zlym formacie pliku wejsciowego
-            System.out.println("Nie znaleziono - regex");
+            return "redirect:/help";
         }
-
 
         java.util.Date utilDate = new java.util.Date();
         Date sqlDate = new Date(utilDate.getTime());

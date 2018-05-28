@@ -58,7 +58,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="${sh}">
+                        <a href="/measurement/showMeasurement">
                             <span class="glyphicon glyphicon-stats" ></span>
                             Measurements
                         </a>

@@ -116,7 +116,7 @@
 
             </form:form>
 
-            <br><br><br><br>
+            <br><br><br>
 
             <div class="backToMenu">
                 <a href="${pageContext.request.contextPath}/login/loginOk">Back to List</a>

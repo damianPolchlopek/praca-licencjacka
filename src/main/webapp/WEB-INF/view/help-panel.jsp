@@ -2,7 +2,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
-
 <!DOCTYPE html>
 
 <html>
@@ -59,7 +58,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="${sh}">
+                        <a href="/measurement/showMeasurement">
                             <span class="glyphicon glyphicon-stats" ></span>
                             Measurements
                         </a>
@@ -112,8 +111,58 @@
 
             <div class="col-sm-9">
 
-                Pomoc uzytkownika
+                <div class="container" style="text-align: center" >
 
+                    <table >
+                        <tr>
+                            <td><h3>Przeslano niepoprawny plik.</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Aby wprowadzic dane do aplikacji plik musi miec nastepujaca budowe:</h4></td>
+                        </tr>
+                        <tr>
+                            <td>1. Description: (Twoje dane)</td>
+                        </tr>
+                        <tr>
+                            <td>2. Category: (Twoje dane)</td>
+                        </tr>
+                        <tr>
+                            <td>3. Description axis x: (Twoje dane)</td>
+                        </tr>
+                        <tr>
+                            <td>4. Description axis y: (Twoje dane)</td>
+                        </tr>
+                        <tr>
+                            <td>5. Data:</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                W kolejnych liniach pliku nalezy umiescic wprowadzane danie.<br>
+                                Pierwsza liczba odpowiedzialna jest za wartosc reprezentujaca os x,<br>
+                                druga liczba odpowiedzialna jest za wartosc reprezentujaca os y.<br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropup">
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Kliknij aby wyswetlic przyklad pliku pomiarowego
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <img src="/resources/image/help-file.png">
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+
+
+
+                </div>
             </div>
 
         </div>

@@ -32,6 +32,7 @@
         <div class="container-fluid">
 
             <div class="row content">
+
                 <div class="col-sm-3 sidenav">
 
                     <h4>Main menu:</h4>
@@ -110,16 +111,29 @@
                     </ul><br>
 
                 </div>
-                
-                <div class="col-sm-9">
+
+                <div class="col-sm-9" >
 
                     <form:form action="addMeasurement?${_csrf.parameterName}=${_csrf.token}"
                                method="post" modelAttribute="newMeasurement"
                                enctype="multipart/form-data">
 
-                        <form:input path="file" name="file" type="file"/>
+                        <table style="width: 25%;
+                                    height: 20%;
+                                    text-align: left;
+                                    margin-left: auto;
+                                    margin-right: auto;">
 
-                        <button type="submit" class="btn btn-default">Search</button>
+                            <tr>
+                                <td><form:input path="file" name="file" type="file"/></td>
+                            </tr>
+
+                            <tr>
+                                <td><button type="submit" class="btn btn-default">Przeslij</button></td>
+                            </tr>
+
+                        </table>
+
                     </form:form>
 
                 </div>

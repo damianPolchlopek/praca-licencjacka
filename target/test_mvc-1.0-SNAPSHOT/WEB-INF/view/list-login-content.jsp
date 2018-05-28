@@ -111,9 +111,7 @@
 
 				</div>
 
-
 				<div class="col-sm-9">
-
 
 					<!-- add our html table here -->
 					<table class="table table-striped table-sm">

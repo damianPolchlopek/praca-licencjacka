@@ -5,6 +5,8 @@ import com.polchlopek.validation.PersonToValAdd;
 import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.service.AplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,9 +52,14 @@ public class PersonController {
 		}
 		else {
 			Person personToSave = new Person(thePerson);
+			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword =  "{bcrypt}" + passwordEncoder.encode(personToSave.getPassword());
+			personToSave.setPassword(encodedPassword);
 			applicationService.savePerson(personToSave);
+
 			return "redirect:/person/showPerson";
 		}
+
 	}
 	
 	@RequestMapping("/savePersonUpdate")
