@@ -46,12 +46,32 @@ td {
     text-align: center;
 }
 
-table{
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
+#wrapper {
+    position: relative;
+}
+#center {
+    width: 40%;
+    height: 20%;
+    top: 40%;
+    left: 40%;
+    position: absolute;
+}
 
-    /*!*transform: translate(-50%, -50%);*!*/
+#wrapper-body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#inner-body {
+    width: 70%;
+    height: 70%;
+    top: 10%;
+    left: 15%;
+    position: absolute;
 }
 
 

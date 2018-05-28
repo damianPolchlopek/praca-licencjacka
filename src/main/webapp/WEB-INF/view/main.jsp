@@ -29,7 +29,7 @@
 
         <div class="container-fluid">
 
-            <div class="row content">
+            <div class="row content" id="wrapper">
                 <div class="col-sm-3 sidenav">
 
                     <h4>Main menu:</h4>
@@ -109,14 +109,13 @@
 
                 </div>
                 
-                <div class="col-sm-9">
+                <div class="col-sm-9" id="center">
 
-                    <!-- display user name and role -->
+
                     <p>
-                    <h3> Witaj <security:authentication property="principal.username" /> </h3>
-                        <%--<br><br>--%>
-                        <%--Role(s): <security:authentication property="principal.authorities" />--%>
+                        <h3> Witaj <security:authentication property="principal.username" /> </h3>
                     </p>
+
 
                 </div>
 

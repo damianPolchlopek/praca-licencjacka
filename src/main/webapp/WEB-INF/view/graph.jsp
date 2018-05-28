@@ -8,7 +8,7 @@
 
 	<head>
 	
-		<title>Pomiar</title>
+		<title>Measurement</title>
 
 		<!-- reference our style sheet -->
 		<meta charset="utf-8">

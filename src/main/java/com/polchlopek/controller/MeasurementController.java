@@ -105,9 +105,14 @@ public class MeasurementController {
 			selectedMeasurements.add(measurementDataWithInformation);
 		}
 
-		theModel.addAttribute("selectedMeasurements", selectedMeasurements);
+		if (selectedMeasurements.isEmpty()) {
+			return "multiple-graph-error";
+		}
+		else{
+			theModel.addAttribute("selectedMeasurements", selectedMeasurements);
+			return "multiple-graph";
+		}
 
-		return "multiple-graph";
 	}
 
 	@RequestMapping("/addMeasurementPanel")

@@ -21,107 +21,108 @@
 
 <body>
 
-<div class="body-container">
+<div>
 
-    <header class="text-center text-small">
-        <h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
-    </header>
+        <header class="text-center text-small">
+            <h4>Aplikacja sluzaca do przechowywania danych pomiarowych</h4>
+        </header>
 
-    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row content"  id="wrapper">
 
-        <div class="row content">
-            <div class="col-sm-3 sidenav">
+                <div class="col-sm-3 sidenav">
 
-                <h4>Main menu:</h4>
+                    <h4>Main menu:</h4>
 
-                <ul class="nav nav-pills nav-stacked">
+                    <ul class="nav nav-pills nav-stacked">
 
-                    <li class="nav-item">
-                        <a href="/login/loginOk">
-                            <span class="glyphicon glyphicon-home" ></span>
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/person/showPerson">
-                            <span class="glyphicon glyphicon-user" ></span>
-                            Users
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/login/showLogin">
-                            <span class="glyphicon glyphicon-th-list" ></span>
-                            Last logs
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/measurement/showMeasurement">
-                            <span class="glyphicon glyphicon-stats" ></span>
-                            Measurements
-                        </a>
-                    </li>
-
-                    <security:authorize access="hasRole('EMPLOYEE')">
                         <li class="nav-item">
-                            <a href="/measurement/addMeasurementPanel">
-                                <span class="glyphicon glyphicon-plus" ></span>
-                                Add Measurement
+                            <a href="/login/loginOk">
+                                <span class="glyphicon glyphicon-home" ></span>
+                                Home
                             </a>
                         </li>
-                    </security:authorize>
 
-                    <security:authorize access="hasRole('ADMIN')">
                         <li class="nav-item">
-                            <a href="/person/showFormForAdd">
-                                <span class="glyphicon glyphicon-plus" ></span>
-                                Add user
+                            <a href="/person/showPerson">
+                                <span class="glyphicon glyphicon-user" ></span>
+                                Users
                             </a>
                         </li>
-                    </security:authorize>
 
-                    <security:authorize access="hasRole('ADMIN')">
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/admin">
-                                <span class="glyphicon glyphicon-eye-open" ></span>
-                                Admin
+                            <a href="/login/showLogin">
+                                <span class="glyphicon glyphicon-th-list" ></span>
+                                Last logs
                             </a>
                         </li>
-                    </security:authorize>
 
-                    <hr>
-                    <li class="nav-item">
-                        <!-- Add a logout button -->
-                        <form:form action="${pageContext.request.contextPath}/logout"
-                                   method="POST">
+                        <li class="nav-item">
+                            <a href="/measurement/showMeasurement">
+                                <span class="glyphicon glyphicon-stats" ></span>
+                                Measurements
+                            </a>
+                        </li>
 
-                            <button type="submit" class="btn btn-info">
-                                <span class="glyphicon glyphicon-off" ></span>
-                                Logout
-                            </button>
+                        <security:authorize access="hasRole('EMPLOYEE')">
+                            <li class="nav-item">
+                                <a href="/measurement/addMeasurementPanel">
+                                    <span class="glyphicon glyphicon-plus" ></span>
+                                    Add Measurement
+                                </a>
+                            </li>
+                        </security:authorize>
 
-                        </form:form>
-                    </li>
+                        <security:authorize access="hasRole('ADMIN')">
+                            <li class="nav-item">
+                                <a href="/person/showFormForAdd">
+                                    <span class="glyphicon glyphicon-plus" ></span>
+                                    Add user
+                                </a>
+                            </li>
+                        </security:authorize>
 
-                </ul><br>
+                        <security:authorize access="hasRole('ADMIN')">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/admin">
+                                    <span class="glyphicon glyphicon-eye-open" ></span>
+                                    Admin
+                                </a>
+                            </li>
+                        </security:authorize>
 
-            </div>
+                        <hr>
+                        <li class="nav-item">
+                            <!-- Add a logout button -->
+                            <form:form action="${pageContext.request.contextPath}/logout"
+                                       method="POST">
 
-            <div class="col-sm-9">
+                                <button type="submit" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-off" ></span>
+                                    Logout
+                                </button>
 
-                <h2>Dostep zabroniony - Nie masz dostepu do tych zasobow</h2>
+                            </form:form>
+                        </li>
+
+                    </ul><br>
+
+                </div>
+
+                <div  id="center" class="col-sm-9" >
+
+                    <h3><span class="label label-danger">Dostep zabroniony - Nie masz praw do tych zasobow</span></h3>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+        <footer class="my-5 pt-5 text-center text-small">
+            <h4>Damian Polchlopek - Praca licencjacka</h4>
+        </footer>
 
-    <footer class="my-5 pt-5 text-center text-small">
-        <h4>Damian Polchlopek - Praca licencjacka</h4>
-    </footer>
 
 </div>
 </body>

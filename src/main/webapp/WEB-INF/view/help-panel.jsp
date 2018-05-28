@@ -8,7 +8,7 @@
 
 <head>
 
-    <title>Main</title>
+    <title>Help</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
     <div class="container-fluid">
 
         <div class="row content">
-            <div class="col-sm-3 sidenav">
+            <div class="col-sm-3 sidenav container" style="height: 100%;">
 
                 <h4>Main menu:</h4>
 
@@ -113,28 +113,35 @@
 
                 <div class="container" style="text-align: center" >
 
-                    <table >
+                    <table>
                         <tr>
                             <td><h3>Przeslano niepoprawny plik.</h3></td>
                         </tr>
+
                         <tr>
                             <td><h4>Aby wprowadzic dane do aplikacji plik musi miec nastepujaca budowe:</h4></td>
                         </tr>
+
                         <tr>
                             <td>1. Description: (Twoje dane)</td>
                         </tr>
+
                         <tr>
                             <td>2. Category: (Twoje dane)</td>
                         </tr>
+
                         <tr>
                             <td>3. Description axis x: (Twoje dane)</td>
                         </tr>
+
                         <tr>
                             <td>4. Description axis y: (Twoje dane)</td>
                         </tr>
+
                         <tr>
                             <td>5. Data:</td>
                         </tr>
+
                         <tr>
                             <td>
                                 W kolejnych liniach pliku nalezy umiescic wprowadzane danie.<br>
@@ -142,6 +149,7 @@
                                 druga liczba odpowiedzialna jest za wartosc reprezentujaca os y.<br><br>
                             </td>
                         </tr>
+
                         <tr>
                             <td>
                                 <div class="dropup">
@@ -159,7 +167,6 @@
                     </table>
 
                     <br>
-
 
 
                 </div>

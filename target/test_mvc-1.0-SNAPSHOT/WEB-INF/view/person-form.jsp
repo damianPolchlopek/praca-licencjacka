@@ -4,16 +4,8 @@
 <html>
 
 <head>
-	<title>Dodawanie nowego uzytkownika</title>
-	
-	<link type="text/css"
-		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/background.css" />
-		
-	<link type="text/css"
-		rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/css/stare/add-person-form.css" />
-	
+	<title>New person</title>
+
 	<style type="text/css">
 		.error {color:red}
 	</style>

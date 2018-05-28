@@ -10,7 +10,7 @@
 
 <head>
     <META http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Main</title>
+    <title>Measurement</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,7 +31,7 @@
 
         <div class="container-fluid">
 
-            <div class="row content">
+            <div class="row content" id="wrapper">
 
                 <div class="col-sm-3 sidenav">
 
@@ -112,30 +112,30 @@
 
                 </div>
 
-                <div class="col-sm-9" >
+                <div class="col-sm-9" id="center">
 
-                    <form:form action="addMeasurement?${_csrf.parameterName}=${_csrf.token}"
-                               method="post" modelAttribute="newMeasurement"
-                               enctype="multipart/form-data">
 
-                        <table style="width: 25%;
-                                    height: 20%;
-                                    text-align: left;
-                                    margin-left: auto;
-                                    margin-right: auto;">
+                        <form:form action="addMeasurement?${_csrf.parameterName}=${_csrf.token}"
+                                   method="post" modelAttribute="newMeasurement"
+                                   enctype="multipart/form-data">
 
-                            <tr>
-                                <td><form:input path="file" name="file" type="file"/></td>
-                            </tr>
+                            <table style="width: 25%;
+                                        height: 20%;
+                                        text-align: left;
+                                        margin-left: auto;
+                                        margin-right: auto;">
 
-                            <tr>
-                                <td><button type="submit" class="btn btn-default">Przeslij</button></td>
-                            </tr>
+                                <tr>
+                                    <td><form:input path="file" name="file" type="file"/></td>
+                                </tr>
 
-                        </table>
+                                <tr>
+                                    <td><button type="submit" class="btn btn-default">Przeslij</button></td>
+                                </tr>
 
-                    </form:form>
+                            </table>
 
+                        </form:form>
                 </div>
 
             </div>

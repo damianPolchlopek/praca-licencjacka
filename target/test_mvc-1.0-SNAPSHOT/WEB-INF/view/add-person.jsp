@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    <title>Person</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -116,7 +117,7 @@
 
             </form:form>
 
-            <br><br><br><br>
+            <br><br><br>
 
             <div class="backToMenu">
                 <a href="${pageContext.request.contextPath}/login/loginOk">Back to List</a>
