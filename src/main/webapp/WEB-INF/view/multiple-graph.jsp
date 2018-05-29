@@ -47,7 +47,7 @@
 
                        <c:forEach var="tmpArray" items="${selectedMeasurements}">
                        {
-					   		type: "line",
+					   		type: "${tmpArray.typeGraph}",
                             name: "${tmpArray.description}",
                             showInLegend: true,
 					   		dataPoints : [

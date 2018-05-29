@@ -21,15 +21,15 @@
 
 	    <script type="text/javascript">
 			
-			  window.onload = function () {
+		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
 			
-			      title:{
-			      	text: "Category - ${actualMeasurement.category}"
-			      },
+			        title:{
+			      	  	text: "Category - ${actualMeasurement.category}"
+			        },
 
-                    axisY:{
+					axisY:{
                         title: "${actualMeasurement.descriptionAxisY}"
                     },
 
@@ -38,19 +38,20 @@
                     },
 
 			       data: [
-			      {
-			        type: "line",
-			        dataPoints: [
+					  {
+						type: "${actualMeasurement.typeGraph}",
+							dataPoints: [
 
-						<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
-							{x: ${tmpNode.nodeX},
-							 y: ${tmpNode.nodeY}},
-						</c:forEach>
+								<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
+									{x: ${tmpNode.nodeX},
+									 y: ${tmpNode.nodeY}},
+								</c:forEach>
 
-					  ]
-			      }
-				]
-			    });
+						  	]
+					  }
+					]
+				}
+			);
 			
 			    chart.render();
 			  }

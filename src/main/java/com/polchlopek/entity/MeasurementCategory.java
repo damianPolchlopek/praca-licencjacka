@@ -22,14 +22,19 @@ public class MeasurementCategory {
     @Column(name="description_axis_y")
     private String descriptionAxisY;
 
+    @Column(name="type_graph")
+    private String typeGraph;
+
     public MeasurementCategory() {
 
     }
 
-    public MeasurementCategory(String category, String descriptionAxisX, String descriptionAxisY) {
+    public MeasurementCategory(String category, String descriptionAxisX, String descriptionAxisY,
+                               String typeGraph) {
         this.category = category;
         this.descriptionAxisX = descriptionAxisX;
         this.descriptionAxisY = descriptionAxisY;
+        this.typeGraph = typeGraph;
     }
 
     public Integer getId() {
@@ -62,6 +67,14 @@ public class MeasurementCategory {
 
     public void setDescriptionAxisY(String descriptionAxisY) {
         this.descriptionAxisY = descriptionAxisY;
+    }
+
+    public String getTypeGraph() {
+        return typeGraph;
+    }
+
+    public void setTypeGraph(String typeGraph) {
+        this.typeGraph = typeGraph;
     }
 
     @Override

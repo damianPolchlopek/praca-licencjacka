@@ -73,9 +73,11 @@ public class MeasurementController {
 		String category = applicationService.getCategory(theId);
 		String descriptionAxisX = applicationService.getDescriptionAxisX(theId);
 		String descriptionAxisY = applicationService.getDescriptionAxisY(theId);
+		String typeGraph = applicationService.getTypeGraph(theId);
+
 		MeasurementDataWithInformation measurementDataWithInformation =
 				new MeasurementDataWithInformation((ArrayList<MeasurementData>) theMeasurement,
-						description, category, descriptionAxisX, descriptionAxisY);
+						description, category, descriptionAxisX, descriptionAxisY, typeGraph);
 
  		theModel.addAttribute("actualMeasurement", measurementDataWithInformation);
 
@@ -93,6 +95,7 @@ public class MeasurementController {
 		String category;
 		String descriptionAxisX;
 		String descriptionAxisY;
+		String typeGraph;
 
 		for (int tmpId: multipleMeasurement.getMeasurementToGraph()){
 			tmpMeasData = applicationService.getArrayMeassurement(tmpId);
@@ -100,8 +103,10 @@ public class MeasurementController {
 			category = applicationService.getCategory(tmpId);
 			descriptionAxisX = applicationService.getDescriptionAxisX(tmpId);
 			descriptionAxisY = applicationService.getDescriptionAxisY(tmpId);
+			typeGraph = applicationService.getTypeGraph(tmpId);
+
 			measurementDataWithInformation = new MeasurementDataWithInformation((ArrayList<MeasurementData>) tmpMeasData,
-					description, category, descriptionAxisX, descriptionAxisY);
+					description, category, descriptionAxisX, descriptionAxisY, typeGraph);
 			selectedMeasurements.add(measurementDataWithInformation);
 		}
 
@@ -112,7 +117,6 @@ public class MeasurementController {
 			theModel.addAttribute("selectedMeasurements", selectedMeasurements);
 			return "multiple-graph";
 		}
-
 	}
 
 	@RequestMapping("/addMeasurementPanel")
@@ -132,6 +136,7 @@ public class MeasurementController {
 
         final String description_pattern = "Description: ([\\w|\\W]+)" +
                 "Category: ([\\w|\\W]+)" +
+				"Type: ([\\w|\\W]+)" +
                 "Description axis x: ([\\w|\\W]+)" +
                 "Description axis y: ([\\w|\\W]+)" +
                 "Data:([\\w|\\W]+)";
@@ -143,6 +148,7 @@ public class MeasurementController {
 
         String description = "";
         String category = "";
+		String typeGraph = "";
         String descriptionAxisX = "";
         String descriptionAxisY = "";
         String data = "";
@@ -151,9 +157,10 @@ public class MeasurementController {
             try{
                 description = m.group(1).trim();
                 category = m.group(2).trim();
-                descriptionAxisX = m.group(3).trim();
-                descriptionAxisY = m.group(4).trim();
-                data = m.group(5);
+                typeGraph = m.group(3);
+                descriptionAxisX = m.group(4).trim();
+                descriptionAxisY = m.group(5).trim();
+                data = m.group(6);
             }
             catch(Exception e){
                 return "add-measurement-panel";
@@ -170,7 +177,7 @@ public class MeasurementController {
 		MeasurementCategory measurementCategory = applicationService.getMeasurementCategory(category);
 		if (measurementCategory == null) {
 			measurementCategory = new MeasurementCategory(category,
-					descriptionAxisX, descriptionAxisY);
+					descriptionAxisX, descriptionAxisY, typeGraph);
 		}
 		measurementToAdd.setCategory(measurementCategory);
 

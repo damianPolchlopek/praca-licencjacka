@@ -50,4 +50,7 @@ public interface AplicationService {
 	MeasurementCategory getMeasurementCategory(String category);
 
     void deleteMeasurement(int theId);
+
+    String getTypeGraph(int tmpId);
+
 }

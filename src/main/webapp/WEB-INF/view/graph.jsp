@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 	<head>
@@ -21,15 +21,15 @@
 
 	    <script type="text/javascript">
 			
-			  window.onload = function () {
+		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
-			
-			      title:{
-			      	text: "Category - ${actualMeasurement.category}"
-			      },
 
-                    axisY:{
+			        title:{
+			      	  	text: "Category - ${actualMeasurement.category}"
+			        },
+
+					axisY:{
                         title: "${actualMeasurement.descriptionAxisY}"
                     },
 
@@ -38,19 +38,20 @@
                     },
 
 			       data: [
-			      {
-			        type: "line",
-			        dataPoints: [
+					  {
+						type: "${actualMeasurement.typeGraph}",
+							dataPoints: [
 
-						<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
-							{x: ${tmpNode.nodeX},
-							 y: ${tmpNode.nodeY}},
-						</c:forEach>
+								<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
+									{x: ${tmpNode.nodeX},
+									 y: ${tmpNode.nodeY}},
+								</c:forEach>
 
-					  ]
-			      }
-				]
-			    });
+						  	]
+					  }
+					]
+				}
+			);
 			
 			    chart.render();
 			  }
@@ -153,8 +154,9 @@
 				<div class="col-sm-9">
 
 					<div id="chartContainer" style="height: 100%; width: 100%;">
-					</div>
 
+
+					</div>
 					<br>
 
 				</div>

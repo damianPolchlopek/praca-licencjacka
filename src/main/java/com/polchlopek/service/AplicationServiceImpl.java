@@ -29,7 +29,6 @@ public class AplicationServiceImpl implements AplicationService {
 	private LoginDAO loginDao;
 
 
-
 	@Transactional
 	public List<Person> getPeople() {
 		return personDao.getPeople();
@@ -133,6 +132,11 @@ public class AplicationServiceImpl implements AplicationService {
 	@Transactional
 	public void deleteMeasurement(int theId) {
 		measurementDao.deleteMeasurement(theId);
+	}
+
+	@Transactional
+	public String getTypeGraph(int tmpId) {
+		return measurementCategoryDao.getTypeGraph(tmpId);
 	}
 
 }

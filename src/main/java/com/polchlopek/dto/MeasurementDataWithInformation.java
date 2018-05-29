@@ -16,13 +16,17 @@ public class MeasurementDataWithInformation {
 
     private String descriptionAxisY;
 
+    private String typeGraph;
+
     public MeasurementDataWithInformation(ArrayList<MeasurementData> measurementData, String description,
-                                          String category, String descriptionAxisX, String descriptionAxisY) {
+                                          String category, String descriptionAxisX, String descriptionAxisY,
+                                          String typeGraph) {
         this.measurementData = measurementData;
         this.description = description;
         this.category = category;
         this.descriptionAxisX = descriptionAxisX;
         this.descriptionAxisY = descriptionAxisY;
+        this.typeGraph = typeGraph;
     }
 
     public String getCategory() {
@@ -63,5 +67,13 @@ public class MeasurementDataWithInformation {
 
     public void setDescriptionAxisY(String descriptionAxisY) {
         this.descriptionAxisY = descriptionAxisY;
+    }
+
+    public String getTypeGraph() {
+        return typeGraph;
+    }
+
+    public void setTypeGraph(String typeGraph) {
+        this.typeGraph = typeGraph;
     }
 }

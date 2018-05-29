@@ -1,5 +1,6 @@
 package com.polchlopek.dao;
 
+import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementCategory;
 import com.polchlopek.entity.MeasurementData;
 import com.polchlopek.entity.Person;
@@ -24,7 +25,6 @@ public class MeasurementCategoryDAOImpl implements  MeasurementCategoryDAO {
 
         Query<String> theQuery = currentSession.createQuery("select cate.category " +
                 "from MeasurementCategory cate");
-
         List<String> categories = theQuery.getResultList();
 
         return categories;
@@ -45,5 +45,22 @@ public class MeasurementCategoryDAOImpl implements  MeasurementCategoryDAO {
         else{
             return measurementCategory.get(0);
         }
+    }
+    
+    public String getTypeGraph(int tmpId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+        Measurement measurement = currentSession.get(Measurement.class, tmpId);
+
+        MeasurementCategory measurementCategory
+                = currentSession.get(MeasurementCategory.class, measurement.getCategory().getId());
+
+        if (measurementCategory == null){
+            return null;
+        }
+        else{
+            return measurementCategory.getTypeGraph();
+        }
+
     }
 }

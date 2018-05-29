@@ -11,4 +11,6 @@ public interface MeasurementCategoryDAO {
     List<String> getCategories();
 
     MeasurementCategory getMeasurementCategory(String category);
+
+    String getTypeGraph(int tmpId);
 }
