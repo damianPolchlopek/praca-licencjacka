@@ -1,6 +1,5 @@
 package com.polchlopek.entity;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -108,6 +107,5 @@ public class Measurement {
 		return "Meas [id=" + id + ", dateMeasurement=" + dateMeasurement + ", description= " + description +
 				", personId=" + personId + ", node: " + nodes + "]";
 	}
-
 
 }

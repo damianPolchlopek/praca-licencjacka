@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 	<head>
@@ -24,7 +24,7 @@
 		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
-			
+
 			        title:{
 			      	  	text: "Category - ${actualMeasurement.category}"
 			        },
@@ -154,8 +154,9 @@
 				<div class="col-sm-9">
 
 					<div id="chartContainer" style="height: 100%; width: 100%;">
-					</div>
 
+
+					</div>
 					<br>
 
 				</div>

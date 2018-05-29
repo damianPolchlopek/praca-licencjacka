@@ -141,7 +141,7 @@ public class MeasurementController {
                 "Description axis y: ([\\w|\\W]+)" +
                 "Data:([\\w|\\W]+)";
 
-        final String data_pattern = "(-?\\d+), (-?\\d+)";
+        final String data_pattern = "(-?\\d*.?\\d+), (-?\\d*.?\\d+)";
 
         Pattern r = Pattern.compile(description_pattern);
         Matcher m = r.matcher(contentUploadedFile);
@@ -157,7 +157,7 @@ public class MeasurementController {
             try{
                 description = m.group(1).trim();
                 category = m.group(2).trim();
-                typeGraph = m.group(3);
+                typeGraph = m.group(3).trim();
                 descriptionAxisX = m.group(4).trim();
                 descriptionAxisY = m.group(5).trim();
                 data = m.group(6);
@@ -186,8 +186,8 @@ public class MeasurementController {
 
         while (mData.find()) {
             System.out.println(mData.group(1) + ", " + mData.group(2));
-            measurementToAdd.addNode(new MeasurementData(Integer.parseInt(mData.group(1)),
-                                            Integer.parseInt(mData.group(2))));
+            measurementToAdd.addNode(new MeasurementData(Float.parseFloat(mData.group(1)),
+                                            Float.parseFloat(mData.group(2))));
         }
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

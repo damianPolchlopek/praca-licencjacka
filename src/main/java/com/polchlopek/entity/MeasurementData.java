@@ -13,16 +13,16 @@ public class MeasurementData {
 	private int id;
 	
 	@Column(name="node_x")
-	private int nodeX;
+	private float nodeX;
 	
 	@Column(name="node_y")
-	private int nodeY;
+	private float nodeY;
 	
 	public MeasurementData() {
 		
 	}
 
-	public MeasurementData(int nodeX, int nodeY) {
+	public MeasurementData(float nodeX, float nodeY) {
 		this.nodeX = nodeX;
 		this.nodeY = nodeY;
 	}
@@ -35,19 +35,19 @@ public class MeasurementData {
 		this.id = id;
 	}
 
-	public int getNodeX() {
+	public float getNodeX() {
 		return nodeX;
 	}
 
-	public void setNodeX(int nodeX) {
+	public void setNodeX(float nodeX) {
 		this.nodeX = nodeX;
 	}
 
-	public int getNodeY() {
+	public float getNodeY() {
 		return nodeY;
 	}
 
-	public void setNodeY(int nodeY) {
+	public void setNodeY(float nodeY) {
 		this.nodeY = nodeY;
 	}
 
