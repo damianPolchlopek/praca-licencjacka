@@ -80,7 +80,7 @@ public class Person {
 		this.phone = ptv.getPhone();
 		this.enabled = ptv.getEnabled();
 
-		List<Authorities> tmpAuthorities = new LinkedList<Authorities>();
+		List<Authorities> tmpAuthorities = new LinkedList<>();
 		for(String tmp: ptv.getAuthorities()) {
 			tmpAuthorities.add(new Authorities(ptv.getNickName(), tmp));
 		}

@@ -128,7 +128,7 @@
 
 									<form:select path="category" class="form-control">
 										<form:option value=""> All </form:option>
-										<form:options items="${availableCategory}"></form:options>
+										<form:options items="${availableCategory}"/>
 									</form:select>
 
 									<form:input  path="description" type="text" class="form-control" placeholder="Szukaj" />
@@ -170,12 +170,12 @@
 
                                 <!-- construct an "update" link with measurement id -->
                                 <c:url var="showLink" value="/measurement/showGraph">
-                                    <c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
+                                    <c:param name="measurementId" value="${tempMeasurement.id}"/>
                                 </c:url>
 
 								<!-- construct an "delete" link with measurement id -->
 								<c:url var="deleteLink" value="/measurement/delete">
-									<c:param name="measurementId" value="${tempMeasurement.id}"></c:param>
+									<c:param name="measurementId" value="${tempMeasurement.id}"/>
 								</c:url>
 
                                 <tr>

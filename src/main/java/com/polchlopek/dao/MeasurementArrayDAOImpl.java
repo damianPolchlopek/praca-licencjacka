@@ -22,10 +22,8 @@ public class MeasurementArrayDAOImpl implements MeasurementArrayDAO {
 				currentSession.createQuery("from MeasurementData where id_meas=:theId");
 		
 		theQuery.setParameter("theId", theId);
-		
-		List<MeasurementData> theData = theQuery.getResultList();
-		
-		return theData;
+
+		return theQuery.getResultList();
 	}
 
 }

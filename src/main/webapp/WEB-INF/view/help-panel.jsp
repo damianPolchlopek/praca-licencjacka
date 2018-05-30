@@ -159,7 +159,9 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <img src="/resources/image/help-file.png">
+                                        <li>
+                                            <img src="/resources/image/help-file.png">
+                                        </li>
                                     </ul>
                                 </div>
                             </td>

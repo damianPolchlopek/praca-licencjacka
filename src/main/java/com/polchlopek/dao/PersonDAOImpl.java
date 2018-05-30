@@ -28,9 +28,7 @@ public class PersonDAOImpl implements PersonDAO {
 		theQuery.setFirstResult(0);
 		theQuery.setMaxResults(15);
 
-		List<Person> people = theQuery.getResultList();
-		
-		return people;
+		return theQuery.getResultList();
 	}
 
 	public void savePerson(Person thePerson) {
@@ -42,9 +40,8 @@ public class PersonDAOImpl implements PersonDAO {
 	public Person getPerson(int theId) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
-        Person thePerson = currentSession.get(Person.class, theId);
-		
-		return thePerson;
+
+		return currentSession.get(Person.class, theId);
 	}
 
 	public Person getPerson(String nickName) {
@@ -76,9 +73,8 @@ public class PersonDAOImpl implements PersonDAO {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		Person thePerson = currentSession.get(Person.class, theId);
-		PersonToValUpdate personToVal = new PersonToValUpdate(thePerson);
-		
-		return personToVal;
+
+		return new PersonToValUpdate(thePerson);
 	}
 
 }

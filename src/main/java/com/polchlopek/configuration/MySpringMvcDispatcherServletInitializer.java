@@ -3,9 +3,9 @@ package com.polchlopek.configuration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class MySpringMvcDispatcherServletInitializer
@@ -39,7 +39,7 @@ public class MySpringMvcDispatcherServletInitializer
 	}
 
 	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
+	public void onStartup(ServletContext servletContext) {
 		AnnotationConfigWebApplicationContext ctx =
 				new AnnotationConfigWebApplicationContext();
 		ctx.register(DemoAppConfig.class);

@@ -2,8 +2,6 @@ package com.polchlopek.dao;
 
 import com.polchlopek.entity.Measurement;
 import com.polchlopek.entity.MeasurementCategory;
-import com.polchlopek.entity.MeasurementData;
-import com.polchlopek.entity.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -25,9 +23,8 @@ public class MeasurementCategoryDAOImpl implements  MeasurementCategoryDAO {
 
         Query<String> theQuery = currentSession.createQuery("select cate.category " +
                 "from MeasurementCategory cate");
-        List<String> categories = theQuery.getResultList();
 
-        return categories;
+        return theQuery.getResultList();
     }
 
     public MeasurementCategory getMeasurementCategory(String category) {

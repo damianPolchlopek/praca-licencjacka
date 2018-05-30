@@ -28,27 +28,23 @@ public class MeasurementDAOImpl implements MeasurementDAO {
 		
 		theQuery.setFirstResult(0);
 		theQuery.setMaxResults(15);
-
-		List<Measurement> measurements = theQuery.getResultList();
 		
-		return measurements;
+		return theQuery.getResultList();
 	}
 
 	public Measurement getMeasurement(int theId) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
-		Measurement measurement = currentSession.get(Measurement.class, theId);
 		
-		return measurement;
+		return currentSession.get(Measurement.class, theId);
 	}
 
 	public List<MeasurementData> getMeasurementData() {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		Query<MeasurementData> theQuery = currentSession.createQuery("from MeasurementData");
-		List<MeasurementData> measArray = theQuery.getResultList();
 		
-		return measArray;
+		return theQuery.getResultList();
 	}
 
 	public List<Measurement> getMeasurements(DataMeasurement dataMeasurement) {
@@ -62,42 +58,36 @@ public class MeasurementDAOImpl implements MeasurementDAO {
 		theQuery.setParameter("cat_param", '%'+dataMeasurement.getCategory()+'%');
 		theQuery.setParameter("descr_param", '%'+dataMeasurement.getDescription()+'%');
 
-		List<Measurement> measArray = theQuery.getResultList();
-
-		return measArray;
+		return theQuery.getResultList();
 	}
 
 	public String getDescription(int tmpId) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		Measurement measurement = currentSession.get(Measurement.class, tmpId);
-		String description = measurement.getDescription();
 
-		return description;
+		return measurement.getDescription();
 	}
 
 	public String getCategory(int tmpId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Measurement measurement = currentSession.get(Measurement.class, tmpId);
-		String category = measurement.getCategory().getCategory();
 
-		return category;
+		return measurement.getCategory().getCategory();
 	}
 
 	public String getDescriptionAxisX(int tmpId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Measurement measurement = currentSession.get(Measurement.class, tmpId);
-		String descriptionAxisX = measurement.getCategory().getDescriptionAxisX();
 
-		return descriptionAxisX;
+		return measurement.getCategory().getDescriptionAxisX();
 	}
 
 	public String getDescriptionAxisY(int tmpId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Measurement measurement = currentSession.get(Measurement.class, tmpId);
-		String descriptionAxisY = measurement.getCategory().getDescriptionAxisY();
 
-		return descriptionAxisY;
+		return measurement.getCategory().getDescriptionAxisY();
 	}
 
 	public void saveMeasurement(Measurement measurement) {

@@ -23,14 +23,12 @@ public class LoginDAOImpl implements LoginDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		Query<Login> theQuery =
-				currentSession.createQuery("from Login log order by log.id desc", Login.class);
+				currentSession.createQuery("FROM com.polchlopek.entity.Login log order by log.id desc");
 		
 		theQuery.setFirstResult(0);
 		theQuery.setMaxResults(10);
 
-		List<Login> logins = theQuery.getResultList();
-		
-		return logins;
+		return theQuery.getResultList();
 	}
 
 	public void addPerson(Person tmpPerson) {
