@@ -6,8 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea6231e1-05f1-4378-a83a-0ad51255234d" name="Default" comment="Added gitignore, major refactoring, maven compiling">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="ea6231e1-05f1-4378-a83a-0ad51255234d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -105,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-person-content.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="144" column="24" lean-forward="true" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
+              <caret line="144" column="24" lean-forward="false" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -134,8 +133,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="137">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -324,32 +323,6 @@
               <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
               <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="polchlopek" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -367,7 +340,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.48387095" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="SearchEverywhereHistoryKey" value="showmultiple&#9;PSI&#9;JAVA://com.polchlopek.controllers.MeasurementController#showMultipleGraph" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -767,7 +740,7 @@
       <workItem from="1527535221212" duration="6764000" />
       <workItem from="1527582534476" duration="10549000" />
       <workItem from="1527634328810" duration="4225000" />
-      <workItem from="1527689743537" duration="515000" />
+      <workItem from="1527689743537" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="gggg">
       <created>1525115401228</created>
@@ -965,11 +938,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527690207208</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added .idea to gitignorem pushing">
+      <created>1527690318416</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1527690318416</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383057000" />
+    <option name="totallyTimeSpent" value="383417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1099,7 +1079,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Second test" />
     <MESSAGE value="Version before change way to configure project." />
     <MESSAGE value="Add panel login with spring security" />
     <MESSAGE value="Add logout" />
@@ -1124,7 +1103,8 @@
     <MESSAGE value="Add opportunity to add float measurement data." />
     <MESSAGE value="Deleted empty string initialisation." />
     <MESSAGE value="Added gitignore, major refactoring, maven compiling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added gitignore, major refactoring, maven compiling" />
+    <MESSAGE value="Added .idea to gitignorem pushing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .idea to gitignorem pushing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1550,15 +1530,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-person-content.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="144" column="24" lean-forward="true" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
+          <caret line="144" column="24" lean-forward="false" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="137">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
