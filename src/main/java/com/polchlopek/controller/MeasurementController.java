@@ -146,12 +146,12 @@ public class MeasurementController {
         Pattern r = Pattern.compile(description_pattern);
         Matcher m = r.matcher(contentUploadedFile);
 
-        String description = "";
-        String category = "";
-		String typeGraph = "";
-        String descriptionAxisX = "";
-        String descriptionAxisY = "";
-        String data = "";
+        String description ;
+        String category ;
+		String typeGraph;
+        String descriptionAxisX;
+        String descriptionAxisY ;
+        String data ;
 
         if (m.find()){
             try{
