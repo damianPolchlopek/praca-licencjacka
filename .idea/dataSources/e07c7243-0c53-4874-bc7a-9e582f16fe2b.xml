@@ -960,58 +960,62 @@
     <table id="245" parent="12" name="measurement">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="246" parent="12" name="users">
+    <table id="246" parent="12" name="measurement_analysis">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="247" parent="241" name="id">
+    <table id="247" parent="12" name="users">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="248" parent="241" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="241" name="username">
+    <column id="249" parent="241" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="241" name="authority">
+    <column id="250" parent="241" name="authority">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="241" name="user_id">
+    <column id="251" parent="241" name="user_id">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="241" name="authorities_idx_1">
+    <index id="252" parent="241" name="authorities_idx_1">
       <ColNames>username
 authority</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="252" parent="241" name="FK_USERS_Author">
+    <index id="253" parent="241" name="FK_USERS_Author">
       <ColNames>user_id</ColNames>
     </index>
-    <key id="253" parent="241" name="PRIMARY">
+    <key id="254" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="254" parent="241" name="authorities_idx_1">
+    <key id="255" parent="241" name="authorities_idx_1">
       <ColNames>username
 authority</ColNames>
       <UnderlyingIndexName>authorities_idx_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="255" parent="241" name="authorities_ibfk_1">
+    <foreign-key id="256" parent="241" name="authorities_ibfk_1">
       <ColNames>username</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>username</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="256" parent="241" name="FK_USERS_Author">
+    <foreign-key id="257" parent="241" name="FK_USERS_Author">
       <ColNames>user_id</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1019,42 +1023,42 @@ authority</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="257" parent="242" name="id">
+    <column id="258" parent="242" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="242" name="date_log">
+    <column id="259" parent="242" name="date_log">
       <Position>2</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="242" name="time_log">
+    <column id="260" parent="242" name="time_log">
       <Position>3</Position>
       <DataType>time|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="242" name="location_log">
+    <column id="261" parent="242" name="location_log">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="242" name="users_id_login">
+    <column id="262" parent="242" name="users_id_login">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="262" parent="242" name="FK_users_id2">
+    <index id="263" parent="242" name="FK_users_id2">
       <ColNames>users_id_login</ColNames>
     </index>
-    <key id="263" parent="242" name="PRIMARY">
+    <key id="264" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="264" parent="242" name="FK_users_id2">
+    <foreign-key id="265" parent="242" name="FK_users_id2">
       <ColNames>users_id_login</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1062,39 +1066,39 @@ authority</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="265" parent="243" name="id">
+    <column id="266" parent="243" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="243" name="node_x">
+    <column id="267" parent="243" name="node_x">
       <Position>2</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>float|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="243" name="node_y">
+    <column id="268" parent="243" name="node_y">
       <Position>3</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>float|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="243" name="id_meas">
+    <column id="269" parent="243" name="id_meas">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="269" parent="243" name="id_meas">
+    <index id="270" parent="243" name="id_meas">
       <ColNames>id_meas</ColNames>
     </index>
-    <key id="270" parent="243" name="PRIMARY">
+    <key id="271" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="271" parent="243" name="FK_MEAS">
+    <foreign-key id="272" parent="243" name="FK_MEAS">
       <ColNames>id_meas</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>measurement</RefTableName>
@@ -1102,72 +1106,85 @@ authority</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="272" parent="244" name="id">
+    <column id="273" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="244" name="category">
+    <column id="274" parent="244" name="category">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="244" name="description_axis_x">
+    <column id="275" parent="244" name="description_axis_x">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="244" name="description_axis_y">
+    <column id="276" parent="244" name="description_axis_y">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="276" parent="244" name="PRIMARY">
+    <column id="277" parent="244" name="type_graph">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="278" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="277" parent="245" name="id">
+    <column id="279" parent="245" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="245" name="date_measurement">
+    <column id="280" parent="245" name="date_measurement">
       <Position>2</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="245" name="description">
+    <column id="281" parent="245" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="245" name="category_id">
+    <column id="282" parent="245" name="category_id">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="245" name="users_id_meas">
+    <column id="283" parent="245" name="users_id_meas">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="282" parent="245" name="KEY_CATEGORY_ID">
+    <column id="284" parent="245" name="measurement_analysis_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="285" parent="245" name="KEY_CATEGORY_ID">
       <ColNames>category_id</ColNames>
     </index>
-    <index id="283" parent="245" name="KEY_USERS_ID">
+    <index id="286" parent="245" name="KEY_USERS_ID">
       <ColNames>users_id_meas</ColNames>
     </index>
-    <key id="284" parent="245" name="PRIMARY">
+    <index id="287" parent="245" name="FK_MEAS_ANALYSIS">
+      <ColNames>measurement_analysis_id</ColNames>
+    </index>
+    <key id="288" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="285" parent="245" name="FK_CATEGORY">
+    <foreign-key id="289" parent="245" name="FK_CATEGORY">
       <ColNames>category_id</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>meas_category</RefTableName>
@@ -1175,7 +1192,7 @@ authority</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>set-null</OnDelete>
     </foreign-key>
-    <foreign-key id="286" parent="245" name="FK_USERS">
+    <foreign-key id="290" parent="245" name="FK_USERS">
       <ColNames>users_id_meas</ColNames>
       <RefSchemaName>praca_licencjacka</RefSchemaName>
       <RefTableName>users</RefTableName>
@@ -1183,55 +1200,105 @@ authority</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="287" parent="246" name="id">
+    <foreign-key id="291" parent="245" name="FK_MEAS_ANALYSIS">
+      <ColNames>measurement_analysis_id</ColNames>
+      <RefSchemaName>praca_licencjacka</RefSchemaName>
+      <RefTableName>measurement_analysis</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="292" parent="246" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="246" name="username">
+    <column id="293" parent="246" name="maximum">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="294" parent="246" name="minimum">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="246" name="average">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="246" name="variance">
+      <Position>5</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="297" parent="246" name="standard_deviation">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="298" parent="246" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="299" parent="247" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="247" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="246" name="first_name">
+    <column id="301" parent="247" name="first_name">
       <Position>3</Position>
       <DataType>varchar(15)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="246" name="last_name">
+    <column id="302" parent="247" name="last_name">
       <Position>4</Position>
       <DataType>varchar(15)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="246" name="email">
+    <column id="303" parent="247" name="email">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="246" name="password">
+    <column id="304" parent="247" name="password">
       <Position>6</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(68)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="246" name="phone">
+    <column id="305" parent="247" name="phone">
       <Position>7</Position>
       <DataType>int(9)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="246" name="enabled">
+    <column id="306" parent="247" name="enabled">
       <Position>8</Position>
       <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="246" name="username">
+    <index id="307" parent="247" name="username">
       <ColNames>username</ColNames>
     </index>
-    <key id="296" parent="246" name="PRIMARY">
+    <key id="308" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

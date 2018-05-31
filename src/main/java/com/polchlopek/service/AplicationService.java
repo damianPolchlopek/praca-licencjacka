@@ -53,4 +53,6 @@ public interface AplicationService {
 
     String getTypeGraph(int tmpId);
 
+    MeasurementAnalysis getMeasurementAnalysis(int theId);
+
 }

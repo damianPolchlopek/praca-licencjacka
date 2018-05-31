@@ -24,10 +24,12 @@ public class AplicationServiceImpl implements AplicationService {
 
 	@Autowired
 	private MeasurementCategoryDAO measurementCategoryDao;
+
+	@Autowired
+	private MeasurementAnalysisDAO signalAnalysisDao;
 	
 	@Autowired
 	private LoginDAO loginDao;
-
 
 	@Transactional
 	public List<Person> getPeople() {
@@ -137,6 +139,11 @@ public class AplicationServiceImpl implements AplicationService {
 	@Transactional
 	public String getTypeGraph(int tmpId) {
 		return measurementCategoryDao.getTypeGraph(tmpId);
+	}
+
+	@Transactional
+	public MeasurementAnalysis getMeasurementAnalysis(int theId) {
+		return signalAnalysisDao.getMeasurementAnalysis(theId);
 	}
 
 }

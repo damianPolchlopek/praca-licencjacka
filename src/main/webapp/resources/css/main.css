@@ -10,13 +10,13 @@
 /* Set black background color, white text and some padding */
 footer {
     background-color: #626262;
-    color: #337ab7;
+    color: #f1f1f1;
     padding: 15px;
 }
 
 header {
     background-color: #555;
-    color: #337ab7;
+    color: #f1f1f1;
     padding: 15px;
 }
 
@@ -44,6 +44,7 @@ td {
 #wrapper {
     position: relative;
 }
+
 #center {
     width: 40%;
     height: 20%;

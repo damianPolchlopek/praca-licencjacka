@@ -12,8 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
-	// need to inject the login dao
+
 	@Autowired
 	private AplicationService applicationService;
 	

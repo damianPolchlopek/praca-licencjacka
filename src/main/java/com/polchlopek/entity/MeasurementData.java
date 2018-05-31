@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="meas_arrays")
-public class MeasurementData {
+public class MeasurementData implements Comparable<MeasurementData> {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -54,5 +54,18 @@ public class MeasurementData {
 	public String toString() {
 		return "MeasData [id=" + id + ", nodeX=" + nodeX + ", nodeY= " + nodeY + "]";
 	}
-	
+
+	public int compareTo(MeasurementData md) {
+
+		if (this.nodeY > md.getNodeY()){
+			return 1;
+		}
+		else if(this.nodeY == md.getNodeY()){
+			return 0;
+		}
+		else{
+			return -1;
+		}
+
+	}
 }

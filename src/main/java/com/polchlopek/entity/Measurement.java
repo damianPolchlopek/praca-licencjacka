@@ -37,6 +37,10 @@ public class Measurement {
 	@JoinColumn(name="id_meas")
 	private List<MeasurementData> nodes;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "measurement_analysis_id")
+	private MeasurementAnalysis measurementAnalysis;
+
 	public Measurement() {
 	
 	}
@@ -44,6 +48,14 @@ public class Measurement {
 	public Measurement(Date dateMeasurement, String description) {
 		this.dateMeasurement = dateMeasurement;
 		this.description = description;
+	}
+
+	public MeasurementAnalysis getMeasurementAnalysis() {
+		return measurementAnalysis;
+	}
+
+	public void setMeasurementAnalysis(MeasurementAnalysis measurementAnalysis) {
+		this.measurementAnalysis = measurementAnalysis;
 	}
 
 	public List<MeasurementData> getNodes() {

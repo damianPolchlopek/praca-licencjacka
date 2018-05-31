@@ -32,4 +32,5 @@ public class DataMeasurement {
                 ", category='" + category + '\'' +
                 '}';
     }
+
 }

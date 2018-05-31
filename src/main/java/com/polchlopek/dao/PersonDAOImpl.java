@@ -40,7 +40,6 @@ public class PersonDAOImpl implements PersonDAO {
 	public Person getPerson(int theId) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
-
 		return currentSession.get(Person.class, theId);
 	}
 
@@ -73,7 +72,6 @@ public class PersonDAOImpl implements PersonDAO {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		Person thePerson = currentSession.get(Person.class, theId);
-
 		return new PersonToValUpdate(thePerson);
 	}
 

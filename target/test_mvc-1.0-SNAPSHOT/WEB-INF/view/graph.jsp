@@ -24,10 +24,9 @@
 		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
-
 			        title:{
 			      	  	text: "Category - ${actualMeasurement.category}"
-			        },
+                    },
 
 					axisY:{
                         title: "${actualMeasurement.descriptionAxisY}"
@@ -37,24 +36,30 @@
                         title: "${actualMeasurement.descriptionAxisX}"
                     },
 
-			       data: [
-					  {
-						type: "${actualMeasurement.typeGraph}",
-							dataPoints: [
+                    <c:if test="${actualMeasurement.typeGraph == 'column'}">
+                        dataPointWidth: 1,
+                    </c:if>
 
-								<c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
-									{x: ${tmpNode.nodeX},
-									 y: ${tmpNode.nodeY}},
-								</c:forEach>
+                    data: [
+                    {
+                        type: "${actualMeasurement.typeGraph}",
+                        color: "blue",
 
-						  	]
-					  }
-					]
+                        dataPoints: [
+
+                            <c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
+                                {x: ${tmpNode.nodeX},
+                                 y: ${tmpNode.nodeY}},
+                            </c:forEach>
+
+                        ]
+                    }
+                    ]
 				}
 			);
-			
+
 			    chart.render();
-			  }
+            }
 	  	</script>
 		<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   
@@ -162,6 +167,43 @@
 
 					</div>
 
+                    <hr>
+                    <hr>
+
+                    <div style="position: relative;
+                                   margin: 0 auto;
+                                   width: 90%;">
+
+                        <h4><b>Opis pomiaru</b></h4>
+
+                        <table class="table table-striped table-sm">
+                            <tr>
+                                <th>Maximum: </th>
+                                <td>${measurementAnalysis.maximum}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Minimum: </th>
+                                <td>${measurementAnalysis.minimum}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Average: </th>
+                                <td>${measurementAnalysis.average}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Variance: </th>
+                                <td>${measurementAnalysis.variance}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Standard Deviotion: </th>
+                                <td>${measurementAnalysis.standardDeviation}</td>
+                            </tr>
+
+                        </table>
+                    </div>
 
 				</div>
 

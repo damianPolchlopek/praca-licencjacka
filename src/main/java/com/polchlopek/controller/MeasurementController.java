@@ -1,14 +1,13 @@
 package com.polchlopek.controller;
 
-import com.polchlopek.dto.DataMeasurement;
-import com.polchlopek.dto.FileMeasurementData;
-import com.polchlopek.dto.MeasurementDataWithInformation;
-import com.polchlopek.dto.MultipleMeasurement;
+import com.polchlopek.dto.*;
 import com.polchlopek.entity.Measurement;
+import com.polchlopek.entity.MeasurementAnalysis;
 import com.polchlopek.entity.MeasurementCategory;
 import com.polchlopek.entity.MeasurementData;
 import com.polchlopek.entity.Person;
 import com.polchlopek.service.AplicationService;
+import com.polchlopek.service.SignalAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,6 +30,8 @@ public class MeasurementController {
 	@Autowired
 	private AplicationService applicationService;
 
+	@Autowired
+    private SignalAnalysisService signalAnalysisService;
 
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
@@ -81,6 +84,9 @@ public class MeasurementController {
 
  		theModel.addAttribute("actualMeasurement", measurementDataWithInformation);
 
+        MeasurementAnalysis measurementAnalysis = applicationService.getMeasurementAnalysis(theId);
+        theModel.addAttribute("measurementAnalysis", measurementAnalysis);
+
 		return "graph";
 	}
 
@@ -129,7 +135,8 @@ public class MeasurementController {
 	}
 
 	@RequestMapping(value = "/addMeasurement", method = RequestMethod.POST)
-	public String addMeasurement(@ModelAttribute("newMeasurement") FileMeasurementData file) {
+	public String addMeasurement(Model theModel,
+	        @ModelAttribute("newMeasurement") FileMeasurementData file) {
 
         byte[] bytes = file.getFile().getBytes();
         String contentUploadedFile = new String(bytes);
@@ -190,6 +197,48 @@ public class MeasurementController {
                                             Float.parseFloat(mData.group(2))));
         }
 
+
+
+
+
+
+
+
+
+
+
+		System.out.println("*******************************************");
+
+		System.out.println("[Maks] " + Collections.max(measurementToAdd.getNodes()) );
+		System.out.println("[Min] " + Collections.min(measurementToAdd.getNodes()) );
+		System.out.println("[Srednia] " + signalAnalysisService.calculateAverage(measurementToAdd.getNodes()) );
+		System.out.println("[Standard Dev] " + signalAnalysisService
+                                    .calculateStandardDeviation(measurementToAdd.getNodes()) );
+        System.out.println("[Wariancja] " + signalAnalysisService.calculateVariance(measurementToAdd.getNodes()));
+
+
+        double maximum = Collections.max(measurementToAdd.getNodes()).getNodeY();
+        double minimum = Collections.min(measurementToAdd.getNodes()).getNodeY();
+        double average = signalAnalysisService.calculateAverage(measurementToAdd.getNodes());
+        double variance = signalAnalysisService.calculateVariance(measurementToAdd.getNodes());
+        double standardDeviation = signalAnalysisService
+                .calculateStandardDeviation(measurementToAdd.getNodes());
+
+        MeasurementAnalysis measurementAnalysis = new MeasurementAnalysis(
+                maximum, minimum, average, variance, standardDeviation);
+
+        measurementToAdd.setMeasurementAnalysis(measurementAnalysis);
+
+		System.out.println("*******************************************");
+
+
+
+
+
+
+
+
+
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		Person person = applicationService.getPerson(username);
@@ -206,5 +255,10 @@ public class MeasurementController {
 
 		return "redirect:/measurement/showMeasurement";
 	}
+
+
+
+
+
 
 }
