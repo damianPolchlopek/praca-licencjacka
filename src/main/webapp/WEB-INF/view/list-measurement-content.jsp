@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 
 <!DOCTYPE html>
 
@@ -42,28 +41,28 @@
 					<ul class="nav nav-pills nav-stacked">
 
 						<li class="nav-item">
-							<a href="/login/loginOk">
+							<a href="${pageContext.request.contextPath}/login/loginOk">
 								<span class="glyphicon glyphicon-home" ></span>
 								Home
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="/person/showPerson">
+							<a href="${pageContext.request.contextPath}/person/showPerson">
 								<span class="glyphicon glyphicon-user" ></span>
 								Users
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="/login/showLogin">
+							<a href="${pageContext.request.contextPath}/login/showLogin">
 								<span class="glyphicon glyphicon-th-list" ></span>
 								Last logs
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="/measurement/showMeasurement">
+							<a href="${pageContext.request.contextPath}/measurement/showMeasurement">
 								<span class="glyphicon glyphicon-stats" ></span>
 								Measurements
 							</a>
@@ -71,7 +70,7 @@
 
 						<security:authorize access="hasRole('EMPLOYEE')">
 							<li class="nav-item">
-								<a href="/measurement/addMeasurementPanel">
+								<a href="${pageContext.request.contextPath}/measurement/addMeasurementPanel">
 									<span class="glyphicon glyphicon-plus" ></span>
 									Add Measurement
 								</a>
@@ -80,7 +79,7 @@
 
 						<security:authorize access="hasRole('ADMIN')">
 							<li class="nav-item">
-								<a href="/person/showFormForAdd">
+								<a href="${pageContext.request.contextPath}/person/showFormForAdd">
 									<span class="glyphicon glyphicon-plus" ></span>
 									Add user
 								</a>

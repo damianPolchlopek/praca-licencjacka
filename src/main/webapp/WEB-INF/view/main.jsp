@@ -111,9 +111,7 @@
                 
                 <div class="col-sm-9" id="center">
 
-                    <p>
-                        <h3> Witaj <security:authentication property="principal.username" /> </h3>
-                    </p>
+                    <h3> Witaj <security:authentication property="principal.username" /> </h3>
 
                 </div>
 
