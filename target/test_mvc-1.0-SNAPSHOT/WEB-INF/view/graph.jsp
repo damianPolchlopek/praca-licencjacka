@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 
@@ -168,7 +169,6 @@
 					</div>
 
                     <hr>
-                    <hr>
 
                     <div style="position: relative;
                                    margin: 0 auto;
@@ -178,28 +178,43 @@
 
                         <table class="table table-striped table-sm">
                             <tr>
-                                <th>Maximum: </th>
-                                <td>${measurementAnalysis.maximum}</td>
-                            </tr>
+                                <th style="border: yellow;" >Maximum: </th>
+								<td>
+									<fmt:formatNumber type="number" minFractionDigits="2"
+													  maxFractionDigits="4" value="${measurementAnalysis.maximum}"/>
+								</td>
+							</tr>
 
                             <tr>
                                 <th>Minimum: </th>
-                                <td>${measurementAnalysis.minimum}</td>
+								<td>
+									<fmt:formatNumber type="number" minFractionDigits="2"
+													  maxFractionDigits="4" value="${measurementAnalysis.minimum}"/>
+								</td>
                             </tr>
 
                             <tr>
                                 <th>Average: </th>
-                                <td>${measurementAnalysis.average}</td>
+								<td>
+									<fmt:formatNumber type="number" minFractionDigits="2"
+													  maxFractionDigits="4" value="${measurementAnalysis.average}"/>
+								</td>
                             </tr>
 
                             <tr>
                                 <th>Variance: </th>
-                                <td>${measurementAnalysis.variance}</td>
+								<td>
+									<fmt:formatNumber type="number" minFractionDigits="2"
+													  maxFractionDigits="4" value="${measurementAnalysis.variance}"/>
+								</td>
                             </tr>
 
                             <tr>
                                 <th>Standard Deviotion: </th>
-                                <td>${measurementAnalysis.standardDeviation}</td>
+								<td>
+									<fmt:formatNumber type="number" minFractionDigits="2"
+													  maxFractionDigits="4" value="${measurementAnalysis.standardDeviation}"/>
+								</td>
                             </tr>
 
                         </table>

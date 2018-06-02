@@ -1,11 +1,10 @@
 package com.polchlopek.controller;
 
-import com.polchlopek.dto.*;
-import com.polchlopek.entity.Measurement;
-import com.polchlopek.entity.MeasurementAnalysis;
-import com.polchlopek.entity.MeasurementCategory;
-import com.polchlopek.entity.MeasurementData;
-import com.polchlopek.entity.Person;
+import com.polchlopek.dto.DataMeasurement;
+import com.polchlopek.dto.FileMeasurementData;
+import com.polchlopek.dto.MeasurementDataWithInformation;
+import com.polchlopek.dto.MultipleMeasurement;
+import com.polchlopek.entity.*;
 import com.polchlopek.service.AplicationService;
 import com.polchlopek.service.SignalAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -25,6 +23,7 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/measurement")
+@SessionAttributes("measurementToAdd")
 public class MeasurementController {
 
 	@Autowired
@@ -191,32 +190,14 @@ public class MeasurementController {
         Pattern rData = Pattern.compile(data_pattern);
         Matcher mData = rData.matcher(data);
 
+        // dodanie wektora danych
         while (mData.find()) {
             System.out.println(mData.group(1) + ", " + mData.group(2));
             measurementToAdd.addNode(new MeasurementData(Float.parseFloat(mData.group(1)),
                                             Float.parseFloat(mData.group(2))));
         }
 
-
-
-
-
-
-
-
-
-
-
-		System.out.println("*******************************************");
-
-		System.out.println("[Maks] " + Collections.max(measurementToAdd.getNodes()) );
-		System.out.println("[Min] " + Collections.min(measurementToAdd.getNodes()) );
-		System.out.println("[Srednia] " + signalAnalysisService.calculateAverage(measurementToAdd.getNodes()) );
-		System.out.println("[Standard Dev] " + signalAnalysisService
-                                    .calculateStandardDeviation(measurementToAdd.getNodes()) );
-        System.out.println("[Wariancja] " + signalAnalysisService.calculateVariance(measurementToAdd.getNodes()));
-
-
+        // analiza sygnalu
         double maximum = Collections.max(measurementToAdd.getNodes()).getNodeY();
         double minimum = Collections.min(measurementToAdd.getNodes()).getNodeY();
         double average = signalAnalysisService.calculateAverage(measurementToAdd.getNodes());
@@ -225,26 +206,34 @@ public class MeasurementController {
                 .calculateStandardDeviation(measurementToAdd.getNodes());
 
         MeasurementAnalysis measurementAnalysis = new MeasurementAnalysis(
-                maximum, minimum, average, variance, standardDeviation);
+				maximum, minimum, average, variance, standardDeviation);
 
-        measurementToAdd.setMeasurementAnalysis(measurementAnalysis);
+		measurementToAdd.setMeasurementAnalysis(measurementAnalysis);
 
-		System.out.println("*******************************************");
-
-
-
-
-
-
-
-
-
+        // ustawienie osoby
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		Person person = applicationService.getPerson(username);
 		measurementToAdd.setPersonId(person);
+
+		// sprawdzenie pooprawnosci wprowadzanych danych
+		for (MeasurementData tmpNode : measurementToAdd.getNodes()){
+
+			if (tmpNode.getNodeY() > 2*average){
+				theModel.addAttribute("measurementToAdd", measurementToAdd);
+				return "measurement-warning";
+			}
+		}
+
 		applicationService.saveMeasurement(measurementToAdd);
 
+		return "add-measurement";
+	}
+
+	@RequestMapping(value = "/addMeasurementWarning")
+	public String addMeasurementWarning(@ModelAttribute("measurementToAdd") Measurement measurementToAdd){
+
+		applicationService.saveMeasurement(measurementToAdd);
 		return "add-measurement";
 	}
 
@@ -252,13 +241,7 @@ public class MeasurementController {
 	public String deleteMeasurement(@RequestParam("measurementId") int theId) {
 
 		applicationService.deleteMeasurement(theId);
-
 		return "redirect:/measurement/showMeasurement";
 	}
-
-
-
-
-
 
 }

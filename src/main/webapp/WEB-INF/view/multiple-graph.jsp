@@ -169,10 +169,13 @@
 
 				</div>
 
+				<div class="col-sm-9" style="position: relative;">
 
-				<div class="col-sm-9">
-
-					<div id="chartContainer" style="height: 100%; width: 100%;">
+					<div id="chartContainer" style="position: relative;
+					 								margin: 0 auto;
+					 								top: 30%;
+					 								height: 400px;
+					 								width: 90%;">
 
 					</div>
 

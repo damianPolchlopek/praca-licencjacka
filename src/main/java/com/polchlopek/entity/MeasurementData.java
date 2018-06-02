@@ -58,13 +58,13 @@ public class MeasurementData implements Comparable<MeasurementData> {
 	public int compareTo(MeasurementData md) {
 
 		if (this.nodeY > md.getNodeY()){
-			return 1;
+			return -1;
 		}
 		else if(this.nodeY == md.getNodeY()){
 			return 0;
 		}
 		else{
-			return -1;
+			return 1;
 		}
 
 	}
