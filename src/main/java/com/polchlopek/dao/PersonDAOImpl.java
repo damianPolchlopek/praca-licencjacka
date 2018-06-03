@@ -75,4 +75,21 @@ public class PersonDAOImpl implements PersonDAO {
 		return new PersonToValUpdate(thePerson);
 	}
 
+	public boolean isUsername(String nickName) {
+
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query<Person> theQuery = currentSession.createQuery("from Person where username=:nickName");
+		theQuery.setParameter("nickName", nickName);
+		List<Person> thePerson = theQuery.getResultList();
+
+		if (thePerson.isEmpty()) {
+			return false;
+		}
+		else{
+			return true;
+		}
+
+	}
+
 }

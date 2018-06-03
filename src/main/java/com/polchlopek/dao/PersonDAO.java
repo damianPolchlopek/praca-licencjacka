@@ -20,5 +20,8 @@ public interface PersonDAO {
 	void deletePerson(int theId);
 
 	PersonToValUpdate getPersonToVal(int theId);
-	
+
+    boolean isUsername(String nickName);
+
+
 }

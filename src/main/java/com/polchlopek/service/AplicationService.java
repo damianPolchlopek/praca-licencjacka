@@ -55,4 +55,5 @@ public interface AplicationService {
 
     MeasurementAnalysis getMeasurementAnalysis(int theId);
 
+    boolean isUsername(String nickName);
 }

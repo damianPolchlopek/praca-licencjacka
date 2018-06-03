@@ -9,6 +9,7 @@ import java.util.List;
 public class SignalAnalysisServiceImpl implements SignalAnalysisService {
 
 	public float calculateAverage(List<MeasurementData> measurements) {
+
 		float sum = 0;
 		int size = measurements.size();
 

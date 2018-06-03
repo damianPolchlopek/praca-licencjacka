@@ -4,6 +4,7 @@ import com.polchlopek.entity.Person;
 import com.polchlopek.validation.PersonToValAdd;
 import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.service.AplicationService;
+import org.sonatype.plexus.components.sec.dispatcher.PasswordDecryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -56,7 +57,6 @@ public class PersonController {
 			String encodedPassword =  "{bcrypt}" + passwordEncoder.encode(personToSave.getPassword());
 			personToSave.setPassword(encodedPassword);
 			applicationService.savePerson(personToSave);
-
 			return "redirect:/person/showPerson";
 		}
 

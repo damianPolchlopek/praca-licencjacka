@@ -16,6 +16,7 @@ public class PersonToValAdd {
 	
 	@NotEmpty(message="is required")
 	@Size(min=0, max=15, message="max size 15 characters")
+	@FreeUsername
 	private String nickName;
 
 	@NotEmpty(message="is required")

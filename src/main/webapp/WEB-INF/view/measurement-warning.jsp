@@ -138,8 +138,6 @@
                     </table>
                 </form:form>
 
-                Date: ${measurementToAdd.description}
-
                 <form:form action="/" method="POST">
                     <button type="submit" class="btn btn-danger">
                         Nie dodawaj

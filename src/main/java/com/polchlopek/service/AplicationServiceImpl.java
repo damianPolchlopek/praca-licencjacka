@@ -146,4 +146,9 @@ public class AplicationServiceImpl implements AplicationService {
 		return signalAnalysisDao.getMeasurementAnalysis(theId);
 	}
 
+	@Transactional
+	public boolean isUsername(String nickName) {
+		return personDao.isUsername(nickName);
+	}
+
 }

@@ -76,9 +76,10 @@
 
 		<div class="container-fluid">
 
-			<div class="row content">
+			<div class="row content" style="position: relative;">
 
-				<div class="col-sm-3 sidenav">
+				<div class="col-sm-3 sidenav" style="position: relative;
+													 height: 100%;">
 
 					<h4>Main menu:</h4>
 
@@ -168,7 +169,8 @@
 
 					</div>
 
-                    <hr>
+                    <hr style="position: relative;
+								width: 90%;">
 
                     <div style="position: relative;
                                    margin: 0 auto;
@@ -218,6 +220,7 @@
                             </tr>
 
                         </table>
+
                     </div>
 
 				</div>
