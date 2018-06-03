@@ -15,24 +15,24 @@ public class PersonToValAdd {
 	private Integer id;
 	
 	@NotEmpty(message="is required")
-	@Size(min=0, max=15, message="max size 15 characters")
+	@Size(min=4, max=15, message="max size 15 characters")
 	@FreeUsername
 	private String nickName;
 
 	@NotEmpty(message="is required")
-	@Size(min=0, max=15, message="max size 15 characters")
+	@Size(min=1, max=15, message="max size 15 characters")
 	private String firstName;
 
 	@NotEmpty(message="is required")
-	@Size(min=0, max=15, message="max size 15 characters")
+	@Size(min=1, max=15, message="max size 15 characters")
 	private String lastName;
 
 	@NotEmpty(message="is required")
-	@Size(min=0, max=45, message="max size 45 characters")
+	@Size(min=1, max=45, message="max size 45 characters")
 	private String email;
 
 	@NotEmpty(message="is required")
-	@Size(min=0, max=45, message="max size 45 characters")
+	@Size(min=4, max=45, message="max size 45 characters")
 	private String password;
 	
 	@NotNull(message="is required")
