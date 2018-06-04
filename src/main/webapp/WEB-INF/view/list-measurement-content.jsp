@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
+
+	<script>
         function setForm(action, id) {
             document['formToSet'].action = action + "?measurementId="+id;
         }
@@ -158,6 +159,8 @@
                                     <th>Select Measurement</th>
                                 </c:if>
 
+								<th>Fourier</th>
+
 								<security:authorize access="hasRole('ADMIN')">
 									<th style="text-align: center">Delete</th>
 								</security:authorize>
@@ -174,6 +177,11 @@
 
 								<!-- construct an "delete" link with measurement id -->
 								<c:url var="deleteLink" value="/measurement/delete">
+									<c:param name="measurementId" value="${tempMeasurement.id}"/>
+								</c:url>
+
+								<!-- construct an "fourier" link with measurement id -->
+								<c:url var="showFourier" value="/measurement/showFourier">
 									<c:param name="measurementId" value="${tempMeasurement.id}"/>
 								</c:url>
 
@@ -196,6 +204,21 @@
                                     <c:if test="${not empty dataMeasurement.category}" >
                                         <td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
                                     </c:if>
+
+
+									<td>
+										<c:if test="${tempMeasurement.category.typeGraph == 'line'}" >
+											<button type="submit" class="btn btn-primary" onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
+												Fourier
+											</button>
+										</c:if>
+
+										<c:if test="${tempMeasurement.category.typeGraph != 'line'}" >
+											<button type="submit" class="btn btn-primary" disabled="disabled" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+												Fourier
+											</button>
+										</c:if>
+									</td>
 
 									<security:authorize access="hasRole('ADMIN')">
 										<td>

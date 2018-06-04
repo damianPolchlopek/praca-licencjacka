@@ -4,7 +4,6 @@ import com.polchlopek.entity.Person;
 import com.polchlopek.validation.PersonToValAdd;
 import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.service.AplicationService;
-import org.sonatype.plexus.components.sec.dispatcher.PasswordDecryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -67,7 +66,7 @@ public class PersonController {
 			BindingResult theBindingResult) {
 
 		if(theBindingResult.hasErrors()) {
-			return "update-person";
+			return "update-person-information";
 		}
 		else {
 			Person personToSave = new Person(thePerson);
@@ -84,7 +83,7 @@ public class PersonController {
 		PersonToValUpdate thePerson = applicationService.getPersonToVal(theId);
 		theModel.addAttribute("personToValUpdate", thePerson);
 
-		return "update-person";
+		return "update-person-information";
 	}
 	
 	@RequestMapping("/delete")

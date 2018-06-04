@@ -26,29 +26,27 @@
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
 			        title:{
-			      	  	text: "Category - ${actualMeasurement.category}"
+			      	  	text: "Fourier"
                     },
 
 					axisY:{
-                        title: "${actualMeasurement.descriptionAxisY}"
+                        title: "-"
                     },
 
                     axisX:{
-                        title: "${actualMeasurement.descriptionAxisX}"
+                        title: "probka"
                     },
 
-                    <c:if test="${actualMeasurement.typeGraph == 'column'}">
-                        dataPointWidth: 1,
-                    </c:if>
+					dataPointWidth: 1,
 
                     data: [
                     {
-                        type: "${actualMeasurement.typeGraph}",
+                        type: "column",
                         color: "blue",
 
                         dataPoints: [
 
-                            <c:forEach var="tmpNode" items="${actualMeasurement.measurementData}">
+                            <c:forEach var="tmpNode" items="${dataFFT}">
                                 {x: ${tmpNode.nodeX},
                                  y: ${tmpNode.nodeY}},
                             </c:forEach>
@@ -168,60 +166,6 @@
 					 								width: 90%;">
 
 					</div>
-
-                    <hr style="position: relative;
-								width: 90%;">
-
-                    <div style="position: relative;
-                                   margin: 0 auto;
-                                   width: 90%;">
-
-                        <h4><b>Opis pomiaru</b></h4>
-
-                        <table class="table table-striped table-sm">
-                            <tr>
-                                <th style="border: yellow;" >Maximum: </th>
-								<td>
-									<fmt:formatNumber type="number" minFractionDigits="2"
-													  maxFractionDigits="4" value="${measurementAnalysis.maximum}"/>
-								</td>
-							</tr>
-
-                            <tr>
-                                <th>Minimum: </th>
-								<td>
-									<fmt:formatNumber type="number" minFractionDigits="2"
-													  maxFractionDigits="4" value="${measurementAnalysis.minimum}"/>
-								</td>
-                            </tr>
-
-                            <tr>
-                                <th>Average: </th>
-								<td>
-									<fmt:formatNumber type="number" minFractionDigits="2"
-													  maxFractionDigits="4" value="${measurementAnalysis.average}"/>
-								</td>
-                            </tr>
-
-                            <tr>
-                                <th>Variance: </th>
-								<td>
-									<fmt:formatNumber type="number" minFractionDigits="2"
-													  maxFractionDigits="4" value="${measurementAnalysis.variance}"/>
-								</td>
-                            </tr>
-
-                            <tr>
-                                <th>Standard Deviotion: </th>
-								<td>
-									<fmt:formatNumber type="number" minFractionDigits="2"
-													  maxFractionDigits="4" value="${measurementAnalysis.standardDeviation}"/>
-								</td>
-                            </tr>
-
-                        </table>
-
-                    </div>
 
 				</div>
 

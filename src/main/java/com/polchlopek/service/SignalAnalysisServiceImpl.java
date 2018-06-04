@@ -1,8 +1,11 @@
 package com.polchlopek.service;
 
 import com.polchlopek.entity.MeasurementData;
+import com.polchlopek.signalAnalysisAlgorithm.Complex;
+import com.polchlopek.signalAnalysisAlgorithm.FFT;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -44,7 +47,21 @@ public class SignalAnalysisServiceImpl implements SignalAnalysisService {
 
 	@Override
 	public List<MeasurementData> calculateFFT(List<MeasurementData> measurements) {
-		return null;
+
+		Complex[] x = new Complex[measurements.size()];
+
+		for (int i = 0; i < measurements.size(); ++i){
+			x[i] =  new Complex(measurements.get(i).getNodeY(), 0);
+		}
+
+		Complex[] result = FFT.fft(x);
+		ArrayList<MeasurementData> mainResult = new ArrayList<>();
+
+		for (int i = 0; i < result.length/2+1; ++i){
+			mainResult.add(new MeasurementData(i+1, Math.abs((float)result[i].getRe())));
+		}
+
+		return mainResult;
 	}
 
 }

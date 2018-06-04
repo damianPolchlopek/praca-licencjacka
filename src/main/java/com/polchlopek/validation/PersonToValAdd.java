@@ -36,7 +36,7 @@ public class PersonToValAdd {
 	private String password;
 	
 	@NotNull(message="is required")
-	@Min(value=0, message="Wieksze od zera")
+	@Min(value=111111111, message="Wieksze od zera")
 	@Max(value=999999999, message="max size 9 numbers")
 	private Integer phone;
 

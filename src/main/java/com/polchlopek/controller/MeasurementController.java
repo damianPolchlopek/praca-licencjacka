@@ -32,6 +32,8 @@ public class MeasurementController {
 	@Autowired
     private SignalAnalysisService signalAnalysisService;
 
+
+
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
 
@@ -86,7 +88,19 @@ public class MeasurementController {
         MeasurementAnalysis measurementAnalysis = applicationService.getMeasurementAnalysis(theId);
         theModel.addAttribute("measurementAnalysis", measurementAnalysis);
 
-		return "graph";
+		return "single-graph";
+	}
+
+	@RequestMapping("/showFourier")
+	public String showFourier(@RequestParam("measurementId") int theId,
+							  Model theModel){
+
+		Measurement measurementToCalculate = applicationService.getMeasurement(theId);
+		List<MeasurementData> dataToFFT = measurementToCalculate.getNodes();
+		List<MeasurementData> dataFFT = signalAnalysisService.calculateFFT(dataToFFT);
+		theModel.addAttribute("dataFFT", dataFFT);
+
+		return "fourier-graph";
 	}
 
 	@RequestMapping("/showMultipleGraph")
