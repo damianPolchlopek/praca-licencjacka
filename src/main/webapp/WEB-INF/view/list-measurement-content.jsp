@@ -18,6 +18,7 @@
         function setForm(action, id) {
             document['formToSet'].action = action + "?measurementId="+id;
         }
+
     </script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
@@ -207,9 +208,13 @@
                                             </c:if>
 
                                             <c:if test="${tempMeasurement.category.typeGraph != 'line'}" >
-                                                <button type="submit" class="btn btn-primary" disabled="disabled" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
-                                                    Fourier
-                                                </button>
+                                                <span class="tool-tip" data-toggle="tooltip" data-placement="top"
+                                                      title="Aby wyrysowac FFT, liczba danych musi byc potega liczby 2. Dodatkowo dany pomiar musi byc typu 'line'.">
+                                                    <button type="submit" class="btn btn-primary" disabled="disabled"
+                                                            onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+                                                        Fourier
+                                                    </button>
+                                                </span>
                                             </c:if>
                                         </td>
 
