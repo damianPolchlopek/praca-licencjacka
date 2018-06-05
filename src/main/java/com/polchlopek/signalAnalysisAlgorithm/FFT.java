@@ -14,20 +14,12 @@ public class FFT {
             throw new IllegalArgumentException("n is not a power of 2");
         }
 
-//        System.out.println("przed operacjami");
-
         // fft of even terms
         Complex[] even = new Complex[n / 2];
         for (int k = 0; k < n / 2; k++) {
             even[k] = x[2 * k];
-//            System.out.println("k= " + k + ", array: " + even[0]);
-
-//            show(even, "petla");
-
         }
         Complex[] q = fft(even);
-
-//        System.out.println(even.length);
 
         // fft of odd terms
         Complex[] odd = even;  // reuse the array
@@ -36,25 +28,14 @@ public class FFT {
         }
         Complex[] r = fft(odd);
 
-//        System.out.println(odd.length);
-
         // combine
         Complex[] y = new Complex[n];
         for (int k = 0; k < n / 2; k++) {
             double kth = -2 * k * Math.PI / n;
             Complex wk = new Complex(Math.cos(kth), Math.sin(kth));
-
-            System.out.println(wk);
-
             y[k] = q[k].plus(wk.times(r[k]));
-            System.out.println("k: " + k);
-            System.out.println(y.length);
-
             y[k + n / 2] = q[k].minus(wk.times(r[k]));
-            System.out.println("k+n/2: " + (k+n/2));
         }
-
-//        System.out.println(y.length);
 
         return y;
     }

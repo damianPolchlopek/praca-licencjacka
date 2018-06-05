@@ -153,13 +153,13 @@
 
                                 <c:if test="${empty dataMeasurement.category}" >
                                     <th>Show</th>
+                                    <th>Fourier</th>
                                 </c:if>
 
                                 <c:if test="${not empty dataMeasurement.category}" >
                                     <th>Select Measurement</th>
-                                </c:if>
 
-								<th>Fourier</th>
+                                </c:if>
 
 								<security:authorize access="hasRole('ADMIN')">
 									<th style="text-align: center">Delete</th>
@@ -194,31 +194,32 @@
 
                                     <c:if test="${empty dataMeasurement.category}" >
 										<td>
-												<button type="submit" class="btn btn-success" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
-													Show
-												</button>
+                                            <button type="submit" class="btn btn-success" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+                                                Show
+                                            </button>
 										</td>
+
+                                        <td>
+                                            <c:if test="${tempMeasurement.category.typeGraph == 'line'}" >
+                                                <button type="submit" class="btn btn-primary" onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
+                                                    Fourier
+                                                </button>
+                                            </c:if>
+
+                                            <c:if test="${tempMeasurement.category.typeGraph != 'line'}" >
+                                                <button type="submit" class="btn btn-primary" disabled="disabled" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+                                                    Fourier
+                                                </button>
+                                            </c:if>
+                                        </td>
+
+
                                     </c:if>
 
                                     <%--dataMeasurement.category--%>
                                     <c:if test="${not empty dataMeasurement.category}" >
                                         <td> <form:checkbox path="measurementToGraph" value="${tempMeasurement.id}" /> </td>
                                     </c:if>
-
-
-									<td>
-										<c:if test="${tempMeasurement.category.typeGraph == 'line'}" >
-											<button type="submit" class="btn btn-primary" onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
-												Fourier
-											</button>
-										</c:if>
-
-										<c:if test="${tempMeasurement.category.typeGraph != 'line'}" >
-											<button type="submit" class="btn btn-primary" disabled="disabled" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
-												Fourier
-											</button>
-										</c:if>
-									</td>
 
 									<security:authorize access="hasRole('ADMIN')">
 										<td>
