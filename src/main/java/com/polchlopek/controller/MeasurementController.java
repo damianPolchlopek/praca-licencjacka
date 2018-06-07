@@ -1,12 +1,10 @@
 package com.polchlopek.controller;
 
-import com.polchlopek.dto.DataMeasurement;
-import com.polchlopek.dto.FileMeasurementData;
-import com.polchlopek.dto.MeasurementDataWithInformation;
-import com.polchlopek.dto.MultipleMeasurement;
+import com.polchlopek.dto.*;
 import com.polchlopek.entity.*;
 import com.polchlopek.service.AplicationService;
 import com.polchlopek.service.SignalAnalysisService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +21,7 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/measurement")
-@SessionAttributes("measurementToAdd")
+@SessionAttributes({"measurementToAdd", "dataFourier"})
 public class MeasurementController {
 
 	@Autowired
@@ -31,8 +29,6 @@ public class MeasurementController {
 
 	@Autowired
     private SignalAnalysisService signalAnalysisService;
-
-
 
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
@@ -55,15 +51,11 @@ public class MeasurementController {
 									 @ModelAttribute("dataMeasurement") DataMeasurement dataMeasurement,
 									 @ModelAttribute("multipleMeasurement") MultipleMeasurement multipleMeasurement) {
 
-
 		List<String> availableCategory = applicationService.getCategories();
 		List<Measurement> theMeasurements = applicationService.getMeasurements(dataMeasurement);
+
 		theModel.addAttribute("measurements", theMeasurements);
 		theModel.addAttribute("availableCategory", availableCategory);
-
-		System.out.println("Available category z wyszukiwania: " + availableCategory);
-		System.out.println("Data measurement: " + dataMeasurement);
-		System.out.println("measurement: " + theMeasurements);
 
 		return "list-measurement-content";
 	}
@@ -98,7 +90,20 @@ public class MeasurementController {
 		Measurement measurementToCalculate = applicationService.getMeasurement(theId);
 		List<MeasurementData> dataToFFT = measurementToCalculate.getNodes();
 		List<MeasurementData> dataFFT = signalAnalysisService.calculateFFT(dataToFFT);
-		theModel.addAttribute("dataFFT", dataFFT);
+
+		FourierDescription fourierDescription = new FourierDescription("line", "column");
+
+		theModel.addAttribute("dataFourier", dataFFT);
+		theModel.addAttribute("fourierDescription", fourierDescription);
+
+		return "fourier-graph";
+	}
+
+	@RequestMapping("/changeFourierGraph")
+	public String changeFourierGraph(@ModelAttribute("fourierDescription") FourierDescription fourierDescription,
+									 Model theModel){
+
+		theModel.addAttribute("fourierDescription", fourierDescription);
 
 		return "fourier-graph";
 	}

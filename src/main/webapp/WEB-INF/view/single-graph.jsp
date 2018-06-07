@@ -79,7 +79,7 @@
 			<div class="row content" style="position: relative;">
 
 				<div class="col-sm-3 sidenav" style="position: relative;
-													 height: 100%;">
+													 height: 675px;">
 
 					<h4>Main menu:</h4>
 

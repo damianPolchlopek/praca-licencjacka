@@ -19,6 +19,12 @@
             document['formToSet'].action = action + "?measurementId="+id;
         }
 
+        function isPowerOfTwo(number){
+            // alert("fun: " + number);
+            document.getElementById("spanToChange").setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
+            document.getElementById("buttonToDisable").setAttribute("disabled","disabled");
+		}
+
     </script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
@@ -36,7 +42,9 @@
 
 			<div class="row content">
 
-				<div class="col-sm-3 sidenav">
+				<div class="col-sm-3 sidenav" style="position: relative;
+														height: 100%;
+														min-height: 550px;">
 
 					<h4>Main menu:</h4>
 
@@ -115,9 +123,7 @@
 
 				</div>
 
-
-
-				<div class="col-sm-9">
+				<div class="col-sm-9" style="position: relative;">
 
 					<!-- menu szukania -->
 					<nav class="navbar navbar-default" role="navigation">
@@ -125,7 +131,7 @@
 							<div class="navbar-header">
 
 								<form:form action="searchMeasurements" modelAttribute="dataMeasurement"
-										   class="navbar-form navbar-left" method="post" role="search">
+							 			   class="navbar-form navbar-left" method="post" role="search">
 
 									<form:select path="category" class="form-control">
 										<form:option value=""> All </form:option>
@@ -144,7 +150,7 @@
 
                     <form:form action="/" modelAttribute="multipleMeasurement" name="formToSet">
                         <%--  --%>
-                        <table class="table table-striped table-sm">
+                        <table class="table table-striped table-sm" id="my-table">
                             <tr>
                                 <th>User First Name</th>
                                 <th>User Last Name</th>
@@ -193,31 +199,28 @@
                                     <td> ${tempMeasurement.description} </td>
                                     <td> ${tempMeasurement.category.category} </td>
 
-                                    <c:if test="${empty dataMeasurement.category}" >
+                                    <c:if test="${empty dataMeasurement.category}">
 										<td>
-                                            <button type="submit" class="btn btn-success" onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
+                                            <button type="submit" class="btn btn-success"
+                                                    onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
                                                 Show
                                             </button>
 										</td>
 
                                         <td>
-                                            <c:if test="${tempMeasurement.category.typeGraph == 'line'}" >
-                                                <button type="submit" class="btn btn-primary" onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
+                                            <span id="spanToChange" class="tool-tip" data-toggle="tooltip"
+                                                  data-placement="top">
+
+                                                <button id="buttonToDisable" type="submit" class="btn btn-primary"
+                                                        onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
                                                     Fourier
                                                 </button>
-                                            </c:if>
 
-                                            <c:if test="${tempMeasurement.category.typeGraph != 'line'}" >
-                                                <span class="tool-tip" data-toggle="tooltip" data-placement="top"
-                                                      title="Aby wyrysowac FFT, liczba danych musi byc potega liczby 2. Dodatkowo dany pomiar musi byc typu 'line'.">
-                                                    <button type="submit" class="btn btn-primary" disabled="disabled"
-                                                            onclick="setForm('/measurement/showGraph', ${tempMeasurement.id})">
-                                                        Fourier
-                                                    </button>
-                                                </span>
-                                            </c:if>
+                                                <img src="${pageContext.request.contextPath}/resources/image/photo-to-button.png"
+                                                     onload="isPowerOfTwo(${tempMeasurement.nodes.size()})">
+
+                                            </span>
                                         </td>
-
 
                                     </c:if>
 
@@ -233,7 +236,6 @@
                                             </button>
 										</td>
 									</security:authorize>
-
 
                                 </tr>
 

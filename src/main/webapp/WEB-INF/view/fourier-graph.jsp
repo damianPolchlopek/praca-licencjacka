@@ -25,28 +25,40 @@
 		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
+                    zoomEnabled: true,
+
 			        title:{
 			      	  	text: "Fourier"
                     },
 
 					axisY:{
-                        title: "-"
+                        title: "-",
+
+                        <c:if test="${fourierDescription.typeAxisY == 'log'}">
+                            logarithmic: true,
+                            title: "- (log)",
+                        </c:if>
                     },
 
                     axisX:{
-                        title: "probka"
+                        title: "probka",
+
+                        <c:if test="${fourierDescription.typeAxisX == 'log'}">
+                            logarithmic: true,
+                            title: "probka (log)",
+                        </c:if>
                     },
 
 					dataPointWidth: 1,
 
                     data: [
                     {
-                        type: "column",
+                        type: "${fourierDescription.typeGraph}",
                         color: "blue",
 
                         dataPoints: [
 
-                            <c:forEach var="tmpNode" items="${dataFFT}">
+                            <c:forEach var="tmpNode" items="${dataFourier}">
                                 {x: ${tmpNode.nodeX},
                                  y: ${tmpNode.nodeY}},
                             </c:forEach>
@@ -158,6 +170,51 @@
 				</div>
 
 				<div class="col-sm-9" style="position: relative;">
+
+
+                    <form:form action="changeFourierGraph" modelAttribute="fourierDescription"
+                               class="navbar-form navbar-left" method="post" role="search">
+                    <table>
+                        <tr>
+                            <th>Axis X</th>
+                            <th>Axis Y </th>
+                            <th>Type Graph</th>
+                        </tr>
+
+                        <tr>
+                            <td>
+                            <form:select path="typeAxisX" class="form-control">
+                                <form:option value="normal"> Normal </form:option>
+                                <form:option value="log"> Log </form:option>
+                            </form:select>
+                            </td>
+
+                            <td>
+                            <form:select path="typeAxisY" class="form-control">
+                                <form:option value="normal"> Normal </form:option>
+                                <form:option value="log"> Log </form:option>
+                            </form:select>
+                            </td>
+
+                            <td>
+                            <form:select path="typeGraph" class="form-control">
+                                <form:option value="line"> Line </form:option>
+                                <form:option value="column"> Column </form:option>
+                            </form:select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <button type="submit" class="btn btn-default">Search</button> </td>
+                        </tr>
+
+					</form:form>
+                    </table>
+
+					<!-- napisy pomocnicze -->
+					<p>Type: ${fourierDescription.typeGraph}</p>
+					<p>Axis: ${fourierDescription.typeAxisY}</p>
+
 
 					<div id="chartContainer" style="position: relative;
 					 								margin: 0 auto;

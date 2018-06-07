@@ -135,15 +135,17 @@
                             </td>
                         </tr>
 
+                </form:form>
+                        <tr>
+                            <td>
+                                <form:form action="/" method="POST">
+                                    <button type="submit" class="btn btn-danger">
+                                        Nie dodawaj
+                                    </button>
+                                </form:form>
+                            </td>
+                        </tr>
                     </table>
-                </form:form>
-
-                <form:form action="/" method="POST">
-                    <button type="submit" class="btn btn-danger">
-                        Nie dodawaj
-                    </button>
-                </form:form>
-
             </div>
 
         </div>
