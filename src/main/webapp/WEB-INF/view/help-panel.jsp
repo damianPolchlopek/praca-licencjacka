@@ -30,7 +30,8 @@
     <div class="container-fluid">
 
         <div class="row content">
-            <div class="col-sm-3 sidenav container" style="height: 100%;">
+            <div class="col-sm-3 sidenav container" style="height: 100%;
+                                                            min-height: 350px;">
 
                 <h4>Main menu:</h4>
 
@@ -131,15 +132,19 @@
                         </tr>
 
                         <tr>
-                            <td>3. Description axis x: (Twoje dane)</td>
+                            <td>3. Type: (Twoje dane)</td>
                         </tr>
 
                         <tr>
-                            <td>4. Description axis y: (Twoje dane)</td>
+                            <td>4. Description axis x: (Twoje dane)</td>
                         </tr>
 
                         <tr>
-                            <td>5. Data:</td>
+                            <td>5. Description axis y: (Twoje dane)</td>
+                        </tr>
+
+                        <tr>
+                            <td>6. Data:</td>
                         </tr>
 
                         <tr>

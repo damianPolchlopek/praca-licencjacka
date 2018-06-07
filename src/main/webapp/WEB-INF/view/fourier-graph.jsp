@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
@@ -32,20 +33,20 @@
                     },
 
 					axisY:{
-                        title: "-",
+                        title: "Amplitude",
 
                         <c:if test="${fourierDescription.typeAxisY == 'log'}">
                             logarithmic: true,
-                            title: "- (log)",
+                            title: "Amplitude (log)",
                         </c:if>
                     },
 
                     axisX:{
-                        title: "probka",
+                        title: "Frequence",
 
                         <c:if test="${fourierDescription.typeAxisX == 'log'}">
                             logarithmic: true,
-                            title: "probka (log)",
+                            title: "Frequence (log)",
                         </c:if>
                     },
 
@@ -72,7 +73,7 @@
 			    chart.render();
             }
 	  	</script>
-		<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
   
 	</head>
 
@@ -86,10 +87,11 @@
 
 		<div class="container-fluid">
 
-			<div class="row content" style="position: relative;">
+			<div class="row content">
 
 				<div class="col-sm-3 sidenav" style="position: relative;
-													 height: 100%;">
+													 height: 100%;
+                                                     min-height: 575px;">
 
 					<h4>Main menu:</h4>
 
@@ -169,12 +171,13 @@
 
 				</div>
 
-				<div class="col-sm-9" style="position: relative;">
+				<div class="col-sm-9">
 
+                    <table class="table" style="width: 90%;
+                                                margin: 0 auto;">
 
                     <form:form action="changeFourierGraph" modelAttribute="fourierDescription"
                                class="navbar-form navbar-left" method="post" role="search">
-                    <table>
                         <tr>
                             <th>Axis X</th>
                             <th>Axis Y </th>
@@ -205,24 +208,28 @@
                         </tr>
 
                         <tr>
-                            <td> <button type="submit" class="btn btn-default">Search</button> </td>
+                            <td></td>
+                            <td style="position: relative;
+                                        margin: 0 auto;"> <button type="submit" class="btn btn-default">Change</button> </td>
+                            <td></td>
                         </tr>
 
-					</form:form>
+                    </form:form>
+
                     </table>
 
-					<!-- napisy pomocnicze -->
-					<p>Type: ${fourierDescription.typeGraph}</p>
-					<p>Axis: ${fourierDescription.typeAxisY}</p>
+                    <%--<!-- napisy pomocnicze -->--%>
+                    <%--<p>Type: ${fourierDescription.typeGraph}</p>--%>
+                    <%--<p>Axis: ${fourierDescription.typeAxisY}</p>--%>
+                    <br>
+
+                    <div id="chartContainer" style="position: relative;
+                                                    margin: 0 auto;
+                                                    height: 400px;
+                                                    width: 90%;">
 
 
-					<div id="chartContainer" style="position: relative;
-					 								margin: 0 auto;
-					 								top: 30%;
-					 								height: 400px;
-					 								width: 90%;">
-
-					</div>
+                    </div>
 
 				</div>
 

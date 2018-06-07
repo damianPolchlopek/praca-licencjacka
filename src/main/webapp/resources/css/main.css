@@ -29,6 +29,10 @@ header {
     vertical-align: middle;
 }
 
+table{
+    text-align: center;
+}
+
 th {
     text-align: center;
 }

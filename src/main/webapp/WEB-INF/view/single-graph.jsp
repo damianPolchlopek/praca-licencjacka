@@ -180,7 +180,7 @@
 
                         <table class="table table-striped table-sm">
                             <tr>
-                                <th style="border: yellow;" >Maximum: </th>
+                                <th>Maximum: </th>
 								<td>
 									<fmt:formatNumber type="number" minFractionDigits="2"
 													  maxFractionDigits="4" value="${measurementAnalysis.maximum}"/>

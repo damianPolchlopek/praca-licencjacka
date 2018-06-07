@@ -19,12 +19,13 @@
             document['formToSet'].action = action + "?measurementId="+id;
         }
 
-        function isPowerOfTwo(number){
-            // alert("fun: " + number);
-            document.getElementById("spanToChange").setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
-            document.getElementById("buttonToDisable").setAttribute("disabled","disabled");
-		}
-
+        // function isPowerOfTwo(number){
+         //    // alert("fun: " + number);
+		// 	if (number % 2 === 0){
+         //        document.getElementById("spanToChange").setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
+         //        document.getElementById("buttonToDisable").setAttribute("disabled","disabled");
+		// 	}
+		// }
     </script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
@@ -216,10 +217,11 @@
                                                     Fourier
                                                 </button>
 
-                                                <img src="${pageContext.request.contextPath}/resources/image/photo-to-button.png"
-                                                     onload="isPowerOfTwo(${tempMeasurement.nodes.size()})">
-
                                             </span>
+
+											<%--<img src="${pageContext.request.contextPath}/resources/image/photo-to-button.png"--%>
+												 <%--onload="isPowerOfTwo(${tempMeasurement.nodes.size()})">--%>
+
                                         </td>
 
                                     </c:if>
@@ -247,10 +249,6 @@
                         </c:if>
 
                     </form:form>
-
-					<!-- napisy pomocnicze -->
-					<%--<p>Category: ${dataMeasurement.category}</p>--%>
-					<%--<p>Multiple: ${multipleMeasurement}</p>--%>
 
 				</div>
 

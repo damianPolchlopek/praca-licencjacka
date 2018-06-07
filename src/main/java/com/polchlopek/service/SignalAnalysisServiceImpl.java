@@ -48,6 +48,10 @@ public class SignalAnalysisServiceImpl implements SignalAnalysisService {
 	@Override
 	public List<MeasurementData> calculateFFT(List<MeasurementData> measurements) {
 
+	    double Ts = measurements.get(1).getNodeX() -
+                        measurements.get(0).getNodeX();
+	    double fs = 1/Ts;
+
 		Complex[] x = new Complex[measurements.size()];
 
 		for (int i = 0; i < measurements.size(); ++i){
@@ -57,8 +61,9 @@ public class SignalAnalysisServiceImpl implements SignalAnalysisService {
 		Complex[] result = FFT.fft(x);
 		ArrayList<MeasurementData> mainResult = new ArrayList<>();
 
-		for (int i = 0; i < result.length/2+1; ++i){
-			mainResult.add(new MeasurementData(i+1, Math.abs((float)result[i].getRe())));
+		double sizeAxisX = result.length/2+1;
+		for (int i = 0; i < sizeAxisX; ++i){
+			mainResult.add(new MeasurementData((float) (fs*i/result.length), Math.abs((float)result[i].getRe())));
 		}
 
 		return mainResult;
