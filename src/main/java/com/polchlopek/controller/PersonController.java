@@ -110,11 +110,15 @@ public class PersonController {
 	public String savePersonUpdate(@Valid @ModelAttribute("personToValUpdate") PersonToValUpdate thePerson,
 			BindingResult theBindingResult) {
 
+		System.out.println("Person: " + thePerson);
+
 		if(theBindingResult.hasErrors()) {
 			return "update-person-information";
 		}
 		else {
 			Person personToSave = new Person(thePerson);
+			String oldPassword = applicationService.getPassword(thePerson.getId());
+			personToSave.setPassword(oldPassword);
 			applicationService.savePerson(personToSave);
 			return "redirect:/person/showPerson";
 		}

@@ -23,5 +23,5 @@ public interface PersonDAO {
 
     boolean isUsername(String nickName);
 
-
+    String getPassword(Integer id);
 }

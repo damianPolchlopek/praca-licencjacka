@@ -92,4 +92,11 @@ public class PersonDAOImpl implements PersonDAO {
 
 	}
 
+	@Override
+	public String getPassword(Integer id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Person thePerson = currentSession.get(Person.class, id);
+		return thePerson.getPassword();
+	}
+
 }

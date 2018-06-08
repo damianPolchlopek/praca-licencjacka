@@ -30,8 +30,8 @@ public class PersonToValUpdate {
 	@Size(min=1, max=45, message="max size 45 characters")
 	private String email;
 
-	@NotEmpty(message="is required")
-	@Size(min=1, max=45, message="max size 45 characters")
+//	@NotEmpty(message="is required")
+//	@Size(min=1, max=45, message="max size 45 characters")
 	private String password;
 
 	@NotNull(message="is required")
@@ -121,7 +121,7 @@ public class PersonToValUpdate {
 
 	public String toString() {
 		return "Person [id=" + id + ", lastName=" + lastName +
-				", email =" + email + "]";
+				", email =" + email + ", password= " + password + "]";
 	}
 
 }

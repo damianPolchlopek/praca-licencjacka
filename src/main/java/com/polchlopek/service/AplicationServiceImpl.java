@@ -151,4 +151,9 @@ public class AplicationServiceImpl implements AplicationService {
 		return personDao.isUsername(nickName);
 	}
 
+	@Transactional
+	public String getPassword(Integer id) {
+		return personDao.getPassword(id);
+	}
+
 }
