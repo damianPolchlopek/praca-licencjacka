@@ -1,6 +1,7 @@
 package com.polchlopek.controller;
 
 import com.polchlopek.entity.Person;
+import com.polchlopek.validation.PersonToUpdatePassword;
 import com.polchlopek.validation.PersonToValAdd;
 import com.polchlopek.validation.PersonToValUpdate;
 import com.polchlopek.service.AplicationService;
@@ -10,20 +11,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @RequestMapping("/person")
+@SessionAttributes({"personToUpdatePassword"})
 public class PersonController {
 
 	@Autowired
 	private AplicationService applicationService;
+
 
 	@GetMapping("/showPerson")
 	public String listPeople(Model theModel) {
@@ -58,9 +58,54 @@ public class PersonController {
 			applicationService.savePerson(personToSave);
 			return "redirect:/person/showPerson";
 		}
-
 	}
-	
+
+	@RequestMapping("/showFormUpdatePassword")
+	public String showFormUpdatePassword(@RequestParam("personId") int theId,
+										 Model theModel) {
+
+		PersonToUpdatePassword personToUpdatePassword = new PersonToUpdatePassword();
+		personToUpdatePassword.setIdPerson(theId);
+		theModel.addAttribute("personToUpdatePassword", personToUpdatePassword);
+
+		return "update-user-password";
+	}
+
+	@RequestMapping("/updatePassword")
+	public String updatePassword(@Valid @ModelAttribute("personToUpdatePassword") PersonToUpdatePassword personToUpdatePassword,
+							 BindingResult theBindingResult) {
+
+		if(theBindingResult.hasErrors()) {
+			return "update-user-password";
+		}
+		else {
+			Person thePerson = applicationService.getPerson(personToUpdatePassword.getIdPerson());
+
+			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword =  "{bcrypt}" + passwordEncoder.encode(personToUpdatePassword.getNewPassword1());
+			thePerson.setPassword(encodedPassword);
+
+			String passwordFromDb = thePerson.getPassword().substring(8, thePerson.getPassword().length());
+			String enteredPassword = personToUpdatePassword.getNewPassword1().trim();
+
+			if(passwordEncoder.matches(enteredPassword, passwordFromDb )){
+
+				if (personToUpdatePassword.getNewPassword1().equals(
+						personToUpdatePassword.getNewPassword2())){
+					applicationService.savePerson(thePerson);
+				}
+				else{
+					return "update-password-incorrect-new-pass";
+				}
+			}
+			else{
+				return "update-password-incorrect-new-pass";
+			}
+
+			return "redirect:/person/showPerson";
+		}
+	}
+
 	@RequestMapping("/savePersonUpdate")
 	public String savePersonUpdate(@Valid @ModelAttribute("personToValUpdate") PersonToValUpdate thePerson,
 			BindingResult theBindingResult) {

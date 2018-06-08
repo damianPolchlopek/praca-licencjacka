@@ -120,10 +120,10 @@
                                    enctype="multipart/form-data">
 
                             <table style="width: 25%;
-                                        height: 20%;
-                                        text-align: left;
-                                        margin-left: auto;
-                                        margin-right: auto;">
+                                          height: 20%;
+                                          text-align: left;
+                                          margin-left: auto;
+                                          margin-right: auto;">
 
                                 <tr>
                                     <td><form:input path="file" name="file" type="file"/></td>

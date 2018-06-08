@@ -15,6 +15,15 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+
+
+	<style type="text/css">
+		.error {
+			color:red;
+			font-size: 12px;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -109,95 +118,36 @@
 
 			</div>
 
-			<div class="col-sm-9" style="overflow-x:auto;">
+			<div class="col-sm-9">
 
-				<!-- add our html table here -->
-				<table class="table table-striped table-sm" width="100%;">
-					<tr>
-						<%--<th>Id</th>--%>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Username</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Update Password</th>
-						<security:authorize access="hasRole('ADMIN')">
-							<th style="text-align: center">Update</th>
-						</security:authorize>
-						<security:authorize access="hasRole('ADMIN')">
-							<th style="text-align: center">Delete</th>
-						</security:authorize>
-					</tr>
 
-					<!-- loop over and print our people -->
-					<c:forEach var="tempPerson" items="${people}">
+				<div style="width: 50%;
+							margin-left: auto;
+						  	margin-right: auto;">
 
-						<!-- construct an "update" link with person id -->
-						<c:url var="updateLink" value="/person/showFormForUpdate">
-							<c:param name="personId" value="${tempPerson.id}"/>
-						</c:url>
+				<form:form action="updatePassword" modelAttribute="personToUpdatePassword">
 
-						<!-- construct an "updatePassword" link with person id -->
-						<c:url var="updatePasswordLink" value="/person/showFormUpdatePassword">
-							<c:param name="personId" value="${tempPerson.id}"/>
-						</c:url>
+					<div class="form-group">
+						<label for="oldPassword">Old Password:</label>
+						<form:input path="oldPassword" type="password" class="form-control"  placeholder="Enter old password" />
+						<form:errors path="oldPassword" cssClass="error" />
+					</div>
 
-						<!-- construct an "delete" link with person id -->
-						<c:url var="deleteLink" value="/person/delete">
-							<c:param name="personId" value="${tempPerson.id}"/>
-						</c:url>
+					<div class="form-group">
+						<label for="newPassword1">New Password:</label>
+						<form:input path="newPassword1" type="password" class="form-control"  placeholder="Enter new password" />
+						<form:errors path="newPassword1" cssClass="error" />
+					</div>
 
-						<tr>
-							<%--<td> ${tempPerson.id} </td>--%>
-							<td> ${tempPerson.firstName} </td>
-							<td> ${tempPerson.lastName} </td>
-							<td> ${tempPerson.nickName} </td>
-							<td> ${tempPerson.email} </td>
-							<td> ${tempPerson.phone} </td>
+					<div class="form-group">
+						<label for="newPassword2">New Password:</label>
+						<form:input path="newPassword2" type="password" class="form-control"  placeholder="Enter new password" />
+						<form:errors path="newPassword2" cssClass="error" />
+					</div>
 
-							<td>
-								<c:set var = "actualUser" value = "Mary"/>
-								<c:if test="${tempPerson.nickName == actualUser}">
-									<form:form action="${updatePasswordLink }" method="POST">
-										<button type="submit" class="btn btn-info">
-											Update
-										</button>
-									</form:form>
-								</c:if>
-
-								<c:if test="${tempPerson.nickName != actualUser}">
-										<button class="btn btn-info" disabled="disabled">
-											Update
-										</button>
-								</c:if>
-
-							</td>
-
-							<security:authorize access="hasRole('ADMIN')">
-								<td>
-									<form:form action="${updateLink }" method="POST">
-										<button type="submit" class="btn btn-info">
-											Update
-										</button>
-									</form:form>
-								</td>
-							</security:authorize>
-
-							<security:authorize access="hasRole('ADMIN')">
-								<td>
-									<form:form action="${deleteLink }" method="POST">
-										<button type="submit" class="btn btn-danger">
-											Delete
-										</button>
-									</form:form>
-								</td>
-							</security:authorize>
-
-						</tr>
-
-					</c:forEach>
-
-				</table>
+					<button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
+				</form:form>
+				</div>
 
 			</div>
 		</div>

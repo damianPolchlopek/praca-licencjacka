@@ -21,7 +21,8 @@ header {
 }
 
 .body-container {
-    width: 70vw;
+    /*margin-top: 5%;*/
+    width: 80vw;
     height: 85vh;
     margin-left: auto;
     margin-right: auto;

@@ -68,11 +68,11 @@
                     <form:errors path="email" cssClass="error" />
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <form:input path="password" type="password" class="form-control"   />
-                    <form:errors path="password" cssClass="error" />
-                </div>
+                <%--<div class="form-group">--%>
+                    <%--<label for="password">Password:</label>--%>
+                    <%--<form:input path="password" type="password" class="form-control"   />--%>
+                    <%--<form:errors path="password" cssClass="error" />--%>
+                <%--</div>--%>
 
                 <div class="form-group">
                     <label for="phone">Phone:</label>
