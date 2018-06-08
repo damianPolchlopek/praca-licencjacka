@@ -9,10 +9,10 @@ public class FFT {
         // base case
         if (n == 1) return new Complex[]{x[0]};
 
-//        // radix 2 Cooley-Tukey FFT
-//        if (n % 2 != 0) {
-//            throw new IllegalArgumentException("n is not a power of 2");
-//        }
+        // radix 2 Cooley-Tukey FFT
+        if (n % 2 != 0) {
+            throw new IllegalArgumentException("n is not a power of 2");
+        }
 
         // fft of even terms
         Complex[] even = new Complex[n / 2];

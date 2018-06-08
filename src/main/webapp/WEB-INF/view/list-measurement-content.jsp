@@ -19,13 +19,23 @@
             document['formToSet'].action = action + "?measurementId="+id;
         }
 
-        // function isPowerOfTwo(number){
-         //    // alert("fun: " + number);
-		// 	if (number % 2 === 0){
-         //        document.getElementById("spanToChange").setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
-         //        document.getElementById("buttonToDisable").setAttribute("disabled","disabled");
-		// 	}
-		// }
+        function isPowerOfTwo(id,number){
+
+            var tmpPtr = 0;
+			for (let i = 0; i <= number; i++) {
+				if (Math.pow(2, i) === number){
+					tmpPtr = 1;
+				}
+			}
+
+			if(tmpPtr !== 1){
+                const idButton = "butt".concat(id.toString());
+                document.getElementById(idButton).setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
+                document.getElementById(idButton).setAttribute("disabled","disabled");
+			}
+
+		}
+
     </script>
 
 	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
@@ -124,7 +134,7 @@
 
 				</div>
 
-				<div class="col-sm-9" style="position: relative;">
+				<div class="col-sm-9" style="position: relative; overflow-x:auto;">
 
 					<!-- menu szukania -->
 					<nav class="navbar navbar-default" role="navigation">
@@ -151,7 +161,7 @@
 
                     <form:form action="/" modelAttribute="multipleMeasurement" name="formToSet">
                         <%--  --%>
-                        <table class="table table-striped table-sm" id="my-table">
+                        <table class="table table-striped table-sm">
                             <tr>
                                 <th>User First Name</th>
                                 <th>User Last Name</th>
@@ -209,19 +219,18 @@
 										</td>
 
                                         <td>
-                                            <span id="spanToChange" class="tool-tip" data-toggle="tooltip"
+                                            <span id="span${tempMeasurement.id}" class="tool-tip" data-toggle="tooltip"
                                                   data-placement="top">
 
-                                                <button id="buttonToDisable" type="submit" class="btn btn-primary"
+                                                <button id="butt${tempMeasurement.id}" type="submit" class="btn btn-primary"
                                                         onclick="setForm('/measurement/showFourier', ${tempMeasurement.id})">
                                                     Fourier
                                                 </button>
 
                                             </span>
 
-											<%--<img src="${pageContext.request.contextPath}/resources/image/photo-to-button.png"--%>
-												 <%--onload="isPowerOfTwo(${tempMeasurement.nodes.size()})">--%>
-
+											<img src="${pageContext.request.contextPath}/resources/image/photo-to-button.png"
+												 onload="isPowerOfTwo(${tempMeasurement.id}, ${tempMeasurement.nodes.size()})">
                                         </td>
 
                                     </c:if>
