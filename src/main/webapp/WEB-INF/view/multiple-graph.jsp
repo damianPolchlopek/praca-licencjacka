@@ -19,12 +19,13 @@
 	    <script type="text/javascript">
 
 			  window.onload = function () {
-			    var chart = new CanvasJS.Chart("chartContainer",
-			    {
+				var chart = new CanvasJS.Chart("chartContainer",
+				{
+                    zoomEnabled: true,
 
 				    title: {
 					text: "Category - ${selectedMeasurements.get(0).category}"
-				  },
+				    },
 
                     legend: {
                         cursor: "pointer",

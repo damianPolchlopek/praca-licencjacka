@@ -26,27 +26,30 @@
 		  	window.onload = function () {
 			    var chart = new CanvasJS.Chart("chartContainer",
 			    {
-                    zoomEnabled: true,
+
+                    <c:if test="${fourierDescription.zoom == 'true'}">
+                    	zoomEnabled: "${fourierDescription.zoom}",
+                    </c:if>
 
 			        title:{
 			      	  	text: "Fourier"
                     },
 
-					axisY:{
-                        title: "Amplitude",
-
-                        <c:if test="${fourierDescription.typeAxisY == 'log'}">
-                            logarithmic: true,
-                            title: "Amplitude (log)",
-                        </c:if>
-                    },
-
-                    axisX:{
+					axisX:{
                         title: "Frequence",
 
                         <c:if test="${fourierDescription.typeAxisX == 'log'}">
                             logarithmic: true,
                             title: "Frequence (log)",
+                        </c:if>
+                    },
+
+                    axisY:{
+                        title: "Amplitude",
+
+                        <c:if test="${fourierDescription.typeAxisY == 'log'}">
+							logarithmic: true,
+							title: "Amplitude (log)",
                         </c:if>
                     },
 
@@ -72,6 +75,9 @@
 
 			    chart.render();
             }
+
+
+
 	  	</script>
 
   
@@ -179,18 +185,19 @@
                     <form:form action="changeFourierGraph" modelAttribute="fourierDescription"
                                class="navbar-form navbar-left" method="post" role="search">
                         <tr>
-                            <th>Axis X</th>
+                            <%--<th>Axis X</th>--%>
                             <th>Axis Y </th>
                             <th>Type Graph</th>
+                            <th>Zoom</th>
                         </tr>
 
                         <tr>
-                            <td>
-                            <form:select path="typeAxisX" class="form-control">
-                                <form:option value="normal"> Normal </form:option>
-                                <form:option value="log"> Log </form:option>
-                            </form:select>
-                            </td>
+                            <%--<td>--%>
+                            <%--<form:select path="typeAxisX" class="form-control">--%>
+                                <%--<form:option value="normal"> Normal </form:option>--%>
+                                <%--<form:option value="log"> Log </form:option>--%>
+                            <%--</form:select>--%>
+                            <%--</td>--%>
 
                             <td>
                             <form:select path="typeAxisY" class="form-control">
@@ -205,6 +212,14 @@
                                 <form:option value="column"> Column </form:option>
                             </form:select>
                             </td>
+
+							<td>
+							<form:select path="zoom" class="form-control">
+								<form:option value="false"> Zoom off </form:option>
+								<form:option value="true"> Zoom on </form:option>
+							</form:select>
+							</td>
+
                         </tr>
 
                         <tr>
@@ -212,6 +227,7 @@
                             <td style="position: relative;
                                         margin: 0 auto;"> <button type="submit" class="btn btn-default">Change</button> </td>
                             <td></td>
+							<td></td>
                         </tr>
 
                     </form:form>

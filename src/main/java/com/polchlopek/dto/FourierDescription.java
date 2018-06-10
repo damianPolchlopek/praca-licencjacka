@@ -8,12 +8,16 @@ public class FourierDescription {
 
     private String typeGraph;
 
+    private boolean zoom;
+
     public FourierDescription() {
     }
 
-    public FourierDescription(String typeAxisY, String typeGraph) {
+    public FourierDescription(String typeAxisX, String typeAxisY, String typeGraph) {
+        this.typeAxisX = typeAxisX;
         this.typeAxisY = typeAxisY;
         this.typeGraph = typeGraph;
+        this.zoom = false;
     }
 
     public String getTypeAxisX() {
@@ -40,4 +44,20 @@ public class FourierDescription {
         this.typeGraph = typeGraph;
     }
 
+    public boolean isZoom() {
+        return zoom;
+    }
+
+    public void setZoom(boolean zoom) {
+        this.zoom = zoom;
+    }
+
+    @Override
+    public String toString() {
+        return "FourierDescription{" +
+                "typeAxisX='" + typeAxisX + '\'' +
+                ", typeAxisY='" + typeAxisY + '\'' +
+                ", typeGraph='" + typeGraph + '\'' +
+                '}';
+    }
 }

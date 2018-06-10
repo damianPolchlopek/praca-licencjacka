@@ -20,7 +20,6 @@
         }
 
         function isPowerOfTwo(id,number){
-
             var tmpPtr = 0;
 			for (let i = 0; i <= number; i++) {
 				if (Math.pow(2, i) === number){
@@ -33,7 +32,6 @@
                 document.getElementById(idButton).setAttribute("title", "Aby wyrysowac FFT liczba danych musi byc potega liczby 2.");
                 document.getElementById(idButton).setAttribute("disabled","disabled");
 			}
-
 		}
 
     </script>
