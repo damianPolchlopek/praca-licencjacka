@@ -91,7 +91,8 @@ public class MeasurementController {
 		List<MeasurementData> dataToFFT = measurementToCalculate.getNodes();
 		List<MeasurementData> dataFFT = signalAnalysisService.calculateFFT(dataToFFT);
 
-		FourierDescription fourierDescription = new FourierDescription("line", "line", "column");
+		FourierDescription fourierDescription = new FourierDescription("line",
+														"line", "column");
 
 		theModel.addAttribute("dataFourier", dataFFT);
 		theModel.addAttribute("fourierDescription", fourierDescription);
