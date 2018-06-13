@@ -132,7 +132,7 @@
 
 				</div>
 
-				<div class="col-sm-9" style="position: relative; overflow-x:auto;">
+				<div class="col-sm-9" style="position: relative;">
 
 					<!-- menu szukania -->
 					<nav class="navbar navbar-default" role="navigation">
@@ -159,7 +159,7 @@
 
                     <form:form action="/" modelAttribute="multipleMeasurement" name="formToSet">
                         <%--  --%>
-                        <table class="table table-striped table-sm">
+                        <table class="table table-striped table-sm" style="width: 90%;">
                             <tr>
                                 <th>User First Name</th>
                                 <th>User Last Name</th>

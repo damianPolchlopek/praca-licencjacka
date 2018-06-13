@@ -30,6 +30,7 @@ public class MeasurementController {
 	@Autowired
     private SignalAnalysisService signalAnalysisService;
 
+
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
 

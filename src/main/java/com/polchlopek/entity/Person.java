@@ -2,11 +2,8 @@ package com.polchlopek.entity;
 
 import com.polchlopek.validation.PersonToValAdd;
 import com.polchlopek.validation.PersonToValUpdate;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,25 +36,9 @@ public class Person {
 
 	@Column(name="enabled")
 	private boolean enabled;
-	
-	@OneToMany(fetch=FetchType.LAZY, 
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH,})
-	@JoinColumn(name="users_id_login")
-	private List<Login> logins;
 
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@OneToMany(cascade= {CascadeType.ALL})
-	@JoinColumn(name="users_id_meas")
-	private List<Measurement> measurements;
 
-	@OneToMany(fetch=FetchType.EAGER,
-			   cascade= {CascadeType.ALL})
-	@JoinColumn(name="user_id")
-	private List<Authorities> authorities;
-	
 	public Person() {
-		
 	}
 	
 	public Person(PersonToValUpdate ptv) {
@@ -85,31 +66,6 @@ public class Person {
 			tmpAuthorities.add(new Authorities(ptv.getNickName(), tmp));
 		}
 
-		this.authorities = tmpAuthorities;
-	}
-
-	public List<Authorities> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(List<Authorities> authorities) {
-		this.authorities = authorities;
-	}
-
-	public List<Login> getLogins() {
-		return logins;
-	}
-	
-	public List<Measurement> getMeasurements() {
-		return measurements;
-	}
-
-	public void setMeasurements(List<Measurement> measurements) {
-		this.measurements = measurements;
-	}
-
-	public void setLogins(List<Login> logins) {
-		this.logins = logins;
 	}
 
 	public int getId() {
@@ -178,26 +134,7 @@ public class Person {
 
 	public String toString() {
 		return "Person orginal [firstName=" + firstName +", id= " + id + ", lastName=" + lastName +
-				", email =" + email + ", phone=" + phone + ", autho=" + authorities + " ]";
-	}
-
-	public void addLogin(Login theLogin) {
-		
-		if(logins == null) {
-			logins = new ArrayList<>();
-		}
-		
-		logins.add(theLogin);
-		theLogin.setPersonId(this);		
-	}
-	
-	public void addMeasurement(Measurement theMeasurement) {
-			
-		if(measurements == null) {
-			measurements = new ArrayList<>();
-		}
-		
-		measurements.add(theMeasurement);
+				", email =" + email + ", phone=" + phone + "]";
 	}
 
 }

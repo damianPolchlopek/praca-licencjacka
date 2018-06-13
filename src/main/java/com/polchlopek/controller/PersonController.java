@@ -120,6 +120,7 @@ public class PersonController {
 			String oldPassword = applicationService.getPassword(thePerson.getId());
 			personToSave.setPassword(oldPassword);
 			applicationService.savePerson(personToSave);
+
 			return "redirect:/person/showPerson";
 		}
 
