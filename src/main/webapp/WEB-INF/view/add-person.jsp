@@ -114,14 +114,16 @@
                 </div>
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save">Submit</button>
-
             </form:form>
 
-            <br><br><br>
+            <br>
 
-            <div class="backToMenu">
-                <a href="${pageContext.request.contextPath}/login/loginOk">Back to List</a>
-            </div>
+            <form:form action="${pageContext.request.contextPath}/login/loginOk" method="get">
+                <button class="btn btn-primary btn-lg btn-block">
+                    Back to List
+                </button>
+            </form:form>
+
 
         </div>
     </div>
