@@ -9,13 +9,6 @@
     <list default="true" id="ea6231e1-05f1-4378-a83a-0ad51255234d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/MeasurementData.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/MeasurementData.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/Person.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/Person.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" />
-      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,7 +55,7 @@
       <file leaf-file-name="PersonController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="0">
               <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -107,8 +100,8 @@
       <file leaf-file-name="MeasurementController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="277" column="0" lean-forward="true" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+            <state relative-caret-position="931">
+              <caret line="265" column="58" lean-forward="false" selection-start-line="265" selection-start-column="58" selection-end-line="265" selection-end-column="58" />
               <folding>
                 <element signature="method#listMeasurements#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#searchMeasurements#0;class#MeasurementController#0" expanded="false" />
@@ -854,14 +847,7 @@
       <workItem from="1528555816344" duration="14647000" />
       <workItem from="1528896231708" duration="8859000" />
       <workItem from="1528998781138" duration="11894000" />
-      <workItem from="1529045907955" duration="3693000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add 'access-denied' features.&#10;Commit before add jdbc to spring security">
-      <created>1525256322081</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1525256322081</updated>
+      <workItem from="1529045907955" duration="5132000" />
     </task>
     <task id="LOCAL-00010" summary="Add untracked files.&#10;Commit before add jdbc to spring security.">
       <created>1525256545627</created>
@@ -1199,11 +1185,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528900370759</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Changed algorithm chcecking measurement file.">
+      <created>1529053587480</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1529053587480</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="604216000" />
+    <option name="totallyTimeSpent" value="605655000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1337,7 +1330,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add warning and error." />
     <MESSAGE value="Add opportunity to add float measurement data." />
     <MESSAGE value="Deleted empty string initialisation." />
     <MESSAGE value="Added gitignore, major refactoring, maven compiling" />
@@ -1362,7 +1354,8 @@
     <MESSAGE value="Add change interface fourier options." />
     <MESSAGE value="Version 13-06-2018." />
     <MESSAGE value="Add fixed disappeared person's data from tables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add fixed disappeared person's data from tables." />
+    <MESSAGE value="Changed algorithm chcecking measurement file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed algorithm chcecking measurement file." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1499,14 +1492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="110" column="16" lean-forward="true" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1701,7 +1686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="0">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1789,10 +1774,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="110" column="16" lean-forward="true" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="277" column="0" lean-forward="true" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
+        <state relative-caret-position="931">
+          <caret line="265" column="58" lean-forward="false" selection-start-line="265" selection-start-column="58" selection-end-line="265" selection-end-column="58" />
           <folding>
             <element signature="method#listMeasurements#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#searchMeasurements#0;class#MeasurementController#0" expanded="false" />

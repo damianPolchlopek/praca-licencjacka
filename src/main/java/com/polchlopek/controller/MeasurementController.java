@@ -254,21 +254,8 @@ public class MeasurementController {
 			MeasurementData tmpMeasData = measurementToAdd.getNodes().get(i);
 			tmpY = tmpMeasData.getNodeY();
 
-			System.out.println("********************************************");
-//			System.out.println("tmpArray: " + tmpArr);
-
-
-			// TODO: asasda
-			tmpArray.clear();
-//			Collections.copy(tmpArray, measurementToAdd.getNodes());
-			for (int j = 0; j < measurementToAdd.getNodes().size(); ++j){
-				tmpArray.add(measurementToAdd.getNodes().get(j));
-			}
+			tmpArray = new ArrayList<>(measurementToAdd.getNodes());
 			tmpArray.remove(i);
-
-			System.out.println("********************************************");
-			System.out.println("size: " + measurementToAdd.getNodes().size() + ", i: " + i + ", tmpY: " + tmpY);
-			System.out.println("********************************************");
 
 			tmp_maximum = Collections.max(tmpArray).getNodeY();
 			tmp_minimum = Collections.min(tmpArray).getNodeY();
@@ -276,13 +263,7 @@ public class MeasurementController {
 			upper_limit = tmp_maximum + diff;
 			lower_limit = tmp_minimum - diff;
 
-			System.out.println("max: " + tmp_maximum);
-			System.out.println("upper: " + upper_limit + ", lower: " + lower_limit);
-			System.out.println("********************************************");
-
-			if (tmpY > upper_limit ||
-				tmpY < lower_limit){
-
+			if (tmpY > upper_limit || tmpY < lower_limit){
 				theModel.addAttribute("measurementToAdd", measurementToAdd);
 				return "measurement-warning";
 			}
