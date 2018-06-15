@@ -7,12 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea6231e1-05f1-4378-a83a-0ad51255234d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e07c7243-0c53-4874-bc7a-9e582f16fe2b.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e07c7243-0c53-4874-bc7a-9e582f16fe2b.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Person.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Person.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-measurement-content.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-measurement-content.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" afterPath="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/MeasurementData.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/MeasurementData.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/Person.class" afterPath="$PROJECT_DIR$/target/classes/com/polchlopek/entity/Person.class" />
+      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/MeasurementData.class" />
+      <change beforePath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" afterPath="$PROJECT_DIR$/target/test_mvc-1.0-SNAPSHOT/WEB-INF/classes/com/polchlopek/entity/Person.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -59,14 +62,17 @@
       <file leaf-file-name="PersonController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="121" column="56" lean-forward="false" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
+            <state relative-caret-position="612">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#listPeople#0;class#PersonController#0" expanded="false" />
                 <element signature="method#showFormForAdd#0;class#PersonController#0" expanded="false" />
                 <element signature="method#savePerson#0;class#PersonController#0" expanded="false" />
+                <element signature="method#showFormUpdatePassword#0;class#PersonController#0" expanded="false" />
                 <element signature="method#updatePassword#0;class#PersonController#0" expanded="false" />
+                <element signature="method#savePersonUpdate#0;class#PersonController#0" expanded="false" />
+                <element signature="method#showFormForUpdate#0;class#PersonController#0" expanded="false" />
                 <element signature="method#deletePerson#0;class#PersonController#0" expanded="false" />
               </folding>
             </state>
@@ -77,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Person.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="method#Person#1;class#Person#0" expanded="false" />
                 <element signature="method#Person#2;class#Person#0" expanded="false" />
@@ -89,19 +95,11 @@
       <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e07c7243-0c53-4874-bc7a-9e582f16fe2b/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="357">
+              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,8 +107,8 @@
       <file leaf-file-name="MeasurementController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="88" column="45" lean-forward="false" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
+            <state relative-caret-position="149">
+              <caret line="277" column="0" lean-forward="true" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
               <folding>
                 <element signature="method#listMeasurements#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#searchMeasurements#0;class#MeasurementController#0" expanded="false" />
@@ -119,10 +117,29 @@
                 <element signature="method#changeFourierGraph#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#showMultipleGraph#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#showAddMeasurementPanel#0;class#MeasurementController#0" expanded="false" />
-                <element signature="method#addMeasurement#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#addMeasurementWarning#0;class#MeasurementController#0" expanded="false" />
                 <element signature="method#deleteMeasurement#0;class#MeasurementController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MeasurementData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="66" column="20" lean-forward="false" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="single-graph.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/single-graph.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,13 +192,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/dto/SignalDescription.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/dto/MeasurementAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/dao/MeasurementAnalysisDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/service/SignalAnalysisService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/dao/MeasurementAnalysisDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Measurement.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/access-denied.jsp" />
@@ -225,6 +239,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-measurement-content.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java" />
       </list>
     </option>
@@ -310,6 +327,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -360,7 +378,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="polchlopek" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="polchlopek" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_mvc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="polchlopek" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="praca-lic" type="b2602c69:ProjectViewProjectNode" />
@@ -390,7 +426,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -817,14 +852,9 @@
       <workItem from="1528290449296" duration="29956000" />
       <workItem from="1528402460136" duration="43214000" />
       <workItem from="1528555816344" duration="14647000" />
-      <workItem from="1528896231708" duration="3916000" />
-    </task>
-    <task id="LOCAL-00008" summary="Fix error which occurs after merge commit.">
-      <created>1525201928492</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1525201928492</updated>
+      <workItem from="1528896231708" duration="8859000" />
+      <workItem from="1528998781138" duration="11894000" />
+      <workItem from="1529045907955" duration="3693000" />
     </task>
     <task id="LOCAL-00009" summary="Add 'access-denied' features.&#10;Commit before add jdbc to spring security">
       <created>1525256322081</created>
@@ -1162,11 +1192,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528896378026</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Add fixed disappeared person's data from tables.">
+      <created>1528900370759</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1528900370759</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583686000" />
+    <option name="totallyTimeSpent" value="604216000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1199,12 +1236,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02955665" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1954023" sideWeight="0.65618336" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37438422" sideWeight="0.65618336" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676518" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28290468" sideWeight="0.48844886" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28744328" sideWeight="0.5123153" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28744328" sideWeight="0.48768473" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267776" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28139183" sideWeight="0.51155114" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1216,6 +1252,7 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16091955" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676518" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0591133" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1243,13 +1280,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02955665" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37438422" sideWeight="0.65618336" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38423645" sideWeight="0.65618336" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16091955" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28744328" sideWeight="0.5123153" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32676518" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28290468" sideWeight="0.48844886" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28744328" sideWeight="0.48768473" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267776" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28139183" sideWeight="0.51155114" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0591133" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
@@ -1300,7 +1337,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clear code." />
     <MESSAGE value="Add warning and error." />
     <MESSAGE value="Add opportunity to add float measurement data." />
     <MESSAGE value="Deleted empty string initialisation." />
@@ -1325,14 +1361,15 @@
     <MESSAGE value="Add visability Fourier button." />
     <MESSAGE value="Add change interface fourier options." />
     <MESSAGE value="Version 13-06-2018." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 13-06-2018." />
+    <MESSAGE value="Add fixed disappeared person's data from tables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add fixed disappeared person's data from tables." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="54" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1354,20 +1391,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/configuration/MySpringMvcDispatcherServletInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#customizeRegistration#0;class#MySpringMvcDispatcherServletInitializer#0" expanded="false" />
-            <element signature="e#1054#1055#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="method#onStartup#0;class#MySpringMvcDispatcherServletInitializer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/validation/FreeUsername.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1421,13 +1444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/signalAnalysisAlgorithm/Complex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1471,13 +1487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/service/SignalAnalysisServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-login-content.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -1486,19 +1495,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/add-measurement.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="113" column="38" lean-forward="true" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/validation/PersonToValAdd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1529,24 +1529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#732#733#0" expanded="false" />
-            <element signature="e#777#778#0" expanded="false" />
-            <element signature="e#817#818#0" expanded="false" />
-            <element signature="e#855#856#0" expanded="false" />
-            <element signature="e#889#890#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
-            <element signature="e#989#990#0" expanded="false" />
-            <element signature="e#1028#1029#0" expanded="false" />
-            <element signature="e#1063#1064#0" expanded="false" />
-            <element signature="e#1119#1120#0" expanded="false" />
-            <element signature="e#1167#1168#0" expanded="false" />
-            <element signature="e#1206#1207#0" expanded="false" />
-            <element signature="e#1241#1242#0" expanded="false" />
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1345#1346#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1632,17 +1614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/service/AplicationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="155" column="34" lean-forward="true" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
-          <folding>
-            <element signature="method#getMeasurementCategory#0;class#AplicationServiceImpl#0" expanded="false" />
-            <element signature="method#getMeasurementAnalysis#0;class#AplicationServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-person-content.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
@@ -1686,14 +1657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/single-graph.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/fourier-graph.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -1718,39 +1681,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e07c7243-0c53-4874-bc7a-9e582f16fe2b/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="121" column="56" lean-forward="false" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#listPeople#0;class#PersonController#0" expanded="false" />
-            <element signature="method#showFormForAdd#0;class#PersonController#0" expanded="false" />
-            <element signature="method#savePerson#0;class#PersonController#0" expanded="false" />
-            <element signature="method#updatePassword#0;class#PersonController#0" expanded="false" />
-            <element signature="method#deletePerson#0;class#PersonController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list-measurement-content.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="134" column="64" lean-forward="false" selection-start-line="134" selection-start-column="64" selection-end-line="134" selection-end-column="64" />
           <folding>
-            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#c:if#1;n#c:forEach#0;n#form:form#2;n#jsp:root#0;n#!!top" expanded="false" />
             <element signature="n#security:authorize#0;n#c:forEach#0;n#form:form#2;n#jsp:root#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e07c7243-0c53-4874-bc7a-9e582f16fe2b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/PersonController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#listPeople#0;class#PersonController#0" expanded="false" />
+            <element signature="method#showFormForAdd#0;class#PersonController#0" expanded="false" />
+            <element signature="method#savePerson#0;class#PersonController#0" expanded="false" />
+            <element signature="method#showFormUpdatePassword#0;class#PersonController#0" expanded="false" />
+            <element signature="method#updatePassword#0;class#PersonController#0" expanded="false" />
+            <element signature="method#savePersonUpdate#0;class#PersonController#0" expanded="false" />
+            <element signature="method#showFormForUpdate#0;class#PersonController#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#PersonController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1758,7 +1720,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="method#Person#1;class#Person#0" expanded="false" />
             <element signature="method#Person#2;class#Person#0" expanded="false" />
@@ -1766,18 +1728,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/add-measurement.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="113" column="38" lean-forward="true" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="357">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/single-graph.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="66" column="20" lean-forward="false" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/entity/MeasurementAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/service/SignalAnalysisServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/service/AplicationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="155" column="34" lean-forward="true" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
+          <folding>
+            <element signature="method#getMeasurementCategory#0;class#AplicationServiceImpl#0" expanded="false" />
+            <element signature="method#getMeasurementAnalysis#0;class#AplicationServiceImpl#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polchlopek/controller/MeasurementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="88" column="45" lean-forward="false" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
+        <state relative-caret-position="149">
+          <caret line="277" column="0" lean-forward="true" selection-start-line="277" selection-start-column="0" selection-end-line="277" selection-end-column="0" />
           <folding>
             <element signature="method#listMeasurements#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#searchMeasurements#0;class#MeasurementController#0" expanded="false" />
@@ -1786,7 +1801,6 @@
             <element signature="method#changeFourierGraph#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#showMultipleGraph#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#showAddMeasurementPanel#0;class#MeasurementController#0" expanded="false" />
-            <element signature="method#addMeasurement#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#addMeasurementWarning#0;class#MeasurementController#0" expanded="false" />
             <element signature="method#deleteMeasurement#0;class#MeasurementController#0" expanded="false" />
           </folding>

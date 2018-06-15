@@ -30,7 +30,8 @@ public class MeasurementAnalysis {
 
     }
 
-    public MeasurementAnalysis(double minimum, double maximum, double average, double variance, double standardDeviation) {
+    public MeasurementAnalysis(double minimum, double maximum, double average,
+                               double variance, double standardDeviation) {
         this.minimum = minimum;
         this.maximum = maximum;
         this.average = average;

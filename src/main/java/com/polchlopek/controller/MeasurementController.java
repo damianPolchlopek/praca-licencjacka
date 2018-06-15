@@ -31,6 +31,7 @@ public class MeasurementController {
     private SignalAnalysisService signalAnalysisService;
 
 
+
 	@RequestMapping("/showMeasurement")
 	public String listMeasurements(Model theModel) {
 
@@ -227,7 +228,7 @@ public class MeasurementController {
                 .calculateStandardDeviation(measurementToAdd.getNodes());
 
         MeasurementAnalysis measurementAnalysis = new MeasurementAnalysis(
-				maximum, minimum, average, variance, standardDeviation);
+				minimum, maximum, average, variance, standardDeviation);
 
 		measurementToAdd.setMeasurementAnalysis(measurementAnalysis);
 
@@ -238,9 +239,50 @@ public class MeasurementController {
 		measurementToAdd.setPersonId(person);
 
 		// sprawdzenie pooprawnosci wprowadzanych danych
-		for (MeasurementData tmpNode : measurementToAdd.getNodes()){
+		double upper_limit;
+		double lower_limit;
+		double diff;
+		double tmp_maximum;
+		double tmp_minimum;
+		double tmpY;
+		List<MeasurementData> tmpArray = new ArrayList<>(measurementToAdd.getNodes().size()*100);
+		for (int i = 0; i < 5000; ++i){
+			tmpArray.add(new MeasurementData());
+		}
+		for (int i = 0; i < measurementToAdd.getNodes().size(); ++i){
 
-			if (tmpNode.getNodeY() > 2*average){
+			MeasurementData tmpMeasData = measurementToAdd.getNodes().get(i);
+			tmpY = tmpMeasData.getNodeY();
+
+			System.out.println("********************************************");
+//			System.out.println("tmpArray: " + tmpArr);
+
+
+			// TODO: asasda
+			tmpArray.clear();
+//			Collections.copy(tmpArray, measurementToAdd.getNodes());
+			for (int j = 0; j < measurementToAdd.getNodes().size(); ++j){
+				tmpArray.add(measurementToAdd.getNodes().get(j));
+			}
+			tmpArray.remove(i);
+
+			System.out.println("********************************************");
+			System.out.println("size: " + measurementToAdd.getNodes().size() + ", i: " + i + ", tmpY: " + tmpY);
+			System.out.println("********************************************");
+
+			tmp_maximum = Collections.max(tmpArray).getNodeY();
+			tmp_minimum = Collections.min(tmpArray).getNodeY();
+			diff = (Math.abs(tmp_maximum) + Math.abs(tmp_minimum))/2;
+			upper_limit = tmp_maximum + diff;
+			lower_limit = tmp_minimum - diff;
+
+			System.out.println("max: " + tmp_maximum);
+			System.out.println("upper: " + upper_limit + ", lower: " + lower_limit);
+			System.out.println("********************************************");
+
+			if (tmpY > upper_limit ||
+				tmpY < lower_limit){
+
 				theModel.addAttribute("measurementToAdd", measurementToAdd);
 				return "measurement-warning";
 			}

@@ -23,7 +23,7 @@ public class Login {
 	private String locationLog;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-						 CascadeType.DETACH, CascadeType.REFRESH,})
+						 CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="users_id_login")
 	private Person personId;
 	
